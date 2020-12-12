@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -26,8 +29,8 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRange' smart constructor.
 data Range = Range'
-  { startTime :: Lude.ISO8601,
-    endTime :: Lude.ISO8601
+  { startTime :: Lude.DateTime,
+    endTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -44,9 +47,9 @@ data Range = Range'
 -- * 'startTime' - The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 mkRange ::
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'endTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   Range
 mkRange pStartTime_ pEndTime_ =
   Range' {startTime = pStartTime_, endTime = pEndTime_}
@@ -54,15 +57,15 @@ mkRange pStartTime_ pEndTime_ =
 -- | The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rStartTime :: Lens.Lens' Range Lude.ISO8601
-rStartTime = Lens.lens (startTime :: Range -> Lude.ISO8601) (\s a -> s {startTime = a} :: Range)
+rStartTime :: Lens.Lens' Range Lude.DateTime
+rStartTime = Lens.lens (startTime :: Range -> Lude.DateTime) (\s a -> s {startTime = a} :: Range)
 {-# DEPRECATED rStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEndTime :: Lens.Lens' Range Lude.ISO8601
-rEndTime = Lens.lens (endTime :: Range -> Lude.ISO8601) (\s a -> s {endTime = a} :: Range)
+rEndTime :: Lens.Lens' Range Lude.DateTime
+rEndTime = Lens.lens (endTime :: Range -> Lude.DateTime) (\s a -> s {endTime = a} :: Range)
 {-# DEPRECATED rEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Lude.FromXML Range where

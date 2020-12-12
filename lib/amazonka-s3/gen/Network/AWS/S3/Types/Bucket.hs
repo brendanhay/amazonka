@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -27,7 +30,7 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkBucket' smart constructor.
 data Bucket = Bucket'
-  { creationDate :: Lude.ISO8601,
+  { creationDate :: Lude.DateTime,
     name :: BucketName
   }
   deriving stock
@@ -45,7 +48,7 @@ data Bucket = Bucket'
 -- * 'name' - The name of the bucket.
 mkBucket ::
   -- | 'creationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'name'
   BucketName ->
   Bucket
@@ -55,8 +58,8 @@ mkBucket pCreationDate_ pName_ =
 -- | Date the bucket was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bCreationDate :: Lens.Lens' Bucket Lude.ISO8601
-bCreationDate = Lens.lens (creationDate :: Bucket -> Lude.ISO8601) (\s a -> s {creationDate = a} :: Bucket)
+bCreationDate :: Lens.Lens' Bucket Lude.DateTime
+bCreationDate = Lens.lens (creationDate :: Bucket -> Lude.DateTime) (\s a -> s {creationDate = a} :: Bucket)
 {-# DEPRECATED bCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The name of the bucket.

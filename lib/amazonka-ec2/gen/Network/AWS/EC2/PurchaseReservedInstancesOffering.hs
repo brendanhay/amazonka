@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Res
 -- /See:/ 'mkPurchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
   { purchaseTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe
+        Lude.DateTime,
     limitPrice ::
       Lude.Maybe
         ReservedInstanceLimitPrice,
@@ -97,8 +98,8 @@ mkPurchaseReservedInstancesOffering
 -- | The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'purchaseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioPurchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Lude.Maybe Lude.ISO8601)
-prioPurchaseTime = Lens.lens (purchaseTime :: PurchaseReservedInstancesOffering -> Lude.Maybe Lude.ISO8601) (\s a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering)
+prioPurchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Lude.Maybe Lude.DateTime)
+prioPurchaseTime = Lens.lens (purchaseTime :: PurchaseReservedInstancesOffering -> Lude.Maybe Lude.DateTime) (\s a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering)
 {-# DEPRECATED prioPurchaseTime "Use generic-lens or generic-optics with 'purchaseTime' instead." #-}
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.

@@ -170,7 +170,7 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
         ReservationValue,
     outputReservedInstancesWillExpireAt ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     reservedInstanceValueSet ::
       Lude.Maybe
         [ReservedInstanceReservationValue],
@@ -261,8 +261,8 @@ grieqrsReservedInstanceValueRollup = Lens.lens (reservedInstanceValueRollup :: G
 -- | The new end date of the reservation term.
 --
 -- /Note:/ Consider using 'outputReservedInstancesWillExpireAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grieqrsOutputReservedInstancesWillExpireAt :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.ISO8601)
-grieqrsOutputReservedInstancesWillExpireAt = Lens.lens (outputReservedInstancesWillExpireAt :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {outputReservedInstancesWillExpireAt = a} :: GetReservedInstancesExchangeQuoteResponse)
+grieqrsOutputReservedInstancesWillExpireAt :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.DateTime)
+grieqrsOutputReservedInstancesWillExpireAt = Lens.lens (outputReservedInstancesWillExpireAt :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {outputReservedInstancesWillExpireAt = a} :: GetReservedInstancesExchangeQuoteResponse)
 {-# DEPRECATED grieqrsOutputReservedInstancesWillExpireAt "Use generic-lens or generic-optics with 'outputReservedInstancesWillExpireAt' instead." #-}
 
 -- | The configuration of your Convertible Reserved Instances.

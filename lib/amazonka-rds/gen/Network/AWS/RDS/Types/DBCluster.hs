@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -107,17 +110,17 @@ data DBCluster = DBCluster'
     masterUsername :: Lude.Maybe Lude.Text,
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
     globalWriteForwardingRequested :: Lude.Maybe Lude.Bool,
-    earliestBacktrackTime :: Lude.Maybe Lude.ISO8601,
+    earliestBacktrackTime :: Lude.Maybe Lude.DateTime,
     backtrackWindow :: Lude.Maybe Lude.Integer,
     tagList :: Lude.Maybe [Tag],
     dbClusterResourceId :: Lude.Maybe Lude.Text,
-    earliestRestorableTime :: Lude.Maybe Lude.ISO8601,
+    earliestRestorableTime :: Lude.Maybe Lude.DateTime,
     customEndpoints :: Lude.Maybe [Lude.Text],
     engine :: Lude.Maybe Lude.Text,
     hTTPEndpointEnabled :: Lude.Maybe Lude.Bool,
     dbClusterARN :: Lude.Maybe Lude.Text,
     cloneGroupId :: Lude.Maybe Lude.Text,
-    latestRestorableTime :: Lude.Maybe Lude.ISO8601,
+    latestRestorableTime :: Lude.Maybe Lude.DateTime,
     crossAccountClone :: Lude.Maybe Lude.Bool,
     capacity :: Lude.Maybe Lude.Int,
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
@@ -137,7 +140,7 @@ data DBCluster = DBCluster'
     activityStreamStatus :: Lude.Maybe ActivityStreamStatus,
     allocatedStorage :: Lude.Maybe Lude.Int,
     copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
-    clusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    clusterCreateTime :: Lude.Maybe Lude.DateTime,
     endpoint :: Lude.Maybe Lude.Text,
     scalingConfigurationInfo :: Lude.Maybe ScalingConfigurationInfo,
     activityStreamKMSKeyId :: Lude.Maybe Lude.Text,
@@ -395,8 +398,8 @@ dcGlobalWriteForwardingRequested = Lens.lens (globalWriteForwardingRequested :: 
 -- | The earliest time to which a DB cluster can be backtracked.
 --
 -- /Note:/ Consider using 'earliestBacktrackTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcEarliestBacktrackTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.ISO8601)
-dcEarliestBacktrackTime = Lens.lens (earliestBacktrackTime :: DBCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestBacktrackTime = a} :: DBCluster)
+dcEarliestBacktrackTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.DateTime)
+dcEarliestBacktrackTime = Lens.lens (earliestBacktrackTime :: DBCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {earliestBacktrackTime = a} :: DBCluster)
 {-# DEPRECATED dcEarliestBacktrackTime "Use generic-lens or generic-optics with 'earliestBacktrackTime' instead." #-}
 
 -- | The target backtrack window, in seconds. If this value is set to 0, backtracking is disabled for the DB cluster. Otherwise, backtracking is enabled.
@@ -423,8 +426,8 @@ dcDBClusterResourceId = Lens.lens (dbClusterResourceId :: DBCluster -> Lude.Mayb
 -- | The earliest time to which a database can be restored with point-in-time restore.
 --
 -- /Note:/ Consider using 'earliestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcEarliestRestorableTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.ISO8601)
-dcEarliestRestorableTime = Lens.lens (earliestRestorableTime :: DBCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestRestorableTime = a} :: DBCluster)
+dcEarliestRestorableTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.DateTime)
+dcEarliestRestorableTime = Lens.lens (earliestRestorableTime :: DBCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {earliestRestorableTime = a} :: DBCluster)
 {-# DEPRECATED dcEarliestRestorableTime "Use generic-lens or generic-optics with 'earliestRestorableTime' instead." #-}
 
 -- | Identifies all custom endpoints associated with the cluster.
@@ -468,8 +471,8 @@ dcCloneGroupId = Lens.lens (cloneGroupId :: DBCluster -> Lude.Maybe Lude.Text) (
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 --
 -- /Note:/ Consider using 'latestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcLatestRestorableTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.ISO8601)
-dcLatestRestorableTime = Lens.lens (latestRestorableTime :: DBCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestRestorableTime = a} :: DBCluster)
+dcLatestRestorableTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.DateTime)
+dcLatestRestorableTime = Lens.lens (latestRestorableTime :: DBCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {latestRestorableTime = a} :: DBCluster)
 {-# DEPRECATED dcLatestRestorableTime "Use generic-lens or generic-optics with 'latestRestorableTime' instead." #-}
 
 -- | Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.
@@ -614,8 +617,8 @@ dcCopyTagsToSnapshot = Lens.lens (copyTagsToSnapshot :: DBCluster -> Lude.Maybe 
 -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
 -- /Note:/ Consider using 'clusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcClusterCreateTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.ISO8601)
-dcClusterCreateTime = Lens.lens (clusterCreateTime :: DBCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {clusterCreateTime = a} :: DBCluster)
+dcClusterCreateTime :: Lens.Lens' DBCluster (Lude.Maybe Lude.DateTime)
+dcClusterCreateTime = Lens.lens (clusterCreateTime :: DBCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {clusterCreateTime = a} :: DBCluster)
 {-# DEPRECATED dcClusterCreateTime "Use generic-lens or generic-optics with 'clusterCreateTime' instead." #-}
 
 -- | Specifies the connection endpoint for the primary instance of the DB cluster.

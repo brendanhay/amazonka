@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,8 +36,8 @@ data OptionStatus = OptionStatus'
   { pendingDeletion ::
       Lude.Maybe Lude.Bool,
     updateVersion :: Lude.Maybe Lude.Natural,
-    creationDate :: Lude.ISO8601,
-    updateDate :: Lude.ISO8601,
+    creationDate :: Lude.DateTime,
+    updateDate :: Lude.DateTime,
     state :: OptionState
   }
   deriving stock
@@ -65,9 +68,9 @@ data OptionStatus = OptionStatus'
 -- * 'updateVersion' - A unique integer that indicates when this option was last updated.
 mkOptionStatus ::
   -- | 'creationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'updateDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'state'
   OptionState ->
   OptionStatus
@@ -97,15 +100,15 @@ osUpdateVersion = Lens.lens (updateVersion :: OptionStatus -> Lude.Maybe Lude.Na
 -- | A timestamp for when this option was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osCreationDate :: Lens.Lens' OptionStatus Lude.ISO8601
-osCreationDate = Lens.lens (creationDate :: OptionStatus -> Lude.ISO8601) (\s a -> s {creationDate = a} :: OptionStatus)
+osCreationDate :: Lens.Lens' OptionStatus Lude.DateTime
+osCreationDate = Lens.lens (creationDate :: OptionStatus -> Lude.DateTime) (\s a -> s {creationDate = a} :: OptionStatus)
 {-# DEPRECATED osCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A timestamp for when this option was last updated.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUpdateDate :: Lens.Lens' OptionStatus Lude.ISO8601
-osUpdateDate = Lens.lens (updateDate :: OptionStatus -> Lude.ISO8601) (\s a -> s {updateDate = a} :: OptionStatus)
+osUpdateDate :: Lens.Lens' OptionStatus Lude.DateTime
+osUpdateDate = Lens.lens (updateDate :: OptionStatus -> Lude.DateTime) (\s a -> s {updateDate = a} :: OptionStatus)
 {-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The state of processing a change to an option. Possible values:

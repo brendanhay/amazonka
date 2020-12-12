@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 data Invalidation = Invalidation'
   { id :: Lude.Text,
     status :: Lude.Text,
-    createTime :: Lude.ISO8601,
+    createTime :: Lude.DateTime,
     invalidationBatch :: InvalidationBatch
   }
   deriving stock
@@ -55,7 +58,7 @@ mkInvalidation ::
   -- | 'status'
   Lude.Text ->
   -- | 'createTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'invalidationBatch'
   InvalidationBatch ->
   Invalidation
@@ -84,8 +87,8 @@ iStatus = Lens.lens (status :: Invalidation -> Lude.Text) (\s a -> s {status = a
 -- | The date and time the invalidation request was first made.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iCreateTime :: Lens.Lens' Invalidation Lude.ISO8601
-iCreateTime = Lens.lens (createTime :: Invalidation -> Lude.ISO8601) (\s a -> s {createTime = a} :: Invalidation)
+iCreateTime :: Lens.Lens' Invalidation Lude.DateTime
+iCreateTime = Lens.lens (createTime :: Invalidation -> Lude.DateTime) (\s a -> s {createTime = a} :: Invalidation)
 {-# DEPRECATED iCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The current invalidation information for the batch request.

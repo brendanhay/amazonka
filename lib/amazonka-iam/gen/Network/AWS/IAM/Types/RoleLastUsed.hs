@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,7 +32,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkRoleLastUsed' smart constructor.
 data RoleLastUsed = RoleLastUsed'
   { lastUsedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     region :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -57,8 +60,8 @@ mkRoleLastUsed =
 -- This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'lastUsedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rluLastUsedDate :: Lens.Lens' RoleLastUsed (Lude.Maybe Lude.ISO8601)
-rluLastUsedDate = Lens.lens (lastUsedDate :: RoleLastUsed -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUsedDate = a} :: RoleLastUsed)
+rluLastUsedDate :: Lens.Lens' RoleLastUsed (Lude.Maybe Lude.DateTime)
+rluLastUsedDate = Lens.lens (lastUsedDate :: RoleLastUsed -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUsedDate = a} :: RoleLastUsed)
 {-# DEPRECATED rluLastUsedDate "Use generic-lens or generic-optics with 'lastUsedDate' instead." #-}
 
 -- | The name of the AWS Region in which the role was last used.

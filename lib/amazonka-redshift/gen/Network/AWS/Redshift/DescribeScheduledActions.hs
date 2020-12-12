@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     scheduledActionName ::
       Lude.Maybe Lude.Text,
     filters ::
@@ -61,7 +61,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
       Lude.Maybe ScheduledActionTypeValues,
     marker :: Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Int,
-    endTime :: Lude.Maybe Lude.ISO8601
+    endTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -102,8 +102,8 @@ mkDescribeScheduledActions =
 -- | The start time in UTC of the scheduled actions to retrieve. Only active scheduled actions that have invocations after this time are retrieved.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
-dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeScheduledActions)
+dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
+dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeScheduledActions)
 {-# DEPRECATED dsasStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The name of the scheduled action to retrieve.
@@ -154,8 +154,8 @@ dsasMaxRecords = Lens.lens (maxRecords :: DescribeScheduledActions -> Lude.Maybe
 -- | The end time in UTC of the scheduled action to retrieve. Only active scheduled actions that have invocations before this time are retrieved.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
-dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeScheduledActions)
+dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
+dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeScheduledActions)
 {-# DEPRECATED dsasEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager DescribeScheduledActions where

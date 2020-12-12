@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ import qualified Network.AWS.Prelude as Lude
 data VolumeModification = VolumeModification'
   { progress ::
       Lude.Maybe Lude.Integer,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     modificationState ::
       Lude.Maybe VolumeModificationState,
     targetVolumeType :: Lude.Maybe VolumeType,
@@ -52,7 +55,7 @@ data VolumeModification = VolumeModification'
     originalSize :: Lude.Maybe Lude.Int,
     originalIOPS :: Lude.Maybe Lude.Int,
     statusMessage :: Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     volumeId :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -106,8 +109,8 @@ vmProgress = Lens.lens (progress :: VolumeModification -> Lude.Maybe Lude.Intege
 -- | The modification start time.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmStartTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.ISO8601)
-vmStartTime = Lens.lens (startTime :: VolumeModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: VolumeModification)
+vmStartTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.DateTime)
+vmStartTime = Lens.lens (startTime :: VolumeModification -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: VolumeModification)
 {-# DEPRECATED vmStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The current modification state. The modification state is null for unmodified volumes.
@@ -169,8 +172,8 @@ vmStatusMessage = Lens.lens (statusMessage :: VolumeModification -> Lude.Maybe L
 -- | The modification completion or failure time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmEndTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.ISO8601)
-vmEndTime = Lens.lens (endTime :: VolumeModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: VolumeModification)
+vmEndTime :: Lens.Lens' VolumeModification (Lude.Maybe Lude.DateTime)
+vmEndTime = Lens.lens (endTime :: VolumeModification -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: VolumeModification)
 {-# DEPRECATED vmEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The ID of the volume.

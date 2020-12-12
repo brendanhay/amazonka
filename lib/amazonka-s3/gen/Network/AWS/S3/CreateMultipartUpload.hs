@@ -192,7 +192,7 @@ import Network.AWS.S3.Types
 data CreateMultipartUpload = CreateMultipartUpload'
   { objectLockMode ::
       Lude.Maybe ObjectLockMode,
-    expires :: Lude.Maybe Lude.ISO8601,
+    expires :: Lude.Maybe Lude.DateTime,
     grantReadACP :: Lude.Maybe Lude.Text,
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
     sSECustomerKey ::
@@ -209,7 +209,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     contentEncoding :: Lude.Maybe Lude.Text,
     tagging :: Lude.Maybe Lude.Text,
     objectLockRetainUntilDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
     sSEKMSEncryptionContext ::
       Lude.Maybe (Lude.Sensitive Lude.Text),
@@ -320,8 +320,8 @@ cmuObjectLockMode = Lens.lens (objectLockMode :: CreateMultipartUpload -> Lude.M
 -- | The date and time at which the object is no longer cacheable.
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuExpires :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.ISO8601)
-cmuExpires = Lens.lens (expires :: CreateMultipartUpload -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: CreateMultipartUpload)
+cmuExpires :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.DateTime)
+cmuExpires = Lens.lens (expires :: CreateMultipartUpload -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: CreateMultipartUpload)
 {-# DEPRECATED cmuExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | Allows grantee to read the object ACL.
@@ -426,8 +426,8 @@ cmuTagging = Lens.lens (tagging :: CreateMultipartUpload -> Lude.Maybe Lude.Text
 -- | Specifies the date and time when you want the Object Lock to expire.
 --
 -- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuObjectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.ISO8601)
-cmuObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CreateMultipartUpload -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: CreateMultipartUpload)
+cmuObjectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.DateTime)
+cmuObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CreateMultipartUpload -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: CreateMultipartUpload)
 {-# DEPRECATED cmuObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.
@@ -590,7 +590,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     sSECustomerAlgorithm ::
       Lude.Maybe Lude.Text,
     abortDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     abortRuleId ::
       Lude.Maybe Lude.Text,
     key :: Lude.Maybe ObjectKey,
@@ -679,8 +679,8 @@ cmursSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: CreateMultipartUp
 -- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
 --
 -- /Note:/ Consider using 'abortDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmursAbortDate :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.ISO8601)
-cmursAbortDate = Lens.lens (abortDate :: CreateMultipartUploadResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {abortDate = a} :: CreateMultipartUploadResponse)
+cmursAbortDate :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.DateTime)
+cmursAbortDate = Lens.lens (abortDate :: CreateMultipartUploadResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {abortDate = a} :: CreateMultipartUploadResponse)
 {-# DEPRECATED cmursAbortDate "Use generic-lens or generic-optics with 'abortDate' instead." #-}
 
 -- | This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.

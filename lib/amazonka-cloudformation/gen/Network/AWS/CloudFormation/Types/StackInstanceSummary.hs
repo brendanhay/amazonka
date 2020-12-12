@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,7 +43,7 @@ data StackInstanceSummary = StackInstanceSummary'
   { status ::
       Lude.Maybe StackInstanceStatus,
     lastDriftCheckTimestamp ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     account :: Lude.Maybe Lude.Text,
     driftStatus :: Lude.Maybe StackDriftStatus,
     organizationalUnitId :: Lude.Maybe Lude.Text,
@@ -148,8 +151,8 @@ sisStatus = Lens.lens (status :: StackInstanceSummary -> Lude.Maybe StackInstanc
 -- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
 --
 -- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisLastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.ISO8601)
-sisLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackInstanceSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary)
+sisLastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.DateTime)
+sisLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackInstanceSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary)
 {-# DEPRECATED sisLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
 
 -- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.

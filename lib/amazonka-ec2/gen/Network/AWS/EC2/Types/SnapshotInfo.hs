@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ data SnapshotInfo = SnapshotInfo'
   { state ::
       Lude.Maybe SnapshotState,
     progress :: Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     volumeSize :: Lude.Maybe Lude.Int,
     encrypted :: Lude.Maybe Lude.Bool,
     ownerId :: Lude.Maybe Lude.Text,
@@ -102,8 +105,8 @@ siProgress = Lens.lens (progress :: SnapshotInfo -> Lude.Maybe Lude.Text) (\s a 
 -- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siStartTime :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.ISO8601)
-siStartTime = Lens.lens (startTime :: SnapshotInfo -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: SnapshotInfo)
+siStartTime :: Lens.Lens' SnapshotInfo (Lude.Maybe Lude.DateTime)
+siStartTime = Lens.lens (startTime :: SnapshotInfo -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: SnapshotInfo)
 {-# DEPRECATED siStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Size of the volume from which this snapshot was created.

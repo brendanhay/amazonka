@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Res
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
   { instanceTypes ::
       Lude.Maybe [InstanceType],
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     filters :: Lude.Maybe [Filter],
     nextToken :: Lude.Maybe Lude.Text,
     availabilityZone :: Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     productDescriptions ::
       Lude.Maybe [Lude.Text],
     dryRun :: Lude.Maybe Lude.Bool,
@@ -129,8 +129,8 @@ dsphInstanceTypes = Lens.lens (instanceTypes :: DescribeSpotPriceHistory -> Lude
 -- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphStartTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.ISO8601)
-dsphStartTime = Lens.lens (startTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeSpotPriceHistory)
+dsphStartTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.DateTime)
+dsphStartTime = Lens.lens (startTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotPriceHistory)
 {-# DEPRECATED dsphStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | One or more filters.
@@ -174,8 +174,8 @@ dsphAvailabilityZone = Lens.lens (availabilityZone :: DescribeSpotPriceHistory -
 -- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphEndTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.ISO8601)
-dsphEndTime = Lens.lens (endTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeSpotPriceHistory)
+dsphEndTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.DateTime)
+dsphEndTime = Lens.lens (endTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeSpotPriceHistory)
 {-# DEPRECATED dsphEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Filters the results by the specified basic product descriptions.

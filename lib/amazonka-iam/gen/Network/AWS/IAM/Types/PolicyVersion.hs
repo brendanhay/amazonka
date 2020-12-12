@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ import qualified Network.AWS.Prelude as Lude
 data PolicyVersion = PolicyVersion'
   { versionId ::
       Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     document :: Lude.Maybe Lude.Text,
     isDefaultVersion :: Lude.Maybe Lude.Bool
   }
@@ -79,8 +82,8 @@ pvVersionId = Lens.lens (versionId :: PolicyVersion -> Lude.Maybe Lude.Text) (\s
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvCreateDate :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.ISO8601)
-pvCreateDate = Lens.lens (createDate :: PolicyVersion -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: PolicyVersion)
+pvCreateDate :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.DateTime)
+pvCreateDate = Lens.lens (createDate :: PolicyVersion -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: PolicyVersion)
 {-# DEPRECATED pvCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The policy document.

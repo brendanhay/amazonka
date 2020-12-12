@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,7 @@ data ManagedAction = ManagedAction'
   { status ::
       Lude.Maybe ActionStatus,
     actionId :: Lude.Maybe Lude.Text,
-    windowStartTime :: Lude.Maybe Lude.ISO8601,
+    windowStartTime :: Lude.Maybe Lude.DateTime,
     actionDescription :: Lude.Maybe Lude.Text,
     actionType :: Lude.Maybe ActionType
   }
@@ -82,8 +85,8 @@ maActionId = Lens.lens (actionId :: ManagedAction -> Lude.Maybe Lude.Text) (\s a
 -- | The start time of the maintenance window in which the managed action will execute.
 --
 -- /Note:/ Consider using 'windowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maWindowStartTime :: Lens.Lens' ManagedAction (Lude.Maybe Lude.ISO8601)
-maWindowStartTime = Lens.lens (windowStartTime :: ManagedAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {windowStartTime = a} :: ManagedAction)
+maWindowStartTime :: Lens.Lens' ManagedAction (Lude.Maybe Lude.DateTime)
+maWindowStartTime = Lens.lens (windowStartTime :: ManagedAction -> Lude.Maybe Lude.DateTime) (\s a -> s {windowStartTime = a} :: ManagedAction)
 {-# DEPRECATED maWindowStartTime "Use generic-lens or generic-optics with 'windowStartTime' instead." #-}
 
 -- | A description of the managed action.

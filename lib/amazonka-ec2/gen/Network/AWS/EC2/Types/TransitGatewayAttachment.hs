@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTransitGatewayAttachment' smart constructor.
 data TransitGatewayAttachment = TransitGatewayAttachment'
   { creationTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     state ::
       Lude.Maybe TransitGatewayAttachmentState,
     resourceId :: Lude.Maybe Lude.Text,
@@ -97,8 +100,8 @@ mkTransitGatewayAttachment =
 -- | The creation time.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgaCreationTime :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.ISO8601)
-tgaCreationTime = Lens.lens (creationTime :: TransitGatewayAttachment -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: TransitGatewayAttachment)
+tgaCreationTime :: Lens.Lens' TransitGatewayAttachment (Lude.Maybe Lude.DateTime)
+tgaCreationTime = Lens.lens (creationTime :: TransitGatewayAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: TransitGatewayAttachment)
 {-# DEPRECATED tgaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The attachment state. Note that the @initiating@ state has been deprecated.

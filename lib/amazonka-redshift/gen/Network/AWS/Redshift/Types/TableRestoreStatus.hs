@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -50,7 +53,7 @@ data TableRestoreStatus = TableRestoreStatus'
     targetDatabaseName :: Lude.Maybe Lude.Text,
     sourceSchemaName :: Lude.Maybe Lude.Text,
     clusterIdentifier :: Lude.Maybe Lude.Text,
-    requestTime :: Lude.Maybe Lude.ISO8601,
+    requestTime :: Lude.Maybe Lude.DateTime,
     sourceTableName :: Lude.Maybe Lude.Text,
     totalDataInMegaBytes :: Lude.Maybe Lude.Integer,
     progressInMegaBytes :: Lude.Maybe Lude.Integer,
@@ -171,8 +174,8 @@ trsClusterIdentifier = Lens.lens (clusterIdentifier :: TableRestoreStatus -> Lud
 -- | The time that the table restore request was made, in Universal Coordinated Time (UTC).
 --
 -- /Note:/ Consider using 'requestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trsRequestTime :: Lens.Lens' TableRestoreStatus (Lude.Maybe Lude.ISO8601)
-trsRequestTime = Lens.lens (requestTime :: TableRestoreStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {requestTime = a} :: TableRestoreStatus)
+trsRequestTime :: Lens.Lens' TableRestoreStatus (Lude.Maybe Lude.DateTime)
+trsRequestTime = Lens.lens (requestTime :: TableRestoreStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {requestTime = a} :: TableRestoreStatus)
 {-# DEPRECATED trsRequestTime "Use generic-lens or generic-optics with 'requestTime' instead." #-}
 
 -- | The name of the source table being restored.

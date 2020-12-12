@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data MetricDatum = MetricDatum'
     storageResolution :: Lude.Maybe Lude.Natural,
     dimensions :: Lude.Maybe [Dimension],
     unit :: Lude.Maybe StandardUnit,
-    timestamp :: Lude.Maybe Lude.ISO8601,
+    timestamp :: Lude.Maybe Lude.DateTime,
     statisticValues :: Lude.Maybe StatisticSet,
     metricName :: Lude.Text
   }
@@ -148,8 +151,8 @@ mdUnit = Lens.lens (unit :: MetricDatum -> Lude.Maybe StandardUnit) (\s a -> s {
 -- | The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdTimestamp :: Lens.Lens' MetricDatum (Lude.Maybe Lude.ISO8601)
-mdTimestamp = Lens.lens (timestamp :: MetricDatum -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: MetricDatum)
+mdTimestamp :: Lens.Lens' MetricDatum (Lude.Maybe Lude.DateTime)
+mdTimestamp = Lens.lens (timestamp :: MetricDatum -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: MetricDatum)
 {-# DEPRECATED mdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The statistical values for the metric.

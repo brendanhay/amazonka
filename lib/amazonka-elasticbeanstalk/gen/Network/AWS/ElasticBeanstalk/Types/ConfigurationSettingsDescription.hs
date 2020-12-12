@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,9 +45,9 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
       Lude.Maybe
         [ConfigurationOptionSetting],
     dateUpdated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     dateCreated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     platformARN ::
       Lude.Maybe Lude.Text,
     environmentName ::
@@ -127,15 +130,15 @@ csdOptionSettings = Lens.lens (optionSettings :: ConfigurationSettingsDescriptio
 -- | The date (in UTC time) when this configuration set was last modified.
 --
 -- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdDateUpdated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.ISO8601)
-csdDateUpdated = Lens.lens (dateUpdated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: ConfigurationSettingsDescription)
+csdDateUpdated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.DateTime)
+csdDateUpdated = Lens.lens (dateUpdated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: ConfigurationSettingsDescription)
 {-# DEPRECATED csdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The date (in UTC time) when this configuration set was created.
 --
 -- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdDateCreated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.ISO8601)
-csdDateCreated = Lens.lens (dateCreated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: ConfigurationSettingsDescription)
+csdDateCreated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.DateTime)
+csdDateCreated = Lens.lens (dateCreated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: ConfigurationSettingsDescription)
 {-# DEPRECATED csdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | The ARN of the platform version.

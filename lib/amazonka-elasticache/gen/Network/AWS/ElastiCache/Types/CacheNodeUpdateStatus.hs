@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,17 +38,17 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCacheNodeUpdateStatus' smart constructor.
 data CacheNodeUpdateStatus = CacheNodeUpdateStatus'
   { nodeUpdateEndDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nodeUpdateInitiatedBy ::
       Lude.Maybe NodeUpdateInitiatedBy,
     nodeUpdateStatusModifiedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     cacheNodeId :: Lude.Maybe Lude.Text,
     nodeUpdateInitiatedDate ::
-      Lude.Maybe Lude.ISO8601,
-    nodeUpdateStartDate :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    nodeUpdateStartDate :: Lude.Maybe Lude.DateTime,
     nodeUpdateStatus :: Lude.Maybe NodeUpdateStatus,
-    nodeDeletionDate :: Lude.Maybe Lude.ISO8601
+    nodeDeletionDate :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -83,8 +86,8 @@ mkCacheNodeUpdateStatus =
 -- | The end date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateEndDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.ISO8601)
-cnusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateEndDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateEndDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
+cnusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateEndDate = a} :: CacheNodeUpdateStatus)
 {-# DEPRECATED cnusNodeUpdateEndDate "Use generic-lens or generic-optics with 'nodeUpdateEndDate' instead." #-}
 
 -- | Reflects whether the update was initiated by the customer or automatically applied
@@ -97,8 +100,8 @@ cnusNodeUpdateInitiatedBy = Lens.lens (nodeUpdateInitiatedBy :: CacheNodeUpdateS
 -- | The date when the NodeUpdateStatus was last modified>
 --
 -- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.ISO8601)
-cnusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
+cnusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus)
 {-# DEPRECATED cnusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
 
 -- | The node ID of the cache cluster
@@ -111,15 +114,15 @@ cnusCacheNodeId = Lens.lens (cacheNodeId :: CacheNodeUpdateStatus -> Lude.Maybe 
 -- | The date when the update is triggered
 --
 -- /Note:/ Consider using 'nodeUpdateInitiatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.ISO8601)
-cnusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateInitiatedDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
+cnusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateInitiatedDate = a} :: CacheNodeUpdateStatus)
 {-# DEPRECATED cnusNodeUpdateInitiatedDate "Use generic-lens or generic-optics with 'nodeUpdateInitiatedDate' instead." #-}
 
 -- | The start date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateStartDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.ISO8601)
-cnusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateStartDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateStartDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
+cnusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStartDate = a} :: CacheNodeUpdateStatus)
 {-# DEPRECATED cnusNodeUpdateStartDate "Use generic-lens or generic-optics with 'nodeUpdateStartDate' instead." #-}
 
 -- | The update status of the node
@@ -132,8 +135,8 @@ cnusNodeUpdateStatus = Lens.lens (nodeUpdateStatus :: CacheNodeUpdateStatus -> L
 -- | The deletion date of the node
 --
 -- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeDeletionDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.ISO8601)
-cnusNodeDeletionDate = Lens.lens (nodeDeletionDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeDeletionDate = a} :: CacheNodeUpdateStatus)
+cnusNodeDeletionDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
+cnusNodeDeletionDate = Lens.lens (nodeDeletionDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeDeletionDate = a} :: CacheNodeUpdateStatus)
 {-# DEPRECATED cnusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
 
 instance Lude.FromXML CacheNodeUpdateStatus where

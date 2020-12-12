@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkOriginRequestPolicy' smart constructor.
 data OriginRequestPolicy = OriginRequestPolicy'
   { id :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     originRequestPolicyConfig ::
       OriginRequestPolicyConfig
   }
@@ -64,7 +67,7 @@ mkOriginRequestPolicy ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'originRequestPolicyConfig'
   OriginRequestPolicyConfig ->
   OriginRequestPolicy
@@ -88,8 +91,8 @@ orpId = Lens.lens (id :: OriginRequestPolicy -> Lude.Text) (\s a -> s {id = a} :
 -- | The date and time when the origin request policy was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpLastModifiedTime :: Lens.Lens' OriginRequestPolicy Lude.ISO8601
-orpLastModifiedTime = Lens.lens (lastModifiedTime :: OriginRequestPolicy -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: OriginRequestPolicy)
+orpLastModifiedTime :: Lens.Lens' OriginRequestPolicy Lude.DateTime
+orpLastModifiedTime = Lens.lens (lastModifiedTime :: OriginRequestPolicy -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: OriginRequestPolicy)
 {-# DEPRECATED orpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The origin request policy configuration.

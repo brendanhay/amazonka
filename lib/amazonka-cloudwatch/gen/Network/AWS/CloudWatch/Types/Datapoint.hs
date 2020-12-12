@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,7 +44,7 @@ data Datapoint = Datapoint'
       Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
     sum :: Lude.Maybe Lude.Double,
     unit :: Lude.Maybe StandardUnit,
-    timestamp :: Lude.Maybe Lude.ISO8601
+    timestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -128,8 +131,8 @@ dUnit = Lens.lens (unit :: Datapoint -> Lude.Maybe StandardUnit) (\s a -> s {uni
 -- | The time stamp used for the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTimestamp :: Lens.Lens' Datapoint (Lude.Maybe Lude.ISO8601)
-dTimestamp = Lens.lens (timestamp :: Datapoint -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: Datapoint)
+dTimestamp :: Lens.Lens' Datapoint (Lude.Maybe Lude.DateTime)
+dTimestamp = Lens.lens (timestamp :: Datapoint -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: Datapoint)
 {-# DEPRECATED dTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML Datapoint where

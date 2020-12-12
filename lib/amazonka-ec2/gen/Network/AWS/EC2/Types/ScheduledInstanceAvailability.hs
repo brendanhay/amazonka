@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -62,7 +65,7 @@ data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
     minTermDurationInDays ::
       Lude.Maybe Lude.Int,
     firstSlotStartTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     networkPlatform ::
       Lude.Maybe Lude.Text
   }
@@ -190,8 +193,8 @@ siaMinTermDurationInDays = Lens.lens (minTermDurationInDays :: ScheduledInstance
 -- | The time period for the first schedule to start.
 --
 -- /Note:/ Consider using 'firstSlotStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siaFirstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.ISO8601)
-siaFirstSlotStartTime = Lens.lens (firstSlotStartTime :: ScheduledInstanceAvailability -> Lude.Maybe Lude.ISO8601) (\s a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability)
+siaFirstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.DateTime)
+siaFirstSlotStartTime = Lens.lens (firstSlotStartTime :: ScheduledInstanceAvailability -> Lude.Maybe Lude.DateTime) (\s a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability)
 {-# DEPRECATED siaFirstSlotStartTime "Use generic-lens or generic-optics with 'firstSlotStartTime' instead." #-}
 
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).

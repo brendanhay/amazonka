@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -59,7 +62,7 @@ data VPCEndpoint = VPCEndpoint'
     vpcEndpointType :: Lude.Maybe VPCEndpointType,
     privateDNSEnabled :: Lude.Maybe Lude.Bool,
     ownerId :: Lude.Maybe Lude.Text,
-    creationTimestamp :: Lude.Maybe Lude.ISO8601,
+    creationTimestamp :: Lude.Maybe Lude.DateTime,
     serviceName :: Lude.Maybe Lude.Text,
     lastError :: Lude.Maybe LastError,
     vpcEndpointId :: Lude.Maybe Lude.Text,
@@ -197,8 +200,8 @@ veOwnerId = Lens.lens (ownerId :: VPCEndpoint -> Lude.Maybe Lude.Text) (\s a -> 
 -- | The date and time that the VPC endpoint was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veCreationTimestamp :: Lens.Lens' VPCEndpoint (Lude.Maybe Lude.ISO8601)
-veCreationTimestamp = Lens.lens (creationTimestamp :: VPCEndpoint -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTimestamp = a} :: VPCEndpoint)
+veCreationTimestamp :: Lens.Lens' VPCEndpoint (Lude.Maybe Lude.DateTime)
+veCreationTimestamp = Lens.lens (creationTimestamp :: VPCEndpoint -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTimestamp = a} :: VPCEndpoint)
 {-# DEPRECATED veCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The name of the service to which the endpoint is associated.

@@ -58,7 +58,7 @@ data DescribeEnvironments = DescribeEnvironments'
     versionLabel :: Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Natural,
     applicationName :: Lude.Maybe Lude.Text,
-    includedDeletedBackTo :: Lude.Maybe Lude.ISO8601,
+    includedDeletedBackTo :: Lude.Maybe Lude.DateTime,
     includeDeleted :: Lude.Maybe Lude.Bool
   }
   deriving stock
@@ -150,8 +150,8 @@ desApplicationName = Lens.lens (applicationName :: DescribeEnvironments -> Lude.
 -- | If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
 --
 -- /Note:/ Consider using 'includedDeletedBackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desIncludedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.ISO8601)
-desIncludedDeletedBackTo = Lens.lens (includedDeletedBackTo :: DescribeEnvironments -> Lude.Maybe Lude.ISO8601) (\s a -> s {includedDeletedBackTo = a} :: DescribeEnvironments)
+desIncludedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.DateTime)
+desIncludedDeletedBackTo = Lens.lens (includedDeletedBackTo :: DescribeEnvironments -> Lude.Maybe Lude.DateTime) (\s a -> s {includedDeletedBackTo = a} :: DescribeEnvironments)
 {-# DEPRECATED desIncludedDeletedBackTo "Use generic-lens or generic-optics with 'includedDeletedBackTo' instead." #-}
 
 -- | Indicates whether to include deleted environments:

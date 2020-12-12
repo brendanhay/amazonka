@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,10 +43,10 @@ data BundleTask = BundleTask'
     bundleId :: Lude.Text,
     instanceId :: Lude.Text,
     progress :: Lude.Text,
-    startTime :: Lude.ISO8601,
+    startTime :: Lude.DateTime,
     state :: BundleTaskState,
     storage :: Storage,
-    updateTime :: Lude.ISO8601
+    updateTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -72,13 +75,13 @@ mkBundleTask ::
   -- | 'progress'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'state'
   BundleTaskState ->
   -- | 'storage'
   Storage ->
   -- | 'updateTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   BundleTask
 mkBundleTask
   pBundleId_
@@ -130,8 +133,8 @@ btProgress = Lens.lens (progress :: BundleTask -> Lude.Text) (\s a -> s {progres
 -- | The time this task started.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btStartTime :: Lens.Lens' BundleTask Lude.ISO8601
-btStartTime = Lens.lens (startTime :: BundleTask -> Lude.ISO8601) (\s a -> s {startTime = a} :: BundleTask)
+btStartTime :: Lens.Lens' BundleTask Lude.DateTime
+btStartTime = Lens.lens (startTime :: BundleTask -> Lude.DateTime) (\s a -> s {startTime = a} :: BundleTask)
 {-# DEPRECATED btStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The state of the task.
@@ -151,8 +154,8 @@ btStorage = Lens.lens (storage :: BundleTask -> Storage) (\s a -> s {storage = a
 -- | The time of the most recent update for the task.
 --
 -- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btUpdateTime :: Lens.Lens' BundleTask Lude.ISO8601
-btUpdateTime = Lens.lens (updateTime :: BundleTask -> Lude.ISO8601) (\s a -> s {updateTime = a} :: BundleTask)
+btUpdateTime :: Lens.Lens' BundleTask Lude.DateTime
+btUpdateTime = Lens.lens (updateTime :: BundleTask -> Lude.DateTime) (\s a -> s {updateTime = a} :: BundleTask)
 {-# DEPRECATED btUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
 
 instance Lude.FromXML BundleTask where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,7 +44,7 @@ data IAMInstanceProfileAssociation = IAMInstanceProfileAssociation'
     iamInstanceProfile ::
       Lude.Maybe IAMInstanceProfile,
     timestamp ::
-      Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -101,8 +104,8 @@ iapaIAMInstanceProfile = Lens.lens (iamInstanceProfile :: IAMInstanceProfileAsso
 -- | The time the IAM instance profile was associated with the instance.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iapaTimestamp :: Lens.Lens' IAMInstanceProfileAssociation (Lude.Maybe Lude.ISO8601)
-iapaTimestamp = Lens.lens (timestamp :: IAMInstanceProfileAssociation -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: IAMInstanceProfileAssociation)
+iapaTimestamp :: Lens.Lens' IAMInstanceProfileAssociation (Lude.Maybe Lude.DateTime)
+iapaTimestamp = Lens.lens (timestamp :: IAMInstanceProfileAssociation -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: IAMInstanceProfileAssociation)
 {-# DEPRECATED iapaTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML IAMInstanceProfileAssociation where

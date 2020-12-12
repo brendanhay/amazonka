@@ -228,7 +228,7 @@ mkImageExists =
       Wait._waitAttempts = 40,
       Wait._waitDelay = 15,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             ( Lens.folding
@@ -352,7 +352,7 @@ mkKeyPairExists =
       Wait._waitAttempts = 6,
       Wait._waitDelay = 5,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             ( Lens.folding
@@ -576,7 +576,7 @@ mkPasswordDataAvailable =
       Wait._waitAttempts = 40,
       Wait._waitDelay = 15,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             gpdrsPasswordData
@@ -663,7 +663,7 @@ mkSecurityGroupExists =
       Wait._waitAttempts = 6,
       Wait._waitDelay = 5,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             ( Lens.folding

@@ -137,10 +137,10 @@ data HeadObject = HeadObject'
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
-    ifModifiedSince :: Lude.Maybe Lude.ISO8601,
+    ifModifiedSince :: Lude.Maybe Lude.DateTime,
     partNumber :: Lude.Maybe Lude.Int,
     range :: Lude.Maybe Lude.Text,
-    ifUnmodifiedSince :: Lude.Maybe Lude.ISO8601,
+    ifUnmodifiedSince :: Lude.Maybe Lude.DateTime,
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     ifNoneMatch :: Lude.Maybe Lude.Text,
     expectedBucketOwner :: Lude.Maybe Lude.Text,
@@ -231,8 +231,8 @@ hoRequestPayer = Lens.lens (requestPayer :: HeadObject -> Lude.Maybe RequestPaye
 -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
 -- /Note:/ Consider using 'ifModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hoIfModifiedSince :: Lens.Lens' HeadObject (Lude.Maybe Lude.ISO8601)
-hoIfModifiedSince = Lens.lens (ifModifiedSince :: HeadObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {ifModifiedSince = a} :: HeadObject)
+hoIfModifiedSince :: Lens.Lens' HeadObject (Lude.Maybe Lude.DateTime)
+hoIfModifiedSince = Lens.lens (ifModifiedSince :: HeadObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifModifiedSince = a} :: HeadObject)
 {-# DEPRECATED hoIfModifiedSince "Use generic-lens or generic-optics with 'ifModifiedSince' instead." #-}
 
 -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
@@ -252,8 +252,8 @@ hoRange = Lens.lens (range :: HeadObject -> Lude.Maybe Lude.Text) (\s a -> s {ra
 -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 --
 -- /Note:/ Consider using 'ifUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hoIfUnmodifiedSince :: Lens.Lens' HeadObject (Lude.Maybe Lude.ISO8601)
-hoIfUnmodifiedSince = Lens.lens (ifUnmodifiedSince :: HeadObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {ifUnmodifiedSince = a} :: HeadObject)
+hoIfUnmodifiedSince :: Lens.Lens' HeadObject (Lude.Maybe Lude.DateTime)
+hoIfUnmodifiedSince = Lens.lens (ifUnmodifiedSince :: HeadObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifUnmodifiedSince = a} :: HeadObject)
 {-# DEPRECATED hoIfUnmodifiedSince "Use generic-lens or generic-optics with 'ifUnmodifiedSince' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -368,7 +368,7 @@ data HeadObjectResponse = HeadObjectResponse'
     versionId :: Lude.Maybe ObjectVersionId,
     contentLength :: Lude.Maybe Lude.Integer,
     objectLockMode :: Lude.Maybe ObjectLockMode,
-    expires :: Lude.Maybe Lude.ISO8601,
+    expires :: Lude.Maybe Lude.DateTime,
     restore :: Lude.Maybe Lude.Text,
     expiration :: Lude.Maybe Lude.Text,
     deleteMarker :: Lude.Maybe Lude.Bool,
@@ -381,12 +381,12 @@ data HeadObjectResponse = HeadObjectResponse'
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
     contentEncoding :: Lude.Maybe Lude.Text,
-    objectLockRetainUntilDate :: Lude.Maybe Lude.ISO8601,
+    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
     replicationStatus :: Lude.Maybe ReplicationStatus,
     cacheControl :: Lude.Maybe Lude.Text,
     contentLanguage :: Lude.Maybe Lude.Text,
-    lastModified :: Lude.Maybe Lude.ISO8601,
+    lastModified :: Lude.Maybe Lude.DateTime,
     objectLockLegalHoldStatus ::
       Lude.Maybe ObjectLockLegalHoldStatus,
     contentDisposition :: Lude.Maybe Lude.Text,
@@ -531,8 +531,8 @@ horsObjectLockMode = Lens.lens (objectLockMode :: HeadObjectResponse -> Lude.May
 -- | The date and time at which the object is no longer cacheable.
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-horsExpires :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.ISO8601)
-horsExpires = Lens.lens (expires :: HeadObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: HeadObjectResponse)
+horsExpires :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.DateTime)
+horsExpires = Lens.lens (expires :: HeadObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: HeadObjectResponse)
 {-# DEPRECATED horsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | If the object is an archived object (an object whose storage class is GLACIER), the response includes this header if either the archive restoration is in progress (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject> or an archive copy is already restored.
@@ -629,8 +629,8 @@ horsContentEncoding = Lens.lens (contentEncoding :: HeadObjectResponse -> Lude.M
 -- | The date and time when the Object Lock retention period expires. This header is only returned if the requester has the @s3:GetObjectRetention@ permission.
 --
 -- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-horsObjectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.ISO8601)
-horsObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: HeadObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse)
+horsObjectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.DateTime)
+horsObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: HeadObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse)
 {-# DEPRECATED horsObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.
@@ -675,8 +675,8 @@ horsContentLanguage = Lens.lens (contentLanguage :: HeadObjectResponse -> Lude.M
 -- | Last modified date of the object
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-horsLastModified :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.ISO8601)
-horsLastModified = Lens.lens (lastModified :: HeadObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: HeadObjectResponse)
+horsLastModified :: Lens.Lens' HeadObjectResponse (Lude.Maybe Lude.DateTime)
+horsLastModified = Lens.lens (lastModified :: HeadObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: HeadObjectResponse)
 {-# DEPRECATED horsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the @s3:GetObjectLegalHold@ permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .

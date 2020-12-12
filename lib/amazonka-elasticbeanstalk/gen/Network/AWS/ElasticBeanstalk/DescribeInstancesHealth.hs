@@ -150,7 +150,7 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
     nextToken ::
       Lude.Maybe Lude.Text,
     refreshedAt ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     responseStatus :: Lude.Int
   }
   deriving stock
@@ -202,8 +202,8 @@ dihrsNextToken = Lens.lens (nextToken :: DescribeInstancesHealthResponse -> Lude
 -- | The date and time that the health information was retrieved.
 --
 -- /Note:/ Consider using 'refreshedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dihrsRefreshedAt :: Lens.Lens' DescribeInstancesHealthResponse (Lude.Maybe Lude.ISO8601)
-dihrsRefreshedAt = Lens.lens (refreshedAt :: DescribeInstancesHealthResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {refreshedAt = a} :: DescribeInstancesHealthResponse)
+dihrsRefreshedAt :: Lens.Lens' DescribeInstancesHealthResponse (Lude.Maybe Lude.DateTime)
+dihrsRefreshedAt = Lens.lens (refreshedAt :: DescribeInstancesHealthResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {refreshedAt = a} :: DescribeInstancesHealthResponse)
 {-# DEPRECATED dihrsRefreshedAt "Use generic-lens or generic-optics with 'refreshedAt' instead." #-}
 
 -- | The response status code.

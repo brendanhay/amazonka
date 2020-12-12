@@ -148,13 +148,13 @@ import Network.AWS.S3.Types
 -- | /See:/ 'mkCopyObject' smart constructor.
 data CopyObject = CopyObject'
   { copySourceIfModifiedSince ::
-      Lude.Maybe Lude.ISO8601,
-    copySourceIfUnmodifiedSince :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    copySourceIfUnmodifiedSince :: Lude.Maybe Lude.DateTime,
     copySourceSSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     taggingDirective :: Lude.Maybe TaggingDirective,
     metadataDirective :: Lude.Maybe MetadataDirective,
     objectLockMode :: Lude.Maybe ObjectLockMode,
-    expires :: Lude.Maybe Lude.ISO8601,
+    expires :: Lude.Maybe Lude.DateTime,
     grantReadACP :: Lude.Maybe Lude.Text,
     copySourceIfNoneMatch :: Lude.Maybe Lude.Text,
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
@@ -171,7 +171,7 @@ data CopyObject = CopyObject'
     grantFullControl :: Lude.Maybe Lude.Text,
     contentEncoding :: Lude.Maybe Lude.Text,
     tagging :: Lude.Maybe Lude.Text,
-    objectLockRetainUntilDate :: Lude.Maybe Lude.ISO8601,
+    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
     sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
     cacheControl :: Lude.Maybe Lude.Text,
@@ -309,15 +309,15 @@ mkCopyObject pBucket_ pCopySource_ pKey_ =
 -- | Copies the object if it has been modified since the specified time.
 --
 -- /Note:/ Consider using 'copySourceIfModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCopySourceIfModifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
-coCopySourceIfModifiedSince = Lens.lens (copySourceIfModifiedSince :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfModifiedSince = a} :: CopyObject)
+coCopySourceIfModifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.DateTime)
+coCopySourceIfModifiedSince = Lens.lens (copySourceIfModifiedSince :: CopyObject -> Lude.Maybe Lude.DateTime) (\s a -> s {copySourceIfModifiedSince = a} :: CopyObject)
 {-# DEPRECATED coCopySourceIfModifiedSince "Use generic-lens or generic-optics with 'copySourceIfModifiedSince' instead." #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
 --
 -- /Note:/ Consider using 'copySourceIfUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCopySourceIfUnmodifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
-coCopySourceIfUnmodifiedSince = Lens.lens (copySourceIfUnmodifiedSince :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject)
+coCopySourceIfUnmodifiedSince :: Lens.Lens' CopyObject (Lude.Maybe Lude.DateTime)
+coCopySourceIfUnmodifiedSince = Lens.lens (copySourceIfUnmodifiedSince :: CopyObject -> Lude.Maybe Lude.DateTime) (\s a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject)
 {-# DEPRECATED coCopySourceIfUnmodifiedSince "Use generic-lens or generic-optics with 'copySourceIfUnmodifiedSince' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -351,8 +351,8 @@ coObjectLockMode = Lens.lens (objectLockMode :: CopyObject -> Lude.Maybe ObjectL
 -- | The date and time at which the object is no longer cacheable.
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coExpires :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
-coExpires = Lens.lens (expires :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: CopyObject)
+coExpires :: Lens.Lens' CopyObject (Lude.Maybe Lude.DateTime)
+coExpires = Lens.lens (expires :: CopyObject -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: CopyObject)
 {-# DEPRECATED coExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | Allows grantee to read the object ACL.
@@ -478,8 +478,8 @@ coTagging = Lens.lens (tagging :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s
 -- | The date and time when you want the copied object's Object Lock to expire.
 --
 -- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coObjectLockRetainUntilDate :: Lens.Lens' CopyObject (Lude.Maybe Lude.ISO8601)
-coObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CopyObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: CopyObject)
+coObjectLockRetainUntilDate :: Lens.Lens' CopyObject (Lude.Maybe Lude.DateTime)
+coObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CopyObject -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: CopyObject)
 {-# DEPRECATED coObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.

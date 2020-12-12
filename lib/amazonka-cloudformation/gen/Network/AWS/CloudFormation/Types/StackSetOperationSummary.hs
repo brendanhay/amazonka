@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,9 +38,9 @@ data StackSetOperationSummary = StackSetOperationSummary'
       Lude.Maybe StackSetOperationStatus,
     action ::
       Lude.Maybe StackSetOperationAction,
-    endTimestamp :: Lude.Maybe Lude.ISO8601,
+    endTimestamp :: Lude.Maybe Lude.DateTime,
     creationTimestamp ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     operationId :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -122,15 +125,15 @@ ssosAction = Lens.lens (action :: StackSetOperationSummary -> Lude.Maybe StackSe
 -- | The time at which the stack set operation ended, across all accounts and Regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or Region.
 --
 -- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssosEndTimestamp :: Lens.Lens' StackSetOperationSummary (Lude.Maybe Lude.ISO8601)
-ssosEndTimestamp = Lens.lens (endTimestamp :: StackSetOperationSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTimestamp = a} :: StackSetOperationSummary)
+ssosEndTimestamp :: Lens.Lens' StackSetOperationSummary (Lude.Maybe Lude.DateTime)
+ssosEndTimestamp = Lens.lens (endTimestamp :: StackSetOperationSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {endTimestamp = a} :: StackSetOperationSummary)
 {-# DEPRECATED ssosEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
 
 -- | The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because AWS CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually creating the first stacks.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssosCreationTimestamp :: Lens.Lens' StackSetOperationSummary (Lude.Maybe Lude.ISO8601)
-ssosCreationTimestamp = Lens.lens (creationTimestamp :: StackSetOperationSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTimestamp = a} :: StackSetOperationSummary)
+ssosCreationTimestamp :: Lens.Lens' StackSetOperationSummary (Lude.Maybe Lude.DateTime)
+ssosCreationTimestamp = Lens.lens (creationTimestamp :: StackSetOperationSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTimestamp = a} :: StackSetOperationSummary)
 {-# DEPRECATED ssosCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The unique ID of the stack set operation.

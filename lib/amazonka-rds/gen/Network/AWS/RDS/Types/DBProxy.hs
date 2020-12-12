@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -50,8 +53,8 @@ data DBProxy = DBProxy'
     auth :: Lude.Maybe [UserAuthConfigInfo],
     requireTLS :: Lude.Maybe Lude.Bool,
     idleClientTimeout :: Lude.Maybe Lude.Int,
-    updatedDate :: Lude.Maybe Lude.ISO8601,
-    createdDate :: Lude.Maybe Lude.ISO8601,
+    updatedDate :: Lude.Maybe Lude.DateTime,
+    createdDate :: Lude.Maybe Lude.DateTime,
     vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
     dbProxyName :: Lude.Maybe Lude.Text,
     endpoint :: Lude.Maybe Lude.Text,
@@ -167,15 +170,15 @@ dpIdleClientTimeout = Lens.lens (idleClientTimeout :: DBProxy -> Lude.Maybe Lude
 -- | The date and time when the proxy was last updated.
 --
 -- /Note:/ Consider using 'updatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpUpdatedDate :: Lens.Lens' DBProxy (Lude.Maybe Lude.ISO8601)
-dpUpdatedDate = Lens.lens (updatedDate :: DBProxy -> Lude.Maybe Lude.ISO8601) (\s a -> s {updatedDate = a} :: DBProxy)
+dpUpdatedDate :: Lens.Lens' DBProxy (Lude.Maybe Lude.DateTime)
+dpUpdatedDate = Lens.lens (updatedDate :: DBProxy -> Lude.Maybe Lude.DateTime) (\s a -> s {updatedDate = a} :: DBProxy)
 {-# DEPRECATED dpUpdatedDate "Use generic-lens or generic-optics with 'updatedDate' instead." #-}
 
 -- | The date and time when the proxy was first created.
 --
 -- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpCreatedDate :: Lens.Lens' DBProxy (Lude.Maybe Lude.ISO8601)
-dpCreatedDate = Lens.lens (createdDate :: DBProxy -> Lude.Maybe Lude.ISO8601) (\s a -> s {createdDate = a} :: DBProxy)
+dpCreatedDate :: Lens.Lens' DBProxy (Lude.Maybe Lude.DateTime)
+dpCreatedDate = Lens.lens (createdDate :: DBProxy -> Lude.Maybe Lude.DateTime) (\s a -> s {createdDate = a} :: DBProxy)
 {-# DEPRECATED dpCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | Provides a list of VPC security groups that the proxy belongs to.

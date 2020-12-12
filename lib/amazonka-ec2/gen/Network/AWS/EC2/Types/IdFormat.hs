@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkIdFormat' smart constructor.
 data IdFormat = IdFormat'
   { useLongIds :: Lude.Maybe Lude.Bool,
-    deadline :: Lude.Maybe Lude.ISO8601,
+    deadline :: Lude.Maybe Lude.DateTime,
     resource :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -64,8 +67,8 @@ ifUseLongIds = Lens.lens (useLongIds :: IdFormat -> Lude.Maybe Lude.Bool) (\s a 
 -- | The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
 --
 -- /Note:/ Consider using 'deadline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifDeadline :: Lens.Lens' IdFormat (Lude.Maybe Lude.ISO8601)
-ifDeadline = Lens.lens (deadline :: IdFormat -> Lude.Maybe Lude.ISO8601) (\s a -> s {deadline = a} :: IdFormat)
+ifDeadline :: Lens.Lens' IdFormat (Lude.Maybe Lude.DateTime)
+ifDeadline = Lens.lens (deadline :: IdFormat -> Lude.Maybe Lude.DateTime) (\s a -> s {deadline = a} :: IdFormat)
 {-# DEPRECATED ifDeadline "Use generic-lens or generic-optics with 'deadline' instead." #-}
 
 -- | The type of resource.

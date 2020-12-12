@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,7 +39,7 @@ data SpotPrice = SpotPrice'
     spotPrice :: Lude.Maybe Lude.Text,
     instanceType :: Lude.Maybe InstanceType,
     availabilityZone :: Lude.Maybe Lude.Text,
-    timestamp :: Lude.Maybe Lude.ISO8601
+    timestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -96,8 +99,8 @@ sAvailabilityZone = Lens.lens (availabilityZone :: SpotPrice -> Lude.Maybe Lude.
 -- | The date and time the request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTimestamp :: Lens.Lens' SpotPrice (Lude.Maybe Lude.ISO8601)
-sTimestamp = Lens.lens (timestamp :: SpotPrice -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: SpotPrice)
+sTimestamp :: Lens.Lens' SpotPrice (Lude.Maybe Lude.DateTime)
+sTimestamp = Lens.lens (timestamp :: SpotPrice -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: SpotPrice)
 {-# DEPRECATED sTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML SpotPrice where

@@ -160,13 +160,13 @@ data GetObject = GetObject'
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
     responseContentEncoding :: Lude.Maybe Lude.Text,
-    ifModifiedSince :: Lude.Maybe Lude.ISO8601,
+    ifModifiedSince :: Lude.Maybe Lude.DateTime,
     partNumber :: Lude.Maybe Lude.Int,
     range :: Lude.Maybe Lude.Text,
-    ifUnmodifiedSince :: Lude.Maybe Lude.ISO8601,
+    ifUnmodifiedSince :: Lude.Maybe Lude.DateTime,
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     responseCacheControl :: Lude.Maybe Lude.Text,
-    responseExpires :: Lude.Maybe Lude.ISO8601,
+    responseExpires :: Lude.Maybe Lude.DateTime,
     ifNoneMatch :: Lude.Maybe Lude.Text,
     expectedBucketOwner :: Lude.Maybe Lude.Text,
     bucket :: BucketName,
@@ -296,8 +296,8 @@ goResponseContentEncoding = Lens.lens (responseContentEncoding :: GetObject -> L
 -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
 -- /Note:/ Consider using 'ifModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfModifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.ISO8601)
-goIfModifiedSince = Lens.lens (ifModifiedSince :: GetObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {ifModifiedSince = a} :: GetObject)
+goIfModifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
+goIfModifiedSince = Lens.lens (ifModifiedSince :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifModifiedSince = a} :: GetObject)
 {-# DEPRECATED goIfModifiedSince "Use generic-lens or generic-optics with 'ifModifiedSince' instead." #-}
 
 -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
@@ -317,8 +317,8 @@ goRange = Lens.lens (range :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {ran
 -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 --
 -- /Note:/ Consider using 'ifUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfUnmodifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.ISO8601)
-goIfUnmodifiedSince = Lens.lens (ifUnmodifiedSince :: GetObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {ifUnmodifiedSince = a} :: GetObject)
+goIfUnmodifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
+goIfUnmodifiedSince = Lens.lens (ifUnmodifiedSince :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifUnmodifiedSince = a} :: GetObject)
 {-# DEPRECATED goIfUnmodifiedSince "Use generic-lens or generic-optics with 'ifUnmodifiedSince' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -338,8 +338,8 @@ goResponseCacheControl = Lens.lens (responseCacheControl :: GetObject -> Lude.Ma
 -- | Sets the @Expires@ header of the response.
 --
 -- /Note:/ Consider using 'responseExpires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseExpires :: Lens.Lens' GetObject (Lude.Maybe Lude.ISO8601)
-goResponseExpires = Lens.lens (responseExpires :: GetObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {responseExpires = a} :: GetObject)
+goResponseExpires :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
+goResponseExpires = Lens.lens (responseExpires :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {responseExpires = a} :: GetObject)
 {-# DEPRECATED goResponseExpires "Use generic-lens or generic-optics with 'responseExpires' instead." #-}
 
 -- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
@@ -457,7 +457,7 @@ data GetObjectResponse = GetObjectResponse'
     versionId :: Lude.Maybe ObjectVersionId,
     contentLength :: Lude.Maybe Lude.Integer,
     objectLockMode :: Lude.Maybe ObjectLockMode,
-    expires :: Lude.Maybe Lude.ISO8601,
+    expires :: Lude.Maybe Lude.DateTime,
     restore :: Lude.Maybe Lude.Text,
     expiration :: Lude.Maybe Lude.Text,
     deleteMarker :: Lude.Maybe Lude.Bool,
@@ -470,12 +470,12 @@ data GetObjectResponse = GetObjectResponse'
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
     contentEncoding :: Lude.Maybe Lude.Text,
-    objectLockRetainUntilDate :: Lude.Maybe Lude.ISO8601,
+    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
     replicationStatus :: Lude.Maybe ReplicationStatus,
     cacheControl :: Lude.Maybe Lude.Text,
     contentLanguage :: Lude.Maybe Lude.Text,
-    lastModified :: Lude.Maybe Lude.ISO8601,
+    lastModified :: Lude.Maybe Lude.DateTime,
     objectLockLegalHoldStatus ::
       Lude.Maybe ObjectLockLegalHoldStatus,
     contentDisposition :: Lude.Maybe Lude.Text,
@@ -608,8 +608,8 @@ gorsObjectLockMode = Lens.lens (objectLockMode :: GetObjectResponse -> Lude.Mayb
 -- | The date and time at which the object is no longer cacheable.
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsExpires :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.ISO8601)
-gorsExpires = Lens.lens (expires :: GetObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: GetObjectResponse)
+gorsExpires :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
+gorsExpires = Lens.lens (expires :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: GetObjectResponse)
 {-# DEPRECATED gorsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | Provides information about object restoration operation and expiration time of the restored object copy.
@@ -699,8 +699,8 @@ gorsContentEncoding = Lens.lens (contentEncoding :: GetObjectResponse -> Lude.Ma
 -- | The date and time when this object's Object Lock will expire.
 --
 -- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsObjectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.ISO8601)
-gorsObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: GetObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: GetObjectResponse)
+gorsObjectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
+gorsObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: GetObjectResponse)
 {-# DEPRECATED gorsObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.
@@ -734,8 +734,8 @@ gorsContentLanguage = Lens.lens (contentLanguage :: GetObjectResponse -> Lude.Ma
 -- | Last modified date of the object
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsLastModified :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.ISO8601)
-gorsLastModified = Lens.lens (lastModified :: GetObjectResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: GetObjectResponse)
+gorsLastModified :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
+gorsLastModified = Lens.lens (lastModified :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: GetObjectResponse)
 {-# DEPRECATED gorsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.

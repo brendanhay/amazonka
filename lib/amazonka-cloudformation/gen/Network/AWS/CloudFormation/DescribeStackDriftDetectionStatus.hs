@@ -138,7 +138,7 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     detectionStatus ::
       StackDriftDetectionStatus,
     timestamp ::
-      Lude.ISO8601
+      Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -197,7 +197,7 @@ mkDescribeStackDriftDetectionStatusResponse ::
   -- | 'detectionStatus'
   StackDriftDetectionStatus ->
   -- | 'timestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   DescribeStackDriftDetectionStatusResponse
 mkDescribeStackDriftDetectionStatusResponse
   pResponseStatus_
@@ -297,6 +297,6 @@ dsddsrsDetectionStatus = Lens.lens (detectionStatus :: DescribeStackDriftDetecti
 -- | Time at which the stack drift detection operation was initiated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsddsrsTimestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.ISO8601
-dsddsrsTimestamp = Lens.lens (timestamp :: DescribeStackDriftDetectionStatusResponse -> Lude.ISO8601) (\s a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse)
+dsddsrsTimestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.DateTime
+dsddsrsTimestamp = Lens.lens (timestamp :: DescribeStackDriftDetectionStatusResponse -> Lude.DateTime) (\s a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse)
 {-# DEPRECATED dsddsrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}

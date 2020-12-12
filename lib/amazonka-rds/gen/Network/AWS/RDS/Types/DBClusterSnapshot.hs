@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -65,10 +68,10 @@ data DBClusterSnapshot = DBClusterSnapshot'
     availabilityZones :: Lude.Maybe [Lude.Text],
     snapshotType :: Lude.Maybe Lude.Text,
     kmsKeyId :: Lude.Maybe Lude.Text,
-    snapshotCreateTime :: Lude.Maybe Lude.ISO8601,
+    snapshotCreateTime :: Lude.Maybe Lude.DateTime,
     allocatedStorage :: Lude.Maybe Lude.Int,
     sourceDBClusterSnapshotARN :: Lude.Maybe Lude.Text,
-    clusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    clusterCreateTime :: Lude.Maybe Lude.DateTime,
     percentProgress :: Lude.Maybe Lude.Int,
     port :: Lude.Maybe Lude.Int
   }
@@ -239,8 +242,8 @@ dcsKMSKeyId = Lens.lens (kmsKeyId :: DBClusterSnapshot -> Lude.Maybe Lude.Text) 
 -- | Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 --
 -- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsSnapshotCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.ISO8601)
-dcsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotCreateTime = a} :: DBClusterSnapshot)
+dcsSnapshotCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.DateTime)
+dcsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotCreateTime = a} :: DBClusterSnapshot)
 {-# DEPRECATED dcsSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
 -- | Specifies the allocated storage size in gibibytes (GiB).
@@ -260,8 +263,8 @@ dcsSourceDBClusterSnapshotARN = Lens.lens (sourceDBClusterSnapshotARN :: DBClust
 -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
 -- /Note:/ Consider using 'clusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsClusterCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.ISO8601)
-dcsClusterCreateTime = Lens.lens (clusterCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {clusterCreateTime = a} :: DBClusterSnapshot)
+dcsClusterCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.DateTime)
+dcsClusterCreateTime = Lens.lens (clusterCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {clusterCreateTime = a} :: DBClusterSnapshot)
 {-# DEPRECATED dcsClusterCreateTime "Use generic-lens or generic-optics with 'clusterCreateTime' instead." #-}
 
 -- | Specifies the percentage of the estimated data that has been transferred.

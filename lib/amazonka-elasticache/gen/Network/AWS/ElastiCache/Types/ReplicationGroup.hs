@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -54,7 +57,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkReplicationGroup' smart constructor.
 data ReplicationGroup = ReplicationGroup'
   { authTokenLastModifiedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     status :: Lude.Maybe Lude.Text,
     cacheNodeType :: Lude.Maybe Lude.Text,
     nodeGroups :: Lude.Maybe [NodeGroup],
@@ -163,8 +166,8 @@ mkReplicationGroup =
 -- | The date the auth token was last modified
 --
 -- /Note:/ Consider using 'authTokenLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgAuthTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Lude.Maybe Lude.ISO8601)
-rgAuthTokenLastModifiedDate = Lens.lens (authTokenLastModifiedDate :: ReplicationGroup -> Lude.Maybe Lude.ISO8601) (\s a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup)
+rgAuthTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Lude.Maybe Lude.DateTime)
+rgAuthTokenLastModifiedDate = Lens.lens (authTokenLastModifiedDate :: ReplicationGroup -> Lude.Maybe Lude.DateTime) (\s a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup)
 {-# DEPRECATED rgAuthTokenLastModifiedDate "Use generic-lens or generic-optics with 'authTokenLastModifiedDate' instead." #-}
 
 -- | The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .

@@ -63,10 +63,10 @@ data CreateFleet = CreateFleet'
       Lude.Maybe FleetExcessCapacityTerminationPolicy,
     onDemandOptions :: Lude.Maybe OnDemandOptionsRequest,
     tagSpecifications :: Lude.Maybe [TagSpecification],
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.DateTime,
     terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
     type' :: Lude.Maybe FleetType,
-    validFrom :: Lude.Maybe Lude.ISO8601,
+    validFrom :: Lude.Maybe Lude.DateTime,
     replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
     dryRun :: Lude.Maybe Lude.Bool,
     launchTemplateConfigs :: [FleetLaunchTemplateConfigRequest],
@@ -167,8 +167,8 @@ cfTagSpecifications = Lens.lens (tagSpecifications :: CreateFleet -> Lude.Maybe 
 -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfValidUntil :: Lens.Lens' CreateFleet (Lude.Maybe Lude.ISO8601)
-cfValidUntil = Lens.lens (validUntil :: CreateFleet -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: CreateFleet)
+cfValidUntil :: Lens.Lens' CreateFleet (Lude.Maybe Lude.DateTime)
+cfValidUntil = Lens.lens (validUntil :: CreateFleet -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: CreateFleet)
 {-# DEPRECATED cfValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
@@ -200,8 +200,8 @@ cfType = Lens.lens (type' :: CreateFleet -> Lude.Maybe FleetType) (\s a -> s {ty
 -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfValidFrom :: Lens.Lens' CreateFleet (Lude.Maybe Lude.ISO8601)
-cfValidFrom = Lens.lens (validFrom :: CreateFleet -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: CreateFleet)
+cfValidFrom :: Lens.Lens' CreateFleet (Lude.Maybe Lude.DateTime)
+cfValidFrom = Lens.lens (validFrom :: CreateFleet -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: CreateFleet)
 {-# DEPRECATED cfValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Indicates whether EC2 Fleet should replace unhealthy instances.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -51,7 +54,7 @@ data StackResourceDetail = StackResourceDetail'
     stackName :: Lude.Maybe Lude.Text,
     logicalResourceId :: Lude.Text,
     resourceType :: Lude.Text,
-    lastUpdatedTimestamp :: Lude.ISO8601,
+    lastUpdatedTimestamp :: Lude.DateTime,
     resourceStatus :: ResourceStatus
   }
   deriving stock
@@ -83,7 +86,7 @@ mkStackResourceDetail ::
   -- | 'resourceType'
   Lude.Text ->
   -- | 'lastUpdatedTimestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'resourceStatus'
   ResourceStatus ->
   StackResourceDetail
@@ -180,8 +183,8 @@ sResourceType = Lens.lens (resourceType :: StackResourceDetail -> Lude.Text) (\s
 -- | Time the status was updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sLastUpdatedTimestamp :: Lens.Lens' StackResourceDetail Lude.ISO8601
-sLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: StackResourceDetail -> Lude.ISO8601) (\s a -> s {lastUpdatedTimestamp = a} :: StackResourceDetail)
+sLastUpdatedTimestamp :: Lens.Lens' StackResourceDetail Lude.DateTime
+sLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: StackResourceDetail -> Lude.DateTime) (\s a -> s {lastUpdatedTimestamp = a} :: StackResourceDetail)
 {-# DEPRECATED sLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
 -- | Current status of the resource.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -27,8 +30,8 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSlotDateTimeRangeRequest' smart constructor.
 data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
   { earliestTime ::
-      Lude.ISO8601,
-    latestTime :: Lude.ISO8601
+      Lude.DateTime,
+    latestTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -45,9 +48,9 @@ data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
 -- * 'latestTime' - The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
 mkSlotDateTimeRangeRequest ::
   -- | 'earliestTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'latestTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   SlotDateTimeRangeRequest
 mkSlotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
   SlotDateTimeRangeRequest'
@@ -58,15 +61,15 @@ mkSlotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
 --
 -- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdtrrEarliestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.ISO8601
-sdtrrEarliestTime = Lens.lens (earliestTime :: SlotDateTimeRangeRequest -> Lude.ISO8601) (\s a -> s {earliestTime = a} :: SlotDateTimeRangeRequest)
+sdtrrEarliestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.DateTime
+sdtrrEarliestTime = Lens.lens (earliestTime :: SlotDateTimeRangeRequest -> Lude.DateTime) (\s a -> s {earliestTime = a} :: SlotDateTimeRangeRequest)
 {-# DEPRECATED sdtrrEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
 --
 -- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdtrrLatestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.ISO8601
-sdtrrLatestTime = Lens.lens (latestTime :: SlotDateTimeRangeRequest -> Lude.ISO8601) (\s a -> s {latestTime = a} :: SlotDateTimeRangeRequest)
+sdtrrLatestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.DateTime
+sdtrrLatestTime = Lens.lens (latestTime :: SlotDateTimeRangeRequest -> Lude.DateTime) (\s a -> s {latestTime = a} :: SlotDateTimeRangeRequest)
 {-# DEPRECATED sdtrrLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
 instance Lude.ToQuery SlotDateTimeRangeRequest where

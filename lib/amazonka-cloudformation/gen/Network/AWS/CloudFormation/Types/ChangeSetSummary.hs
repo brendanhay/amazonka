@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkChangeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
   { creationTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     status :: Lude.Maybe ChangeSetStatus,
     parentChangeSetId :: Lude.Maybe Lude.Text,
     changeSetName :: Lude.Maybe Lude.Text,
@@ -96,8 +99,8 @@ mkChangeSetSummary =
 -- | The start time when the change set was created, in UTC.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCreationTime :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.ISO8601)
-cCreationTime = Lens.lens (creationTime :: ChangeSetSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: ChangeSetSummary)
+cCreationTime :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.DateTime)
+cCreationTime = Lens.lens (creationTime :: ChangeSetSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: ChangeSetSummary)
 {-# DEPRECATED cCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .

@@ -46,7 +46,7 @@ data ModifyInstanceEventStartTime = ModifyInstanceEventStartTime'
       Lude.Maybe Lude.Bool,
     instanceId :: Lude.Text,
     instanceEventId :: Lude.Text,
-    notBefore :: Lude.ISO8601
+    notBefore :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -69,7 +69,7 @@ mkModifyInstanceEventStartTime ::
   -- | 'instanceEventId'
   Lude.Text ->
   -- | 'notBefore'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   ModifyInstanceEventStartTime
 mkModifyInstanceEventStartTime
   pInstanceId_
@@ -106,8 +106,8 @@ miestInstanceEventId = Lens.lens (instanceEventId :: ModifyInstanceEventStartTim
 -- | The new date and time when the event will take place.
 --
 -- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miestNotBefore :: Lens.Lens' ModifyInstanceEventStartTime Lude.ISO8601
-miestNotBefore = Lens.lens (notBefore :: ModifyInstanceEventStartTime -> Lude.ISO8601) (\s a -> s {notBefore = a} :: ModifyInstanceEventStartTime)
+miestNotBefore :: Lens.Lens' ModifyInstanceEventStartTime Lude.DateTime
+miestNotBefore = Lens.lens (notBefore :: ModifyInstanceEventStartTime -> Lude.DateTime) (\s a -> s {notBefore = a} :: ModifyInstanceEventStartTime)
 {-# DEPRECATED miestNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 instance Lude.AWSRequest ModifyInstanceEventStartTime where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -45,7 +48,7 @@ data Distribution = Distribution'
     id :: Lude.Text,
     arn :: Lude.Text,
     status :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     inProgressInvalidationBatches :: Lude.Int,
     domainName :: Lude.Text,
     distributionConfig :: DistributionConfig
@@ -77,7 +80,7 @@ mkDistribution ::
   -- | 'status'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'inProgressInvalidationBatches'
   Lude.Int ->
   -- | 'domainName'
@@ -155,8 +158,8 @@ dStatus = Lens.lens (status :: Distribution -> Lude.Text) (\s a -> s {status = a
 -- | The date and time the distribution was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLastModifiedTime :: Lens.Lens' Distribution Lude.ISO8601
-dLastModifiedTime = Lens.lens (lastModifiedTime :: Distribution -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: Distribution)
+dLastModifiedTime :: Lens.Lens' Distribution Lude.DateTime
+dLastModifiedTime = Lens.lens (lastModifiedTime :: Distribution -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: Distribution)
 {-# DEPRECATED dLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The number of invalidation batches currently in progress.

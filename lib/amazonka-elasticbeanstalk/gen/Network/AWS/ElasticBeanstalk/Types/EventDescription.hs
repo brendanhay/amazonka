@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data EventDescription = EventDescription'
     platformARN :: Lude.Maybe Lude.Text,
     environmentName :: Lude.Maybe Lude.Text,
     applicationName :: Lude.Maybe Lude.Text,
-    eventDate :: Lude.Maybe Lude.ISO8601,
+    eventDate :: Lude.Maybe Lude.DateTime,
     message :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -132,8 +135,8 @@ edApplicationName = Lens.lens (applicationName :: EventDescription -> Lude.Maybe
 -- | The date when the event occurred.
 --
 -- /Note:/ Consider using 'eventDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edEventDate :: Lens.Lens' EventDescription (Lude.Maybe Lude.ISO8601)
-edEventDate = Lens.lens (eventDate :: EventDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {eventDate = a} :: EventDescription)
+edEventDate :: Lens.Lens' EventDescription (Lude.Maybe Lude.DateTime)
+edEventDate = Lens.lens (eventDate :: EventDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {eventDate = a} :: EventDescription)
 {-# DEPRECATED edEventDate "Use generic-lens or generic-optics with 'eventDate' instead." #-}
 
 -- | The event message.

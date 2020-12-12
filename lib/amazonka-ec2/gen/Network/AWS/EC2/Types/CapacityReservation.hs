@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -51,8 +54,8 @@ data CapacityReservation = CapacityReservation'
   { state ::
       Lude.Maybe CapacityReservationState,
     availabilityZoneId :: Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
-    endDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
+    endDate :: Lude.Maybe Lude.DateTime,
     availableInstanceCount :: Lude.Maybe Lude.Int,
     ephemeralStorage :: Lude.Maybe Lude.Bool,
     instancePlatform ::
@@ -198,15 +201,15 @@ crAvailabilityZoneId = Lens.lens (availabilityZoneId :: CapacityReservation -> L
 -- | The date and time at which the Capacity Reservation was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crCreateDate :: Lens.Lens' CapacityReservation (Lude.Maybe Lude.ISO8601)
-crCreateDate = Lens.lens (createDate :: CapacityReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: CapacityReservation)
+crCreateDate :: Lens.Lens' CapacityReservation (Lude.Maybe Lude.DateTime)
+crCreateDate = Lens.lens (createDate :: CapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: CapacityReservation)
 {-# DEPRECATED crCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crEndDate :: Lens.Lens' CapacityReservation (Lude.Maybe Lude.ISO8601)
-crEndDate = Lens.lens (endDate :: CapacityReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {endDate = a} :: CapacityReservation)
+crEndDate :: Lens.Lens' CapacityReservation (Lude.Maybe Lude.DateTime)
+crEndDate = Lens.lens (endDate :: CapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: CapacityReservation)
 {-# DEPRECATED crEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.

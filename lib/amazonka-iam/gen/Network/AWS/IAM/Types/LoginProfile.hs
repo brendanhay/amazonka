@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,7 +35,7 @@ data LoginProfile = LoginProfile'
   { passwordResetRequired ::
       Lude.Maybe Lude.Bool,
     userName :: Lude.Text,
-    createDate :: Lude.ISO8601
+    createDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -52,7 +55,7 @@ mkLoginProfile ::
   -- | 'userName'
   Lude.Text ->
   -- | 'createDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   LoginProfile
 mkLoginProfile pUserName_ pCreateDate_ =
   LoginProfile'
@@ -78,8 +81,8 @@ lpUserName = Lens.lens (userName :: LoginProfile -> Lude.Text) (\s a -> s {userN
 -- | The date when the password for the user was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpCreateDate :: Lens.Lens' LoginProfile Lude.ISO8601
-lpCreateDate = Lens.lens (createDate :: LoginProfile -> Lude.ISO8601) (\s a -> s {createDate = a} :: LoginProfile)
+lpCreateDate :: Lens.Lens' LoginProfile Lude.DateTime
+lpCreateDate = Lens.lens (createDate :: LoginProfile -> Lude.DateTime) (\s a -> s {createDate = a} :: LoginProfile)
 {-# DEPRECATED lpCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 instance Lude.FromXML LoginProfile where

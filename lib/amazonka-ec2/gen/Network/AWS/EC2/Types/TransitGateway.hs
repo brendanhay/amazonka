@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,7 +39,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTransitGateway' smart constructor.
 data TransitGateway = TransitGateway'
   { creationTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     state :: Lude.Maybe TransitGatewayState,
     ownerId :: Lude.Maybe Lude.Text,
     transitGatewayARN :: Lude.Maybe Lude.Text,
@@ -81,8 +84,8 @@ mkTransitGateway =
 -- | The creation time.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgCreationTime :: Lens.Lens' TransitGateway (Lude.Maybe Lude.ISO8601)
-tgCreationTime = Lens.lens (creationTime :: TransitGateway -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: TransitGateway)
+tgCreationTime :: Lens.Lens' TransitGateway (Lude.Maybe Lude.DateTime)
+tgCreationTime = Lens.lens (creationTime :: TransitGateway -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: TransitGateway)
 {-# DEPRECATED tgCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the transit gateway.

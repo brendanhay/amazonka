@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkInvalidationSummary' smart constructor.
 data InvalidationSummary = InvalidationSummary'
   { id :: Lude.Text,
-    createTime :: Lude.ISO8601,
+    createTime :: Lude.DateTime,
     status :: Lude.Text
   }
   deriving stock
@@ -49,7 +52,7 @@ mkInvalidationSummary ::
   -- | 'id'
   Lude.Text ->
   -- | 'createTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'status'
   Lude.Text ->
   InvalidationSummary
@@ -70,8 +73,8 @@ isId = Lens.lens (id :: InvalidationSummary -> Lude.Text) (\s a -> s {id = a} ::
 -- | The time that an invalidation request was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCreateTime :: Lens.Lens' InvalidationSummary Lude.ISO8601
-isCreateTime = Lens.lens (createTime :: InvalidationSummary -> Lude.ISO8601) (\s a -> s {createTime = a} :: InvalidationSummary)
+isCreateTime :: Lens.Lens' InvalidationSummary Lude.DateTime
+isCreateTime = Lens.lens (createTime :: InvalidationSummary -> Lude.DateTime) (\s a -> s {createTime = a} :: InvalidationSummary)
 {-# DEPRECATED isCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The status of an invalidation request.

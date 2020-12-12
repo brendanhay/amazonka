@@ -72,8 +72,8 @@ data GetMetricData = GetMetricData'
     nextToken :: Lude.Maybe Lude.Text,
     scanBy :: Lude.Maybe ScanBy,
     metricDataQueries :: [MetricDataQuery],
-    startTime :: Lude.ISO8601,
-    endTime :: Lude.ISO8601
+    startTime :: Lude.DateTime,
+    endTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -112,9 +112,9 @@ data GetMetricData = GetMetricData'
 -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@ .
 mkGetMetricData ::
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'endTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   GetMetricData
 mkGetMetricData pStartTime_ pEndTime_ =
   GetMetricData'
@@ -172,8 +172,8 @@ gmdMetricDataQueries = Lens.lens (metricDataQueries :: GetMetricData -> [MetricD
 -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@ .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdStartTime :: Lens.Lens' GetMetricData Lude.ISO8601
-gmdStartTime = Lens.lens (startTime :: GetMetricData -> Lude.ISO8601) (\s a -> s {startTime = a} :: GetMetricData)
+gmdStartTime :: Lens.Lens' GetMetricData Lude.DateTime
+gmdStartTime = Lens.lens (startTime :: GetMetricData -> Lude.DateTime) (\s a -> s {startTime = a} :: GetMetricData)
 {-# DEPRECATED gmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The time stamp indicating the latest data to be returned.
@@ -182,8 +182,8 @@ gmdStartTime = Lens.lens (startTime :: GetMetricData -> Lude.ISO8601) (\s a -> s
 -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdEndTime :: Lens.Lens' GetMetricData Lude.ISO8601
-gmdEndTime = Lens.lens (endTime :: GetMetricData -> Lude.ISO8601) (\s a -> s {endTime = a} :: GetMetricData)
+gmdEndTime :: Lens.Lens' GetMetricData Lude.DateTime
+gmdEndTime = Lens.lens (endTime :: GetMetricData -> Lude.DateTime) (\s a -> s {endTime = a} :: GetMetricData)
 {-# DEPRECATED gmdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager GetMetricData where

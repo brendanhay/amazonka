@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ data PublicKeySummary = PublicKeySummary'
       Lude.Maybe Lude.Text,
     id :: Lude.Text,
     name :: Lude.Text,
-    createdTime :: Lude.ISO8601,
+    createdTime :: Lude.DateTime,
     encodedKey :: Lude.Text
   }
   deriving stock
@@ -58,7 +61,7 @@ mkPublicKeySummary ::
   -- | 'name'
   Lude.Text ->
   -- | 'createdTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'encodedKey'
   Lude.Text ->
   PublicKeySummary
@@ -95,8 +98,8 @@ pksName = Lens.lens (name :: PublicKeySummary -> Lude.Text) (\s a -> s {name = a
 -- | The date and time when the public key was uploaded.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksCreatedTime :: Lens.Lens' PublicKeySummary Lude.ISO8601
-pksCreatedTime = Lens.lens (createdTime :: PublicKeySummary -> Lude.ISO8601) (\s a -> s {createdTime = a} :: PublicKeySummary)
+pksCreatedTime :: Lens.Lens' PublicKeySummary Lude.DateTime
+pksCreatedTime = Lens.lens (createdTime :: PublicKeySummary -> Lude.DateTime) (\s a -> s {createdTime = a} :: PublicKeySummary)
 {-# DEPRECATED pksCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The public key.

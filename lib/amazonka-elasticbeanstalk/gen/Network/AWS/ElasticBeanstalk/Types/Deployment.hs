@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ data Deployment = Deployment'
   { deploymentId ::
       Lude.Maybe Lude.Integer,
     status :: Lude.Maybe Lude.Text,
-    deploymentTime :: Lude.Maybe Lude.ISO8601,
+    deploymentTime :: Lude.Maybe Lude.DateTime,
     versionLabel :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -102,8 +105,8 @@ dStatus = Lens.lens (status :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {s
 -- For completed deployments, the time that the deployment ended.
 --
 -- /Note:/ Consider using 'deploymentTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentTime :: Lens.Lens' Deployment (Lude.Maybe Lude.ISO8601)
-dDeploymentTime = Lens.lens (deploymentTime :: Deployment -> Lude.Maybe Lude.ISO8601) (\s a -> s {deploymentTime = a} :: Deployment)
+dDeploymentTime :: Lens.Lens' Deployment (Lude.Maybe Lude.DateTime)
+dDeploymentTime = Lens.lens (deploymentTime :: Deployment -> Lude.Maybe Lude.DateTime) (\s a -> s {deploymentTime = a} :: Deployment)
 {-# DEPRECATED dDeploymentTime "Use generic-lens or generic-optics with 'deploymentTime' instead." #-}
 
 -- | The version label of the application version in the deployment.

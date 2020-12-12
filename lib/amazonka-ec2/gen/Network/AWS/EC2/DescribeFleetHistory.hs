@@ -56,7 +56,7 @@ data DescribeFleetHistory = DescribeFleetHistory'
     dryRun :: Lude.Maybe Lude.Bool,
     maxResults :: Lude.Maybe Lude.Int,
     fleetId :: Lude.Text,
-    startTime :: Lude.ISO8601
+    startTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -79,7 +79,7 @@ mkDescribeFleetHistory ::
   -- | 'fleetId'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   DescribeFleetHistory
 mkDescribeFleetHistory pFleetId_ pStartTime_ =
   DescribeFleetHistory'
@@ -129,8 +129,8 @@ dfhFleetId = Lens.lens (fleetId :: DescribeFleetHistory -> Lude.Text) (\s a -> s
 -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfhStartTime :: Lens.Lens' DescribeFleetHistory Lude.ISO8601
-dfhStartTime = Lens.lens (startTime :: DescribeFleetHistory -> Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeFleetHistory)
+dfhStartTime :: Lens.Lens' DescribeFleetHistory Lude.DateTime
+dfhStartTime = Lens.lens (startTime :: DescribeFleetHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeFleetHistory)
 {-# DEPRECATED dfhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 instance Lude.AWSRequest DescribeFleetHistory where
@@ -172,9 +172,9 @@ instance Lude.ToQuery DescribeFleetHistory where
 -- | /See:/ 'mkDescribeFleetHistoryResponse' smart constructor.
 data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     lastEvaluatedTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nextToken :: Lude.Maybe Lude.Text,
     historyRecords ::
       Lude.Maybe [HistoryRecordEntry],
@@ -217,8 +217,8 @@ mkDescribeFleetHistoryResponse pResponseStatus_ =
 -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfhrsStartTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.ISO8601)
-dfhrsStartTime = Lens.lens (startTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeFleetHistoryResponse)
+dfhrsStartTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.DateTime)
+dfhrsStartTime = Lens.lens (startTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeFleetHistoryResponse)
 {-# DEPRECATED dfhrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
@@ -226,8 +226,8 @@ dfhrsStartTime = Lens.lens (startTime :: DescribeFleetHistoryResponse -> Lude.Ma
 -- If @nextToken@ indicates that there are more results, this value is not present.
 --
 -- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfhrsLastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.ISO8601)
-dfhrsLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse)
+dfhrsLastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.DateTime)
+dfhrsLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse)
 {-# DEPRECATED dfhrsLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
 
 -- | The token for the next set of results.

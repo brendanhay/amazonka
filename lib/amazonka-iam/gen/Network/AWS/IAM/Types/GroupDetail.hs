@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -37,7 +40,7 @@ import qualified Network.AWS.Prelude as Lude
 data GroupDetail = GroupDetail'
   { arn :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     groupId :: Lude.Maybe Lude.Text,
     groupPolicyList :: Lude.Maybe [PolicyDetail],
     groupName :: Lude.Maybe Lude.Text,
@@ -91,8 +94,8 @@ gdPath = Lens.lens (path :: GroupDetail -> Lude.Maybe Lude.Text) (\s a -> s {pat
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdCreateDate :: Lens.Lens' GroupDetail (Lude.Maybe Lude.ISO8601)
-gdCreateDate = Lens.lens (createDate :: GroupDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: GroupDetail)
+gdCreateDate :: Lens.Lens' GroupDetail (Lude.Maybe Lude.DateTime)
+gdCreateDate = Lens.lens (createDate :: GroupDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: GroupDetail)
 {-# DEPRECATED gdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .

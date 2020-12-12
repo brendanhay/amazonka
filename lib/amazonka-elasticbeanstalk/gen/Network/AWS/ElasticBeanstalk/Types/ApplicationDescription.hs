@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,8 +39,8 @@ data ApplicationDescription = ApplicationDescription'
   { applicationARN ::
       Lude.Maybe Lude.Text,
     versions :: Lude.Maybe [Lude.Text],
-    dateUpdated :: Lude.Maybe Lude.ISO8601,
-    dateCreated :: Lude.Maybe Lude.ISO8601,
+    dateUpdated :: Lude.Maybe Lude.DateTime,
+    dateCreated :: Lude.Maybe Lude.DateTime,
     applicationName :: Lude.Maybe Lude.Text,
     configurationTemplates ::
       Lude.Maybe [Lude.Text],
@@ -95,15 +98,15 @@ adVersions = Lens.lens (versions :: ApplicationDescription -> Lude.Maybe [Lude.T
 -- | The date when the application was last modified.
 --
 -- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDateUpdated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.ISO8601)
-adDateUpdated = Lens.lens (dateUpdated :: ApplicationDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: ApplicationDescription)
+adDateUpdated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.DateTime)
+adDateUpdated = Lens.lens (dateUpdated :: ApplicationDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: ApplicationDescription)
 {-# DEPRECATED adDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The date when the application was created.
 --
 -- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDateCreated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.ISO8601)
-adDateCreated = Lens.lens (dateCreated :: ApplicationDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: ApplicationDescription)
+adDateCreated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.DateTime)
+adDateCreated = Lens.lens (dateCreated :: ApplicationDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: ApplicationDescription)
 {-# DEPRECATED adDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | The name of the application.

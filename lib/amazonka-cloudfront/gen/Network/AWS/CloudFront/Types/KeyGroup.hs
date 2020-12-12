@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkKeyGroup' smart constructor.
 data KeyGroup = KeyGroup'
   { id :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     keyGroupConfig :: KeyGroupConfig
   }
   deriving stock
@@ -52,7 +55,7 @@ mkKeyGroup ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'keyGroupConfig'
   KeyGroupConfig ->
   KeyGroup
@@ -73,8 +76,8 @@ kgId = Lens.lens (id :: KeyGroup -> Lude.Text) (\s a -> s {id = a} :: KeyGroup)
 -- | The date and time when the key group was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgLastModifiedTime :: Lens.Lens' KeyGroup Lude.ISO8601
-kgLastModifiedTime = Lens.lens (lastModifiedTime :: KeyGroup -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: KeyGroup)
+kgLastModifiedTime :: Lens.Lens' KeyGroup Lude.DateTime
+kgLastModifiedTime = Lens.lens (lastModifiedTime :: KeyGroup -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: KeyGroup)
 {-# DEPRECATED kgLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The key group configuration.

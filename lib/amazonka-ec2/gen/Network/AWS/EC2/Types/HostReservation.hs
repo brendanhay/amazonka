@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -47,11 +50,11 @@ data HostReservation = HostReservation'
     instanceFamily :: Lude.Maybe Lude.Text,
     currencyCode :: Lude.Maybe CurrencyCodeValues,
     hostReservationId :: Lude.Maybe Lude.Text,
-    start :: Lude.Maybe Lude.ISO8601,
+    start :: Lude.Maybe Lude.DateTime,
     hourlyPrice :: Lude.Maybe Lude.Text,
     count :: Lude.Maybe Lude.Int,
     upfrontPrice :: Lude.Maybe Lude.Text,
-    end :: Lude.Maybe Lude.ISO8601,
+    end :: Lude.Maybe Lude.DateTime,
     hostIdSet :: Lude.Maybe [Lude.Text],
     offeringId :: Lude.Maybe Lude.Text,
     duration :: Lude.Maybe Lude.Int,
@@ -134,8 +137,8 @@ hrHostReservationId = Lens.lens (hostReservationId :: HostReservation -> Lude.Ma
 -- | The date and time that the reservation started.
 --
 -- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrStart :: Lens.Lens' HostReservation (Lude.Maybe Lude.ISO8601)
-hrStart = Lens.lens (start :: HostReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {start = a} :: HostReservation)
+hrStart :: Lens.Lens' HostReservation (Lude.Maybe Lude.DateTime)
+hrStart = Lens.lens (start :: HostReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {start = a} :: HostReservation)
 {-# DEPRECATED hrStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The hourly price of the reservation.
@@ -162,8 +165,8 @@ hrUpfrontPrice = Lens.lens (upfrontPrice :: HostReservation -> Lude.Maybe Lude.T
 -- | The date and time that the reservation ends.
 --
 -- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrEnd :: Lens.Lens' HostReservation (Lude.Maybe Lude.ISO8601)
-hrEnd = Lens.lens (end :: HostReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {end = a} :: HostReservation)
+hrEnd :: Lens.Lens' HostReservation (Lude.Maybe Lude.DateTime)
+hrEnd = Lens.lens (end :: HostReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {end = a} :: HostReservation)
 {-# DEPRECATED hrEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
 -- | The IDs of the Dedicated Hosts associated with the reservation.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,8 +44,8 @@ data ReservedInstancesListing = ReservedInstancesListing'
   { status ::
       Lude.Maybe ListingStatus,
     clientToken :: Lude.Maybe Lude.Text,
-    updateDate :: Lude.Maybe Lude.ISO8601,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    updateDate :: Lude.Maybe Lude.DateTime,
+    createDate :: Lude.Maybe Lude.DateTime,
     priceSchedules ::
       Lude.Maybe [PriceSchedule],
     statusMessage :: Lude.Maybe Lude.Text,
@@ -108,15 +111,15 @@ rilClientToken = Lens.lens (clientToken :: ReservedInstancesListing -> Lude.Mayb
 -- | The last modified timestamp of the listing.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rilUpdateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.ISO8601)
-rilUpdateDate = Lens.lens (updateDate :: ReservedInstancesListing -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: ReservedInstancesListing)
+rilUpdateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.DateTime)
+rilUpdateDate = Lens.lens (updateDate :: ReservedInstancesListing -> Lude.Maybe Lude.DateTime) (\s a -> s {updateDate = a} :: ReservedInstancesListing)
 {-# DEPRECATED rilUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The time the listing was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rilCreateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.ISO8601)
-rilCreateDate = Lens.lens (createDate :: ReservedInstancesListing -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ReservedInstancesListing)
+rilCreateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.DateTime)
+rilCreateDate = Lens.lens (createDate :: ReservedInstancesListing -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ReservedInstancesListing)
 {-# DEPRECATED rilCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The price of the Reserved Instance listing.

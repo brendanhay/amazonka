@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -30,7 +33,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkEntityDetails' smart constructor.
 data EntityDetails = EntityDetails'
   { lastAuthenticated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     entityInfo :: EntityInfo
   }
   deriving stock
@@ -63,8 +66,8 @@ mkEntityDetails pEntityInfo_ =
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 --
 -- /Note:/ Consider using 'lastAuthenticated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edLastAuthenticated :: Lens.Lens' EntityDetails (Lude.Maybe Lude.ISO8601)
-edLastAuthenticated = Lens.lens (lastAuthenticated :: EntityDetails -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAuthenticated = a} :: EntityDetails)
+edLastAuthenticated :: Lens.Lens' EntityDetails (Lude.Maybe Lude.DateTime)
+edLastAuthenticated = Lens.lens (lastAuthenticated :: EntityDetails -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAuthenticated = a} :: EntityDetails)
 {-# DEPRECATED edLastAuthenticated "Use generic-lens or generic-optics with 'lastAuthenticated' instead." #-}
 
 -- | The @EntityInfo@ object that contains details about the entity (user or role).

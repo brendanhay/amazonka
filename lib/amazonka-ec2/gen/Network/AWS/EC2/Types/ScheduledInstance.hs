@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,20 +44,20 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkScheduledInstance' smart constructor.
 data ScheduledInstance = ScheduledInstance'
   { previousSlotEndTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     platform :: Lude.Maybe Lude.Text,
-    termStartDate :: Lude.Maybe Lude.ISO8601,
+    termStartDate :: Lude.Maybe Lude.DateTime,
     instanceCount :: Lude.Maybe Lude.Int,
     scheduledInstanceId :: Lude.Maybe Lude.Text,
     hourlyPrice :: Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     slotDurationInHours :: Lude.Maybe Lude.Int,
     totalScheduledInstanceHours :: Lude.Maybe Lude.Int,
     instanceType :: Lude.Maybe Lude.Text,
     recurrence :: Lude.Maybe ScheduledInstanceRecurrence,
     availabilityZone :: Lude.Maybe Lude.Text,
-    termEndDate :: Lude.Maybe Lude.ISO8601,
-    nextSlotStartTime :: Lude.Maybe Lude.ISO8601,
+    termEndDate :: Lude.Maybe Lude.DateTime,
+    nextSlotStartTime :: Lude.Maybe Lude.DateTime,
     networkPlatform :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -107,8 +110,8 @@ mkScheduledInstance =
 -- | The time that the previous schedule ended or will end.
 --
 -- /Note:/ Consider using 'previousSlotEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siPreviousSlotEndTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.ISO8601)
-siPreviousSlotEndTime = Lens.lens (previousSlotEndTime :: ScheduledInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {previousSlotEndTime = a} :: ScheduledInstance)
+siPreviousSlotEndTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
+siPreviousSlotEndTime = Lens.lens (previousSlotEndTime :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {previousSlotEndTime = a} :: ScheduledInstance)
 {-# DEPRECATED siPreviousSlotEndTime "Use generic-lens or generic-optics with 'previousSlotEndTime' instead." #-}
 
 -- | The platform (@Linux/UNIX@ or @Windows@ ).
@@ -121,8 +124,8 @@ siPlatform = Lens.lens (platform :: ScheduledInstance -> Lude.Maybe Lude.Text) (
 -- | The start date for the Scheduled Instance.
 --
 -- /Note:/ Consider using 'termStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTermStartDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.ISO8601)
-siTermStartDate = Lens.lens (termStartDate :: ScheduledInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {termStartDate = a} :: ScheduledInstance)
+siTermStartDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
+siTermStartDate = Lens.lens (termStartDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {termStartDate = a} :: ScheduledInstance)
 {-# DEPRECATED siTermStartDate "Use generic-lens or generic-optics with 'termStartDate' instead." #-}
 
 -- | The number of instances.
@@ -149,8 +152,8 @@ siHourlyPrice = Lens.lens (hourlyPrice :: ScheduledInstance -> Lude.Maybe Lude.T
 -- | The date when the Scheduled Instance was purchased.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siCreateDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.ISO8601)
-siCreateDate = Lens.lens (createDate :: ScheduledInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ScheduledInstance)
+siCreateDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
+siCreateDate = Lens.lens (createDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ScheduledInstance)
 {-# DEPRECATED siCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The number of hours in the schedule.
@@ -191,15 +194,15 @@ siAvailabilityZone = Lens.lens (availabilityZone :: ScheduledInstance -> Lude.Ma
 -- | The end date for the Scheduled Instance.
 --
 -- /Note:/ Consider using 'termEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTermEndDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.ISO8601)
-siTermEndDate = Lens.lens (termEndDate :: ScheduledInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {termEndDate = a} :: ScheduledInstance)
+siTermEndDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
+siTermEndDate = Lens.lens (termEndDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {termEndDate = a} :: ScheduledInstance)
 {-# DEPRECATED siTermEndDate "Use generic-lens or generic-optics with 'termEndDate' instead." #-}
 
 -- | The time for the next schedule to start.
 --
 -- /Note:/ Consider using 'nextSlotStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siNextSlotStartTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.ISO8601)
-siNextSlotStartTime = Lens.lens (nextSlotStartTime :: ScheduledInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {nextSlotStartTime = a} :: ScheduledInstance)
+siNextSlotStartTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
+siNextSlotStartTime = Lens.lens (nextSlotStartTime :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {nextSlotStartTime = a} :: ScheduledInstance)
 {-# DEPRECATED siNextSlotStartTime "Use generic-lens or generic-optics with 'nextSlotStartTime' instead." #-}
 
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).

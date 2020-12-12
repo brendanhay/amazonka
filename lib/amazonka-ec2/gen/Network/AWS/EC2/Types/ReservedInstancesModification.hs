@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,11 +45,11 @@ data ReservedInstancesModification = ReservedInstancesModification'
     clientToken ::
       Lude.Maybe Lude.Text,
     updateDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     createDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     effectiveDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     statusMessage ::
       Lude.Maybe Lude.Text,
     reservedInstancesModificationId ::
@@ -115,22 +118,22 @@ rimClientToken = Lens.lens (clientToken :: ReservedInstancesModification -> Lude
 -- | The time when the modification request was last updated.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimUpdateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
-rimUpdateDate = Lens.lens (updateDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: ReservedInstancesModification)
+rimUpdateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.DateTime)
+rimUpdateDate = Lens.lens (updateDate :: ReservedInstancesModification -> Lude.Maybe Lude.DateTime) (\s a -> s {updateDate = a} :: ReservedInstancesModification)
 {-# DEPRECATED rimUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The time when the modification request was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimCreateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
-rimCreateDate = Lens.lens (createDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ReservedInstancesModification)
+rimCreateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.DateTime)
+rimCreateDate = Lens.lens (createDate :: ReservedInstancesModification -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ReservedInstancesModification)
 {-# DEPRECATED rimCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The time for the modification to become effective.
 --
 -- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimEffectiveDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
-rimEffectiveDate = Lens.lens (effectiveDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {effectiveDate = a} :: ReservedInstancesModification)
+rimEffectiveDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.DateTime)
+rimEffectiveDate = Lens.lens (effectiveDate :: ReservedInstancesModification -> Lude.Maybe Lude.DateTime) (\s a -> s {effectiveDate = a} :: ReservedInstancesModification)
 {-# DEPRECATED rimEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
 
 -- | The reason for the status.

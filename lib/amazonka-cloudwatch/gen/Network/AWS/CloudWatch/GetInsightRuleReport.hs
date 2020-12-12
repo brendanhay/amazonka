@@ -78,8 +78,8 @@ data GetInsightRuleReport = GetInsightRuleReport'
     metrics :: Lude.Maybe [Lude.Text],
     orderBy :: Lude.Maybe Lude.Text,
     ruleName :: Lude.Text,
-    startTime :: Lude.ISO8601,
-    endTime :: Lude.ISO8601,
+    startTime :: Lude.DateTime,
+    endTime :: Lude.DateTime,
     period :: Lude.Natural
   }
   deriving stock
@@ -128,9 +128,9 @@ mkGetInsightRuleReport ::
   -- | 'ruleName'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'endTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'period'
   Lude.Natural ->
   GetInsightRuleReport
@@ -200,15 +200,15 @@ girrRuleName = Lens.lens (ruleName :: GetInsightRuleReport -> Lude.Text) (\s a -
 -- | The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girrStartTime :: Lens.Lens' GetInsightRuleReport Lude.ISO8601
-girrStartTime = Lens.lens (startTime :: GetInsightRuleReport -> Lude.ISO8601) (\s a -> s {startTime = a} :: GetInsightRuleReport)
+girrStartTime :: Lens.Lens' GetInsightRuleReport Lude.DateTime
+girrStartTime = Lens.lens (startTime :: GetInsightRuleReport -> Lude.DateTime) (\s a -> s {startTime = a} :: GetInsightRuleReport)
 {-# DEPRECATED girrStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girrEndTime :: Lens.Lens' GetInsightRuleReport Lude.ISO8601
-girrEndTime = Lens.lens (endTime :: GetInsightRuleReport -> Lude.ISO8601) (\s a -> s {endTime = a} :: GetInsightRuleReport)
+girrEndTime :: Lens.Lens' GetInsightRuleReport Lude.DateTime
+girrEndTime = Lens.lens (endTime :: GetInsightRuleReport -> Lude.DateTime) (\s a -> s {endTime = a} :: GetInsightRuleReport)
 {-# DEPRECATED girrEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The period, in seconds, to use for the statistics in the @InsightRuleMetricDatapoint@ results.

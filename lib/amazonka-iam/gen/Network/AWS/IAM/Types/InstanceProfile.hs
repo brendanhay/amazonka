@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -50,7 +53,7 @@ data InstanceProfile = InstanceProfile'
     instanceProfileName :: Lude.Text,
     instanceProfileId :: Lude.Text,
     arn :: Lude.Text,
-    createDate :: Lude.ISO8601,
+    createDate :: Lude.DateTime,
     roles :: [Role]
   }
   deriving stock
@@ -80,7 +83,7 @@ mkInstanceProfile ::
   -- | 'arn'
   Lude.Text ->
   -- | 'createDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   InstanceProfile
 mkInstanceProfile
   pPath_
@@ -128,8 +131,8 @@ ipARN = Lens.lens (arn :: InstanceProfile -> Lude.Text) (\s a -> s {arn = a} :: 
 -- | The date when the instance profile was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipCreateDate :: Lens.Lens' InstanceProfile Lude.ISO8601
-ipCreateDate = Lens.lens (createDate :: InstanceProfile -> Lude.ISO8601) (\s a -> s {createDate = a} :: InstanceProfile)
+ipCreateDate :: Lens.Lens' InstanceProfile Lude.DateTime
+ipCreateDate = Lens.lens (createDate :: InstanceProfile -> Lude.DateTime) (\s a -> s {createDate = a} :: InstanceProfile)
 {-# DEPRECATED ipCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The role associated with the instance profile.

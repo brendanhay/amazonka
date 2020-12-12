@@ -144,8 +144,8 @@ import Network.AWS.S3.Types
 -- | /See:/ 'mkUploadPartCopy' smart constructor.
 data UploadPartCopy = UploadPartCopy'
   { copySourceIfModifiedSince ::
-      Lude.Maybe Lude.ISO8601,
-    copySourceIfUnmodifiedSince :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    copySourceIfUnmodifiedSince :: Lude.Maybe Lude.DateTime,
     copySourceRange :: Lude.Maybe Lude.Text,
     copySourceSSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
     copySourceIfNoneMatch :: Lude.Maybe Lude.Text,
@@ -245,15 +245,15 @@ mkUploadPartCopy
 -- | Copies the object if it has been modified since the specified time.
 --
 -- /Note:/ Consider using 'copySourceIfModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcCopySourceIfModifiedSince :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.ISO8601)
-upcCopySourceIfModifiedSince = Lens.lens (copySourceIfModifiedSince :: UploadPartCopy -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfModifiedSince = a} :: UploadPartCopy)
+upcCopySourceIfModifiedSince :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.DateTime)
+upcCopySourceIfModifiedSince = Lens.lens (copySourceIfModifiedSince :: UploadPartCopy -> Lude.Maybe Lude.DateTime) (\s a -> s {copySourceIfModifiedSince = a} :: UploadPartCopy)
 {-# DEPRECATED upcCopySourceIfModifiedSince "Use generic-lens or generic-optics with 'copySourceIfModifiedSince' instead." #-}
 
 -- | Copies the object if it hasn't been modified since the specified time.
 --
 -- /Note:/ Consider using 'copySourceIfUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcCopySourceIfUnmodifiedSince :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.ISO8601)
-upcCopySourceIfUnmodifiedSince = Lens.lens (copySourceIfUnmodifiedSince :: UploadPartCopy -> Lude.Maybe Lude.ISO8601) (\s a -> s {copySourceIfUnmodifiedSince = a} :: UploadPartCopy)
+upcCopySourceIfUnmodifiedSince :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.DateTime)
+upcCopySourceIfUnmodifiedSince = Lens.lens (copySourceIfUnmodifiedSince :: UploadPartCopy -> Lude.Maybe Lude.DateTime) (\s a -> s {copySourceIfUnmodifiedSince = a} :: UploadPartCopy)
 {-# DEPRECATED upcCopySourceIfUnmodifiedSince "Use generic-lens or generic-optics with 'copySourceIfUnmodifiedSince' instead." #-}
 
 -- | The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.

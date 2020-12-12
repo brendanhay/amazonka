@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,11 +37,11 @@ import qualified Network.AWS.Prelude as Lude
 data NodeSnapshot = NodeSnapshot'
   { nodeGroupConfiguration ::
       Lude.Maybe NodeGroupConfiguration,
-    cacheNodeCreateTime :: Lude.Maybe Lude.ISO8601,
+    cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
     cacheClusterId :: Lude.Maybe Lude.Text,
     cacheNodeId :: Lude.Maybe Lude.Text,
     nodeGroupId :: Lude.Maybe Lude.Text,
-    snapshotCreateTime :: Lude.Maybe Lude.ISO8601,
+    snapshotCreateTime :: Lude.Maybe Lude.DateTime,
     cacheSize :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -82,8 +85,8 @@ nsNodeGroupConfiguration = Lens.lens (nodeGroupConfiguration :: NodeSnapshot -> 
 -- | The date and time when the cache node was created in the source cluster.
 --
 -- /Note:/ Consider using 'cacheNodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsCacheNodeCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.ISO8601)
-nsCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: NodeSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {cacheNodeCreateTime = a} :: NodeSnapshot)
+nsCacheNodeCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.DateTime)
+nsCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: NodeSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheNodeCreateTime = a} :: NodeSnapshot)
 {-# DEPRECATED nsCacheNodeCreateTime "Use generic-lens or generic-optics with 'cacheNodeCreateTime' instead." #-}
 
 -- | A unique identifier for the source cluster.
@@ -110,8 +113,8 @@ nsNodeGroupId = Lens.lens (nodeGroupId :: NodeSnapshot -> Lude.Maybe Lude.Text) 
 -- | The date and time when the source node's metadata and cache data set was obtained for the snapshot.
 --
 -- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsSnapshotCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.ISO8601)
-nsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: NodeSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotCreateTime = a} :: NodeSnapshot)
+nsSnapshotCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.DateTime)
+nsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: NodeSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotCreateTime = a} :: NodeSnapshot)
 {-# DEPRECATED nsSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
 -- | The size of the cache on the source cache node.

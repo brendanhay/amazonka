@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -30,7 +33,7 @@ import Network.AWS.S3.Internal
 data LifecycleExpiration = LifecycleExpiration'
   { days ::
       Lude.Maybe Lude.Int,
-    date :: Lude.Maybe Lude.ISO8601,
+    date :: Lude.Maybe Lude.DateTime,
     expiredObjectDeleteMarker :: Lude.Maybe Lude.Bool
   }
   deriving stock
@@ -66,8 +69,8 @@ leDays = Lens.lens (days :: LifecycleExpiration -> Lude.Maybe Lude.Int) (\s a ->
 -- | Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leDate :: Lens.Lens' LifecycleExpiration (Lude.Maybe Lude.ISO8601)
-leDate = Lens.lens (date :: LifecycleExpiration -> Lude.Maybe Lude.ISO8601) (\s a -> s {date = a} :: LifecycleExpiration)
+leDate :: Lens.Lens' LifecycleExpiration (Lude.Maybe Lude.DateTime)
+leDate = Lens.lens (date :: LifecycleExpiration -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: LifecycleExpiration)
 {-# DEPRECATED leDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.

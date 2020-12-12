@@ -55,12 +55,12 @@ import qualified Network.AWS.Response as Res
 data ModifyScheduledAction = ModifyScheduledAction'
   { targetAction ::
       Lude.Maybe ScheduledActionType,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     schedule :: Lude.Maybe Lude.Text,
     scheduledActionDescription ::
       Lude.Maybe Lude.Text,
     enable :: Lude.Maybe Lude.Bool,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     iamRole :: Lude.Maybe Lude.Text,
     scheduledActionName :: Lude.Text
   }
@@ -109,8 +109,8 @@ msaTargetAction = Lens.lens (targetAction :: ModifyScheduledAction -> Lude.Maybe
 -- | A modified start time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaStartTime :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.ISO8601)
-msaStartTime = Lens.lens (startTime :: ModifyScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ModifyScheduledAction)
+msaStartTime :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.DateTime)
+msaStartTime = Lens.lens (startTime :: ModifyScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ModifyScheduledAction)
 {-# DEPRECATED msaStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | A modified schedule in either @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
@@ -137,8 +137,8 @@ msaEnable = Lens.lens (enable :: ModifyScheduledAction -> Lude.Maybe Lude.Bool) 
 -- | A modified end time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaEndTime :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.ISO8601)
-msaEndTime = Lens.lens (endTime :: ModifyScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: ModifyScheduledAction)
+msaEndTime :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.DateTime)
+msaEndTime = Lens.lens (endTime :: ModifyScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ModifyScheduledAction)
 {-# DEPRECATED msaEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | A different IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .

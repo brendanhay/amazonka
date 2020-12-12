@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -56,13 +59,13 @@ data UpdateAction = UpdateAction'
     updateActionStatus :: Lude.Maybe UpdateActionStatus,
     engine :: Lude.Maybe Lude.Text,
     nodesUpdated :: Lude.Maybe Lude.Text,
-    updateActionStatusModifiedDate :: Lude.Maybe Lude.ISO8601,
-    serviceUpdateReleaseDate :: Lude.Maybe Lude.ISO8601,
+    updateActionStatusModifiedDate :: Lude.Maybe Lude.DateTime,
+    serviceUpdateReleaseDate :: Lude.Maybe Lude.DateTime,
     cacheNodeUpdateStatus :: Lude.Maybe [CacheNodeUpdateStatus],
     serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
     nodeGroupUpdateStatus :: Lude.Maybe [NodeGroupUpdateStatus],
-    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.ISO8601,
-    updateActionAvailableDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.DateTime,
+    updateActionAvailableDate :: Lude.Maybe Lude.DateTime,
     serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
     estimatedUpdateTime :: Lude.Maybe Lude.Text,
     replicationGroupId :: Lude.Maybe Lude.Text
@@ -170,15 +173,15 @@ uaNodesUpdated = Lens.lens (nodesUpdated :: UpdateAction -> Lude.Maybe Lude.Text
 -- | The date when the UpdateActionStatus was last modified
 --
 -- /Note:/ Consider using 'updateActionStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaUpdateActionStatusModifiedDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
-uaUpdateActionStatusModifiedDate = Lens.lens (updateActionStatusModifiedDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateActionStatusModifiedDate = a} :: UpdateAction)
+uaUpdateActionStatusModifiedDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.DateTime)
+uaUpdateActionStatusModifiedDate = Lens.lens (updateActionStatusModifiedDate :: UpdateAction -> Lude.Maybe Lude.DateTime) (\s a -> s {updateActionStatusModifiedDate = a} :: UpdateAction)
 {-# DEPRECATED uaUpdateActionStatusModifiedDate "Use generic-lens or generic-optics with 'updateActionStatusModifiedDate' instead." #-}
 
 -- | The date the update is first available
 --
 -- /Note:/ Consider using 'serviceUpdateReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaServiceUpdateReleaseDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
-uaServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateReleaseDate = a} :: UpdateAction)
+uaServiceUpdateReleaseDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.DateTime)
+uaServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: UpdateAction -> Lude.Maybe Lude.DateTime) (\s a -> s {serviceUpdateReleaseDate = a} :: UpdateAction)
 {-# DEPRECATED uaServiceUpdateReleaseDate "Use generic-lens or generic-optics with 'serviceUpdateReleaseDate' instead." #-}
 
 -- | The status of the service update on the cache node
@@ -205,15 +208,15 @@ uaNodeGroupUpdateStatus = Lens.lens (nodeGroupUpdateStatus :: UpdateAction -> Lu
 -- | The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
 --
 -- /Note:/ Consider using 'serviceUpdateRecommendedApplyByDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaServiceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
-uaServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction)
+uaServiceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.DateTime)
+uaServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: UpdateAction -> Lude.Maybe Lude.DateTime) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction)
 {-# DEPRECATED uaServiceUpdateRecommendedApplyByDate "Use generic-lens or generic-optics with 'serviceUpdateRecommendedApplyByDate' instead." #-}
 
 -- | The date that the service update is available to a replication group
 --
 -- /Note:/ Consider using 'updateActionAvailableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaUpdateActionAvailableDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
-uaUpdateActionAvailableDate = Lens.lens (updateActionAvailableDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateActionAvailableDate = a} :: UpdateAction)
+uaUpdateActionAvailableDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.DateTime)
+uaUpdateActionAvailableDate = Lens.lens (updateActionAvailableDate :: UpdateAction -> Lude.Maybe Lude.DateTime) (\s a -> s {updateActionAvailableDate = a} :: UpdateAction)
 {-# DEPRECATED uaUpdateActionAvailableDate "Use generic-lens or generic-optics with 'updateActionAvailableDate' instead." #-}
 
 -- | The status of the service update

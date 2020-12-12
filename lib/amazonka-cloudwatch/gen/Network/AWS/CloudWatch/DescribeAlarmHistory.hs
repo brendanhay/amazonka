@@ -56,8 +56,8 @@ data DescribeAlarmHistory = DescribeAlarmHistory'
       Lude.Maybe Lude.Text,
     historyItemType :: Lude.Maybe HistoryItemType,
     alarmTypes :: Lude.Maybe [AlarmType],
-    endDate :: Lude.Maybe Lude.ISO8601,
-    startDate :: Lude.Maybe Lude.ISO8601,
+    endDate :: Lude.Maybe Lude.DateTime,
+    startDate :: Lude.Maybe Lude.DateTime,
     nextToken :: Lude.Maybe Lude.Text,
     scanBy :: Lude.Maybe ScanBy,
     maxRecords :: Lude.Maybe Lude.Natural
@@ -119,15 +119,15 @@ dahAlarmTypes = Lens.lens (alarmTypes :: DescribeAlarmHistory -> Lude.Maybe [Ala
 -- | The ending date to retrieve alarm history.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahEndDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.ISO8601)
-dahEndDate = Lens.lens (endDate :: DescribeAlarmHistory -> Lude.Maybe Lude.ISO8601) (\s a -> s {endDate = a} :: DescribeAlarmHistory)
+dahEndDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.DateTime)
+dahEndDate = Lens.lens (endDate :: DescribeAlarmHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: DescribeAlarmHistory)
 {-# DEPRECATED dahEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The starting date to retrieve alarm history.
 --
 -- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahStartDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.ISO8601)
-dahStartDate = Lens.lens (startDate :: DescribeAlarmHistory -> Lude.Maybe Lude.ISO8601) (\s a -> s {startDate = a} :: DescribeAlarmHistory)
+dahStartDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.DateTime)
+dahStartDate = Lens.lens (startDate :: DescribeAlarmHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {startDate = a} :: DescribeAlarmHistory)
 {-# DEPRECATED dahStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The token returned by a previous call to indicate that there is more data available.

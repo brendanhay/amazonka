@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,7 +39,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
     isLatest :: Lude.Maybe Lude.Bool,
     owner :: Lude.Maybe Owner,
     key :: Lude.Maybe ObjectKey,
-    lastModified :: Lude.Maybe Lude.ISO8601
+    lastModified :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -96,8 +99,8 @@ dmeKey = Lens.lens (key :: DeleteMarkerEntry -> Lude.Maybe ObjectKey) (\s a -> s
 -- | Date and time the object was last modified.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmeLastModified :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe Lude.ISO8601)
-dmeLastModified = Lens.lens (lastModified :: DeleteMarkerEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: DeleteMarkerEntry)
+dmeLastModified :: Lens.Lens' DeleteMarkerEntry (Lude.Maybe Lude.DateTime)
+dmeLastModified = Lens.lens (lastModified :: DeleteMarkerEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: DeleteMarkerEntry)
 {-# DEPRECATED dmeLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 instance Lude.FromXML DeleteMarkerEntry where

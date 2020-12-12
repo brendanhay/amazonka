@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,7 +35,7 @@ data Part = Part'
   { eTag :: Lude.Maybe ETag,
     size :: Lude.Maybe Lude.Int,
     partNumber :: Lude.Maybe Lude.Int,
-    lastModified :: Lude.Maybe Lude.ISO8601
+    lastModified :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -83,8 +86,8 @@ pPartNumber = Lens.lens (partNumber :: Part -> Lude.Maybe Lude.Int) (\s a -> s {
 -- | Date and time at which the part was uploaded.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLastModified :: Lens.Lens' Part (Lude.Maybe Lude.ISO8601)
-pLastModified = Lens.lens (lastModified :: Part -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: Part)
+pLastModified :: Lens.Lens' Part (Lude.Maybe Lude.DateTime)
+pLastModified = Lens.lens (lastModified :: Part -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: Part)
 {-# DEPRECATED pLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 instance Lude.FromXML Part where

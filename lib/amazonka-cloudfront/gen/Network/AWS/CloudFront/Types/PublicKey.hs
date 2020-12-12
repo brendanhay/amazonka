@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,7 +32,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { id :: Lude.Text,
-    createdTime :: Lude.ISO8601,
+    createdTime :: Lude.DateTime,
     publicKeyConfig :: PublicKeyConfig
   }
   deriving stock
@@ -50,7 +53,7 @@ mkPublicKey ::
   -- | 'id'
   Lude.Text ->
   -- | 'createdTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'publicKeyConfig'
   PublicKeyConfig ->
   PublicKey
@@ -71,8 +74,8 @@ pkId = Lens.lens (id :: PublicKey -> Lude.Text) (\s a -> s {id = a} :: PublicKey
 -- | The date and time when the public key was uploaded.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkCreatedTime :: Lens.Lens' PublicKey Lude.ISO8601
-pkCreatedTime = Lens.lens (createdTime :: PublicKey -> Lude.ISO8601) (\s a -> s {createdTime = a} :: PublicKey)
+pkCreatedTime :: Lens.Lens' PublicKey Lude.DateTime
+pkCreatedTime = Lens.lens (createdTime :: PublicKey -> Lude.DateTime) (\s a -> s {createdTime = a} :: PublicKey)
 {-# DEPRECATED pkCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Configuration information about a public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .

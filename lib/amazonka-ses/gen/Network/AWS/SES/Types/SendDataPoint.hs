@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,7 @@ data SendDataPoint = SendDataPoint'
     complaints :: Lude.Maybe Lude.Integer,
     deliveryAttempts :: Lude.Maybe Lude.Integer,
     bounces :: Lude.Maybe Lude.Integer,
-    timestamp :: Lude.Maybe Lude.ISO8601
+    timestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -94,8 +97,8 @@ sdpBounces = Lens.lens (bounces :: SendDataPoint -> Lude.Maybe Lude.Integer) (\s
 -- | Time of the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpTimestamp :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.ISO8601)
-sdpTimestamp = Lens.lens (timestamp :: SendDataPoint -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: SendDataPoint)
+sdpTimestamp :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.DateTime)
+sdpTimestamp = Lens.lens (timestamp :: SendDataPoint -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: SendDataPoint)
 {-# DEPRECATED sdpTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML SendDataPoint where

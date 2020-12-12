@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -66,7 +69,7 @@ data DBSnapshot = DBSnapshot'
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
     iops :: Lude.Maybe Lude.Int,
     vpcId :: Lude.Maybe Lude.Text,
-    instanceCreateTime :: Lude.Maybe Lude.ISO8601,
+    instanceCreateTime :: Lude.Maybe Lude.DateTime,
     tagList :: Lude.Maybe [Tag],
     engine :: Lude.Maybe Lude.Text,
     encrypted :: Lude.Maybe Lude.Bool,
@@ -78,7 +81,7 @@ data DBSnapshot = DBSnapshot'
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
     kmsKeyId :: Lude.Maybe Lude.Text,
     availabilityZone :: Lude.Maybe Lude.Text,
-    snapshotCreateTime :: Lude.Maybe Lude.ISO8601,
+    snapshotCreateTime :: Lude.Maybe Lude.DateTime,
     allocatedStorage :: Lude.Maybe Lude.Int,
     dbiResourceId :: Lude.Maybe Lude.Text,
     optionGroupName :: Lude.Maybe Lude.Text,
@@ -222,8 +225,8 @@ dsVPCId = Lens.lens (vpcId :: DBSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {vp
 -- | Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.
 --
 -- /Note:/ Consider using 'instanceCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsInstanceCreateTime :: Lens.Lens' DBSnapshot (Lude.Maybe Lude.ISO8601)
-dsInstanceCreateTime = Lens.lens (instanceCreateTime :: DBSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {instanceCreateTime = a} :: DBSnapshot)
+dsInstanceCreateTime :: Lens.Lens' DBSnapshot (Lude.Maybe Lude.DateTime)
+dsInstanceCreateTime = Lens.lens (instanceCreateTime :: DBSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {instanceCreateTime = a} :: DBSnapshot)
 {-# DEPRECATED dsInstanceCreateTime "Use generic-lens or generic-optics with 'instanceCreateTime' instead." #-}
 
 -- | Undocumented field.
@@ -306,8 +309,8 @@ dsAvailabilityZone = Lens.lens (availabilityZone :: DBSnapshot -> Lude.Maybe Lud
 -- | Specifies when the snapshot was taken in Coordinated Universal Time (UTC).
 --
 -- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSnapshotCreateTime :: Lens.Lens' DBSnapshot (Lude.Maybe Lude.ISO8601)
-dsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: DBSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotCreateTime = a} :: DBSnapshot)
+dsSnapshotCreateTime :: Lens.Lens' DBSnapshot (Lude.Maybe Lude.DateTime)
+dsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: DBSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotCreateTime = a} :: DBSnapshot)
 {-# DEPRECATED dsSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
 -- | Specifies the allocated storage size in gibibytes (GiB).

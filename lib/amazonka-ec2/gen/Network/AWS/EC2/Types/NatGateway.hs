@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -45,10 +48,10 @@ data NatGateway = NatGateway'
     failureMessage :: Lude.Maybe Lude.Text,
     natGatewayId :: Lude.Maybe Lude.Text,
     subnetId :: Lude.Maybe Lude.Text,
-    deleteTime :: Lude.Maybe Lude.ISO8601,
+    deleteTime :: Lude.Maybe Lude.DateTime,
     provisionedBandwidth :: Lude.Maybe ProvisionedBandwidth,
     natGatewayAddresses :: Lude.Maybe [NatGatewayAddress],
-    createTime :: Lude.Maybe Lude.ISO8601,
+    createTime :: Lude.Maybe Lude.DateTime,
     tags :: Lude.Maybe [Tag]
   }
   deriving stock
@@ -209,8 +212,8 @@ ngSubnetId = Lens.lens (subnetId :: NatGateway -> Lude.Maybe Lude.Text) (\s a ->
 -- | The date and time the NAT gateway was deleted, if applicable.
 --
 -- /Note:/ Consider using 'deleteTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngDeleteTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.ISO8601)
-ngDeleteTime = Lens.lens (deleteTime :: NatGateway -> Lude.Maybe Lude.ISO8601) (\s a -> s {deleteTime = a} :: NatGateway)
+ngDeleteTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.DateTime)
+ngDeleteTime = Lens.lens (deleteTime :: NatGateway -> Lude.Maybe Lude.DateTime) (\s a -> s {deleteTime = a} :: NatGateway)
 {-# DEPRECATED ngDeleteTime "Use generic-lens or generic-optics with 'deleteTime' instead." #-}
 
 -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
@@ -230,8 +233,8 @@ ngNatGatewayAddresses = Lens.lens (natGatewayAddresses :: NatGateway -> Lude.May
 -- | The date and time the NAT gateway was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngCreateTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.ISO8601)
-ngCreateTime = Lens.lens (createTime :: NatGateway -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: NatGateway)
+ngCreateTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.DateTime)
+ngCreateTime = Lens.lens (createTime :: NatGateway -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: NatGateway)
 {-# DEPRECATED ngCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The tags for the NAT gateway.

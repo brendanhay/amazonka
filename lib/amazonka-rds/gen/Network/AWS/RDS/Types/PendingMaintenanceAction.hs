@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,14 +34,14 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
   { autoAppliedAfterDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     action :: Lude.Maybe Lude.Text,
     optInStatus :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text,
     forcedApplyDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     currentApplyDate ::
-      Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -74,8 +77,8 @@ mkPendingMaintenanceAction =
 -- | The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date.
 --
 -- /Note:/ Consider using 'autoAppliedAfterDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmaAutoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.ISO8601)
-pmaAutoAppliedAfterDate = Lens.lens (autoAppliedAfterDate :: PendingMaintenanceAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction)
+pmaAutoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.DateTime)
+pmaAutoAppliedAfterDate = Lens.lens (autoAppliedAfterDate :: PendingMaintenanceAction -> Lude.Maybe Lude.DateTime) (\s a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction)
 {-# DEPRECATED pmaAutoAppliedAfterDate "Use generic-lens or generic-optics with 'autoAppliedAfterDate' instead." #-}
 
 -- | The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ , @db-upgrade@ , @hardware-maintenance@ , and @ca-certificate-rotation@ .
@@ -104,15 +107,15 @@ pmaDescription = Lens.lens (description :: PendingMaintenanceAction -> Lude.Mayb
 -- On this date, the maintenance action is applied to the resource as soon as possible, regardless of the maintenance window for the resource. There might be a delay of one or more days from this date before the maintenance action is applied.
 --
 -- /Note:/ Consider using 'forcedApplyDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmaForcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.ISO8601)
-pmaForcedApplyDate = Lens.lens (forcedApplyDate :: PendingMaintenanceAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {forcedApplyDate = a} :: PendingMaintenanceAction)
+pmaForcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.DateTime)
+pmaForcedApplyDate = Lens.lens (forcedApplyDate :: PendingMaintenanceAction -> Lude.Maybe Lude.DateTime) (\s a -> s {forcedApplyDate = a} :: PendingMaintenanceAction)
 {-# DEPRECATED pmaForcedApplyDate "Use generic-lens or generic-optics with 'forcedApplyDate' instead." #-}
 
 -- | The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the @ApplyPendingMaintenanceAction@ API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
 --
 -- /Note:/ Consider using 'currentApplyDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmaCurrentApplyDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.ISO8601)
-pmaCurrentApplyDate = Lens.lens (currentApplyDate :: PendingMaintenanceAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {currentApplyDate = a} :: PendingMaintenanceAction)
+pmaCurrentApplyDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.DateTime)
+pmaCurrentApplyDate = Lens.lens (currentApplyDate :: PendingMaintenanceAction -> Lude.Maybe Lude.DateTime) (\s a -> s {currentApplyDate = a} :: PendingMaintenanceAction)
 {-# DEPRECATED pmaCurrentApplyDate "Use generic-lens or generic-optics with 'currentApplyDate' instead." #-}
 
 instance Lude.FromXML PendingMaintenanceAction where

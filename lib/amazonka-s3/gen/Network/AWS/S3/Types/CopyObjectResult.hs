@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import Network.AWS.S3.Internal
 -- /See:/ 'mkCopyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
   { eTag :: Lude.Maybe ETag,
-    lastModified :: Lude.Maybe Lude.ISO8601
+    lastModified :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -61,8 +64,8 @@ corETag = Lens.lens (eTag :: CopyObjectResult -> Lude.Maybe ETag) (\s a -> s {eT
 -- | Returns the date that the object was last modified.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-corLastModified :: Lens.Lens' CopyObjectResult (Lude.Maybe Lude.ISO8601)
-corLastModified = Lens.lens (lastModified :: CopyObjectResult -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: CopyObjectResult)
+corLastModified :: Lens.Lens' CopyObjectResult (Lude.Maybe Lude.DateTime)
+corLastModified = Lens.lens (lastModified :: CopyObjectResult -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: CopyObjectResult)
 {-# DEPRECATED corLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 instance Lude.FromXML CopyObjectResult where

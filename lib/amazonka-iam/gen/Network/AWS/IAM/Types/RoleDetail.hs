@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -49,7 +52,7 @@ data RoleDetail = RoleDetail'
     arn :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
     instanceProfileList :: Lude.Maybe [InstanceProfile],
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     roleName :: Lude.Maybe Lude.Text,
     roleId :: Lude.Maybe Lude.Text,
     roleLastUsed :: Lude.Maybe RoleLastUsed,
@@ -132,8 +135,8 @@ rdInstanceProfileList = Lens.lens (instanceProfileList :: RoleDetail -> Lude.May
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdCreateDate :: Lens.Lens' RoleDetail (Lude.Maybe Lude.ISO8601)
-rdCreateDate = Lens.lens (createDate :: RoleDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: RoleDetail)
+rdCreateDate :: Lens.Lens' RoleDetail (Lude.Maybe Lude.DateTime)
+rdCreateDate = Lens.lens (createDate :: RoleDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: RoleDetail)
 {-# DEPRECATED rdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The friendly name that identifies the role.

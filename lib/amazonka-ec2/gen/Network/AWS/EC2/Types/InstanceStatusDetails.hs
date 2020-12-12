@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 data InstanceStatusDetails = InstanceStatusDetails'
   { status ::
       Lude.Maybe StatusType,
-    impairedSince :: Lude.Maybe Lude.ISO8601,
+    impairedSince :: Lude.Maybe Lude.DateTime,
     name :: Lude.Maybe StatusName
   }
   deriving stock
@@ -67,8 +70,8 @@ isdStatus = Lens.lens (status :: InstanceStatusDetails -> Lude.Maybe StatusType)
 -- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
 --
 -- /Note:/ Consider using 'impairedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isdImpairedSince :: Lens.Lens' InstanceStatusDetails (Lude.Maybe Lude.ISO8601)
-isdImpairedSince = Lens.lens (impairedSince :: InstanceStatusDetails -> Lude.Maybe Lude.ISO8601) (\s a -> s {impairedSince = a} :: InstanceStatusDetails)
+isdImpairedSince :: Lens.Lens' InstanceStatusDetails (Lude.Maybe Lude.DateTime)
+isdImpairedSince = Lens.lens (impairedSince :: InstanceStatusDetails -> Lude.Maybe Lude.DateTime) (\s a -> s {impairedSince = a} :: InstanceStatusDetails)
 {-# DEPRECATED isdImpairedSince "Use generic-lens or generic-optics with 'impairedSince' instead." #-}
 
 -- | The type of instance status.

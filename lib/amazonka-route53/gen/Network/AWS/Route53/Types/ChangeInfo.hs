@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ data ChangeInfo = ChangeInfo'
   { comment :: Lude.Maybe Lude.Text,
     id :: ResourceId,
     status :: ChangeStatus,
-    submittedAt :: Lude.ISO8601
+    submittedAt :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -58,7 +61,7 @@ mkChangeInfo ::
   -- | 'status'
   ChangeStatus ->
   -- | 'submittedAt'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   ChangeInfo
 mkChangeInfo pId_ pStatus_ pSubmittedAt_ =
   ChangeInfo'
@@ -94,8 +97,8 @@ ciStatus = Lens.lens (status :: ChangeInfo -> ChangeStatus) (\s a -> s {status =
 -- | The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 --
 -- /Note:/ Consider using 'submittedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSubmittedAt :: Lens.Lens' ChangeInfo Lude.ISO8601
-ciSubmittedAt = Lens.lens (submittedAt :: ChangeInfo -> Lude.ISO8601) (\s a -> s {submittedAt = a} :: ChangeInfo)
+ciSubmittedAt :: Lens.Lens' ChangeInfo Lude.DateTime
+ciSubmittedAt = Lens.lens (submittedAt :: ChangeInfo -> Lude.DateTime) (\s a -> s {submittedAt = a} :: ChangeInfo)
 {-# DEPRECATED ciSubmittedAt "Use generic-lens or generic-optics with 'submittedAt' instead." #-}
 
 instance Lude.FromXML ChangeInfo where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import Network.AWS.Route53.Internal
 -- /See:/ 'mkStatusReport' smart constructor.
 data StatusReport = StatusReport'
   { status :: Lude.Maybe Lude.Text,
-    checkedTime :: Lude.Maybe Lude.ISO8601
+    checkedTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -58,8 +61,8 @@ srStatus = Lens.lens (status :: StatusReport -> Lude.Maybe Lude.Text) (\s a -> s
 -- | The date and time that the health checker performed the health check in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 --
 -- /Note:/ Consider using 'checkedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srCheckedTime :: Lens.Lens' StatusReport (Lude.Maybe Lude.ISO8601)
-srCheckedTime = Lens.lens (checkedTime :: StatusReport -> Lude.Maybe Lude.ISO8601) (\s a -> s {checkedTime = a} :: StatusReport)
+srCheckedTime :: Lens.Lens' StatusReport (Lude.Maybe Lude.DateTime)
+srCheckedTime = Lens.lens (checkedTime :: StatusReport -> Lude.Maybe Lude.DateTime) (\s a -> s {checkedTime = a} :: StatusReport)
 {-# DEPRECATED srCheckedTime "Use generic-lens or generic-optics with 'checkedTime' instead." #-}
 
 instance Lude.FromXML StatusReport where

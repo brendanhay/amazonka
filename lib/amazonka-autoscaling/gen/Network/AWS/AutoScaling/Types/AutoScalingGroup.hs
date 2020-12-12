@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -84,7 +87,7 @@ data AutoScalingGroup = AutoScalingGroup'
     defaultCooldown :: Lude.Int,
     availabilityZones :: Lude.NonEmpty Lude.Text,
     healthCheckType :: Lude.Text,
-    createdTime :: Lude.ISO8601
+    createdTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -142,7 +145,7 @@ mkAutoScalingGroup ::
   -- | 'healthCheckType'
   Lude.Text ->
   -- | 'createdTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   AutoScalingGroup
 mkAutoScalingGroup
   pAutoScalingGroupName_
@@ -370,8 +373,8 @@ asgHealthCheckType = Lens.lens (healthCheckType :: AutoScalingGroup -> Lude.Text
 -- | The date and time the group was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgCreatedTime :: Lens.Lens' AutoScalingGroup Lude.ISO8601
-asgCreatedTime = Lens.lens (createdTime :: AutoScalingGroup -> Lude.ISO8601) (\s a -> s {createdTime = a} :: AutoScalingGroup)
+asgCreatedTime :: Lens.Lens' AutoScalingGroup Lude.DateTime
+asgCreatedTime = Lens.lens (createdTime :: AutoScalingGroup -> Lude.DateTime) (\s a -> s {createdTime = a} :: AutoScalingGroup)
 {-# DEPRECATED asgCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 instance Lude.FromXML AutoScalingGroup where

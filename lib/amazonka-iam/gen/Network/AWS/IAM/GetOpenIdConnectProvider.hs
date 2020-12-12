@@ -116,7 +116,7 @@ instance Lude.ToQuery GetOpenIdConnectProvider where
 -- /See:/ 'mkGetOpenIdConnectProviderResponse' smart constructor.
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
   { createDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     url ::
       Lude.Maybe Lude.Text,
     thumbprintList ::
@@ -158,8 +158,8 @@ mkGetOpenIdConnectProviderResponse pResponseStatus_ =
 -- | The date and time when the IAM OIDC provider resource object was created in the AWS account.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goicprsCreateDate :: Lens.Lens' GetOpenIdConnectProviderResponse (Lude.Maybe Lude.ISO8601)
-goicprsCreateDate = Lens.lens (createDate :: GetOpenIdConnectProviderResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: GetOpenIdConnectProviderResponse)
+goicprsCreateDate :: Lens.Lens' GetOpenIdConnectProviderResponse (Lude.Maybe Lude.DateTime)
+goicprsCreateDate = Lens.lens (createDate :: GetOpenIdConnectProviderResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: GetOpenIdConnectProviderResponse)
 {-# DEPRECATED goicprsCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The URL that the IAM OIDC provider resource object is associated with. For more information, see 'CreateOpenIDConnectProvider' .

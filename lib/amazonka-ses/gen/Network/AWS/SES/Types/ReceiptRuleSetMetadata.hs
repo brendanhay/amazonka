@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
   { name ::
       Lude.Maybe Lude.Text,
-    createdTimestamp :: Lude.Maybe Lude.ISO8601
+    createdTimestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -84,8 +87,8 @@ rrsmName = Lens.lens (name :: ReceiptRuleSetMetadata -> Lude.Maybe Lude.Text) (\
 -- | The date and time the receipt rule set was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsmCreatedTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Lude.Maybe Lude.ISO8601)
-rrsmCreatedTimestamp = Lens.lens (createdTimestamp :: ReceiptRuleSetMetadata -> Lude.Maybe Lude.ISO8601) (\s a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata)
+rrsmCreatedTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Lude.Maybe Lude.DateTime)
+rrsmCreatedTimestamp = Lens.lens (createdTimestamp :: ReceiptRuleSetMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata)
 {-# DEPRECATED rrsmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 instance Lude.FromXML ReceiptRuleSetMetadata where

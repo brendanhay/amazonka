@@ -85,7 +85,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     dbSubnetGroupName ::
       Lude.Maybe Lude.Text,
     restoreTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     iops :: Lude.Maybe Lude.Int,
     domain ::
       Lude.Maybe Lude.Text,
@@ -400,8 +400,8 @@ rditpitDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: RestoreDBInstanceToPo
 -- Example: @2009-09-07T23:45:00Z@
 --
 -- /Note:/ Consider using 'restoreTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rditpitRestoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.ISO8601)
-rditpitRestoreTime = Lens.lens (restoreTime :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.ISO8601) (\s a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime)
+rditpitRestoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.DateTime)
+rditpitRestoreTime = Lens.lens (restoreTime :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.DateTime) (\s a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime)
 {-# DEPRECATED rditpitRestoreTime "Use generic-lens or generic-optics with 'restoreTime' instead." #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.

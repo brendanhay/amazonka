@@ -242,7 +242,7 @@ data ListPartsResponse = ListPartsResponse'
     maxParts :: Lude.Maybe Lude.Int,
     initiator :: Lude.Maybe Initiator,
     bucket :: Lude.Maybe BucketName,
-    abortDate :: Lude.Maybe Lude.ISO8601,
+    abortDate :: Lude.Maybe Lude.DateTime,
     nextPartNumberMarker :: Lude.Maybe Lude.Int,
     abortRuleId :: Lude.Maybe Lude.Text,
     owner :: Lude.Maybe Owner,
@@ -344,8 +344,8 @@ lprsBucket = Lens.lens (bucket :: ListPartsResponse -> Lude.Maybe BucketName) (\
 -- The response will also include the @x-amz-abort-rule-id@ header that will provide the ID of the lifecycle configuration rule that defines this action.
 --
 -- /Note:/ Consider using 'abortDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsAbortDate :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.ISO8601)
-lprsAbortDate = Lens.lens (abortDate :: ListPartsResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {abortDate = a} :: ListPartsResponse)
+lprsAbortDate :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.DateTime)
+lprsAbortDate = Lens.lens (abortDate :: ListPartsResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {abortDate = a} :: ListPartsResponse)
 {-# DEPRECATED lprsAbortDate "Use generic-lens or generic-optics with 'abortDate' instead." #-}
 
 -- | When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.

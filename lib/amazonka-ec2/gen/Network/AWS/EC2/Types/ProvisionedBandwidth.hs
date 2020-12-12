@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,8 +36,8 @@ data ProvisionedBandwidth = ProvisionedBandwidth'
       Lude.Maybe Lude.Text,
     requested :: Lude.Maybe Lude.Text,
     provisioned :: Lude.Maybe Lude.Text,
-    requestTime :: Lude.Maybe Lude.ISO8601,
-    provisionTime :: Lude.Maybe Lude.ISO8601
+    requestTime :: Lude.Maybe Lude.DateTime,
+    provisionTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -87,15 +90,15 @@ pbProvisioned = Lens.lens (provisioned :: ProvisionedBandwidth -> Lude.Maybe Lud
 -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
 -- /Note:/ Consider using 'requestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbRequestTime :: Lens.Lens' ProvisionedBandwidth (Lude.Maybe Lude.ISO8601)
-pbRequestTime = Lens.lens (requestTime :: ProvisionedBandwidth -> Lude.Maybe Lude.ISO8601) (\s a -> s {requestTime = a} :: ProvisionedBandwidth)
+pbRequestTime :: Lens.Lens' ProvisionedBandwidth (Lude.Maybe Lude.DateTime)
+pbRequestTime = Lens.lens (requestTime :: ProvisionedBandwidth -> Lude.Maybe Lude.DateTime) (\s a -> s {requestTime = a} :: ProvisionedBandwidth)
 {-# DEPRECATED pbRequestTime "Use generic-lens or generic-optics with 'requestTime' instead." #-}
 
 -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
 -- /Note:/ Consider using 'provisionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbProvisionTime :: Lens.Lens' ProvisionedBandwidth (Lude.Maybe Lude.ISO8601)
-pbProvisionTime = Lens.lens (provisionTime :: ProvisionedBandwidth -> Lude.Maybe Lude.ISO8601) (\s a -> s {provisionTime = a} :: ProvisionedBandwidth)
+pbProvisionTime :: Lens.Lens' ProvisionedBandwidth (Lude.Maybe Lude.DateTime)
+pbProvisionTime = Lens.lens (provisionTime :: ProvisionedBandwidth -> Lude.Maybe Lude.DateTime) (\s a -> s {provisionTime = a} :: ProvisionedBandwidth)
 {-# DEPRECATED pbProvisionTime "Use generic-lens or generic-optics with 'provisionTime' instead." #-}
 
 instance Lude.FromXML ProvisionedBandwidth where

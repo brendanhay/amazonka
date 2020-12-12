@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkCreateScheduledAction' smart constructor.
 data CreateScheduledAction = CreateScheduledAction'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     scheduledActionDescription ::
       Lude.Maybe Lude.Text,
     enable :: Lude.Maybe Lude.Bool,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     scheduledActionName :: Lude.Text,
     targetAction :: ScheduledActionType,
     schedule :: Lude.Text,
@@ -112,8 +112,8 @@ mkCreateScheduledAction
 -- | The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csaStartTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.ISO8601)
-csaStartTime = Lens.lens (startTime :: CreateScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: CreateScheduledAction)
+csaStartTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.DateTime)
+csaStartTime = Lens.lens (startTime :: CreateScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: CreateScheduledAction)
 {-# DEPRECATED csaStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The description of the scheduled action.
@@ -133,8 +133,8 @@ csaEnable = Lens.lens (enable :: CreateScheduledAction -> Lude.Maybe Lude.Bool) 
 -- | The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csaEndTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.ISO8601)
-csaEndTime = Lens.lens (endTime :: CreateScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: CreateScheduledAction)
+csaEndTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.DateTime)
+csaEndTime = Lens.lens (endTime :: CreateScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: CreateScheduledAction)
 {-# DEPRECATED csaEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .

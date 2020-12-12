@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -44,12 +47,12 @@ data ServiceUpdate = ServiceUpdate'
     serviceUpdateType :: Lude.Maybe ServiceUpdateType,
     serviceUpdateName :: Lude.Maybe Lude.Text,
     engine :: Lude.Maybe Lude.Text,
-    serviceUpdateReleaseDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateReleaseDate :: Lude.Maybe Lude.DateTime,
     autoUpdateAfterRecommendedApplyByDate :: Lude.Maybe Lude.Bool,
     serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
-    serviceUpdateEndDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateEndDate :: Lude.Maybe Lude.DateTime,
     serviceUpdateDescription :: Lude.Maybe Lude.Text,
-    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.DateTime,
     serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
     estimatedUpdateTime :: Lude.Maybe Lude.Text
   }
@@ -125,8 +128,8 @@ suEngine = Lens.lens (engine :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> 
 -- | The date when the service update is initially available
 --
 -- /Note:/ Consider using 'serviceUpdateReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-suServiceUpdateReleaseDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
-suServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateReleaseDate = a} :: ServiceUpdate)
+suServiceUpdateReleaseDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.DateTime)
+suServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: ServiceUpdate -> Lude.Maybe Lude.DateTime) (\s a -> s {serviceUpdateReleaseDate = a} :: ServiceUpdate)
 {-# DEPRECATED suServiceUpdateReleaseDate "Use generic-lens or generic-optics with 'serviceUpdateReleaseDate' instead." #-}
 
 -- | Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
@@ -146,8 +149,8 @@ suServiceUpdateSeverity = Lens.lens (serviceUpdateSeverity :: ServiceUpdate -> L
 -- | The date after which the service update is no longer available
 --
 -- /Note:/ Consider using 'serviceUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-suServiceUpdateEndDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
-suServiceUpdateEndDate = Lens.lens (serviceUpdateEndDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateEndDate = a} :: ServiceUpdate)
+suServiceUpdateEndDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.DateTime)
+suServiceUpdateEndDate = Lens.lens (serviceUpdateEndDate :: ServiceUpdate -> Lude.Maybe Lude.DateTime) (\s a -> s {serviceUpdateEndDate = a} :: ServiceUpdate)
 {-# DEPRECATED suServiceUpdateEndDate "Use generic-lens or generic-optics with 'serviceUpdateEndDate' instead." #-}
 
 -- | Provides details of the service update
@@ -160,8 +163,8 @@ suServiceUpdateDescription = Lens.lens (serviceUpdateDescription :: ServiceUpdat
 -- | The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
 --
 -- /Note:/ Consider using 'serviceUpdateRecommendedApplyByDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-suServiceUpdateRecommendedApplyByDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
-suServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: ServiceUpdate)
+suServiceUpdateRecommendedApplyByDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.DateTime)
+suServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: ServiceUpdate -> Lude.Maybe Lude.DateTime) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: ServiceUpdate)
 {-# DEPRECATED suServiceUpdateRecommendedApplyByDate "Use generic-lens or generic-optics with 'serviceUpdateRecommendedApplyByDate' instead." #-}
 
 -- | The status of the service update

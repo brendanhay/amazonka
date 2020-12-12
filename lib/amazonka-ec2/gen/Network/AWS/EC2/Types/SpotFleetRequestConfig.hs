@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     spotFleetRequestId :: Lude.Maybe Lude.Text,
     spotFleetRequestState ::
       Lude.Maybe BatchState,
-    createTime :: Lude.Maybe Lude.ISO8601,
+    createTime :: Lude.Maybe Lude.DateTime,
     tags :: Lude.Maybe [Tag],
     activityStatus :: Lude.Maybe ActivityStatus
   }
@@ -96,8 +99,8 @@ sfrcSpotFleetRequestState = Lens.lens (spotFleetRequestState :: SpotFleetRequest
 -- | The creation date and time of the request.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfrcCreateTime :: Lens.Lens' SpotFleetRequestConfig (Lude.Maybe Lude.ISO8601)
-sfrcCreateTime = Lens.lens (createTime :: SpotFleetRequestConfig -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: SpotFleetRequestConfig)
+sfrcCreateTime :: Lens.Lens' SpotFleetRequestConfig (Lude.Maybe Lude.DateTime)
+sfrcCreateTime = Lens.lens (createTime :: SpotFleetRequestConfig -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: SpotFleetRequestConfig)
 {-# DEPRECATED sfrcCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The tags for a Spot Fleet resource.

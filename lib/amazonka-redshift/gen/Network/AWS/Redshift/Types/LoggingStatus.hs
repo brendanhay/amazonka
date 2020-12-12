@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,8 +35,8 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'mkLoggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
   { lastFailureTime ::
-      Lude.Maybe Lude.ISO8601,
-    lastSuccessfulDeliveryTime :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    lastSuccessfulDeliveryTime :: Lude.Maybe Lude.DateTime,
     s3KeyPrefix :: Lude.Maybe Lude.Text,
     bucketName :: Lude.Maybe Lude.Text,
     loggingEnabled :: Lude.Maybe Lude.Bool,
@@ -71,15 +74,15 @@ mkLoggingStatus =
 -- | The last time when logs failed to be delivered.
 --
 -- /Note:/ Consider using 'lastFailureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLastFailureTime :: Lens.Lens' LoggingStatus (Lude.Maybe Lude.ISO8601)
-lsLastFailureTime = Lens.lens (lastFailureTime :: LoggingStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastFailureTime = a} :: LoggingStatus)
+lsLastFailureTime :: Lens.Lens' LoggingStatus (Lude.Maybe Lude.DateTime)
+lsLastFailureTime = Lens.lens (lastFailureTime :: LoggingStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {lastFailureTime = a} :: LoggingStatus)
 {-# DEPRECATED lsLastFailureTime "Use generic-lens or generic-optics with 'lastFailureTime' instead." #-}
 
 -- | The last time that logs were delivered.
 --
 -- /Note:/ Consider using 'lastSuccessfulDeliveryTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLastSuccessfulDeliveryTime :: Lens.Lens' LoggingStatus (Lude.Maybe Lude.ISO8601)
-lsLastSuccessfulDeliveryTime = Lens.lens (lastSuccessfulDeliveryTime :: LoggingStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastSuccessfulDeliveryTime = a} :: LoggingStatus)
+lsLastSuccessfulDeliveryTime :: Lens.Lens' LoggingStatus (Lude.Maybe Lude.DateTime)
+lsLastSuccessfulDeliveryTime = Lens.lens (lastSuccessfulDeliveryTime :: LoggingStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {lastSuccessfulDeliveryTime = a} :: LoggingStatus)
 {-# DEPRECATED lsLastSuccessfulDeliveryTime "Use generic-lens or generic-optics with 'lastSuccessfulDeliveryTime' instead." #-}
 
 -- | The prefix applied to the log file names.

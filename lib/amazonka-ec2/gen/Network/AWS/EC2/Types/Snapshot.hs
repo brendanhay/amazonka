@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -50,7 +53,7 @@ data Snapshot = Snapshot'
     volumeId :: Lude.Text,
     volumeSize :: Lude.Int,
     description :: Lude.Text,
-    startTime :: Lude.ISO8601,
+    startTime :: Lude.DateTime,
     progress :: Lude.Text,
     state :: SnapshotState,
     encrypted :: Lude.Bool
@@ -92,7 +95,7 @@ mkSnapshot ::
   -- | 'description'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'progress'
   Lude.Text ->
   -- | 'state'
@@ -200,8 +203,8 @@ sDescription = Lens.lens (description :: Snapshot -> Lude.Text) (\s a -> s {desc
 -- | The time stamp when the snapshot was initiated.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStartTime :: Lens.Lens' Snapshot Lude.ISO8601
-sStartTime = Lens.lens (startTime :: Snapshot -> Lude.ISO8601) (\s a -> s {startTime = a} :: Snapshot)
+sStartTime :: Lens.Lens' Snapshot Lude.DateTime
+sStartTime = Lens.lens (startTime :: Snapshot -> Lude.DateTime) (\s a -> s {startTime = a} :: Snapshot)
 {-# DEPRECATED sStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The progress of the snapshot, as a percentage.

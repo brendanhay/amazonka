@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -60,8 +63,8 @@ data EnvironmentDescription = EnvironmentDescription'
     endpointURL :: Lude.Maybe Lude.Text,
     resources ::
       Lude.Maybe EnvironmentResourcesDescription,
-    dateUpdated :: Lude.Maybe Lude.ISO8601,
-    dateCreated :: Lude.Maybe Lude.ISO8601,
+    dateUpdated :: Lude.Maybe Lude.DateTime,
+    dateCreated :: Lude.Maybe Lude.DateTime,
     health :: Lude.Maybe EnvironmentHealth,
     versionLabel :: Lude.Maybe Lude.Text,
     operationsRole :: Lude.Maybe Lude.Text,
@@ -237,15 +240,15 @@ eResources = Lens.lens (resources :: EnvironmentDescription -> Lude.Maybe Enviro
 -- | The last modified date for this environment.
 --
 -- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDateUpdated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.ISO8601)
-eDateUpdated = Lens.lens (dateUpdated :: EnvironmentDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: EnvironmentDescription)
+eDateUpdated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.DateTime)
+eDateUpdated = Lens.lens (dateUpdated :: EnvironmentDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: EnvironmentDescription)
 {-# DEPRECATED eDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The creation date for this environment.
 --
 -- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDateCreated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.ISO8601)
-eDateCreated = Lens.lens (dateCreated :: EnvironmentDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: EnvironmentDescription)
+eDateCreated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.DateTime)
+eDateCreated = Lens.lens (dateCreated :: EnvironmentDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: EnvironmentDescription)
 {-# DEPRECATED eDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:

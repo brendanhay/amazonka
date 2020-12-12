@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,8 +32,8 @@ import qualified Network.AWS.Prelude as Lude
 data SAMLProviderListEntry = SAMLProviderListEntry'
   { arn ::
       Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
-    validUntil :: Lude.Maybe Lude.ISO8601
+    createDate :: Lude.Maybe Lude.DateTime,
+    validUntil :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -65,15 +68,15 @@ samlpleARN = Lens.lens (arn :: SAMLProviderListEntry -> Lude.Maybe Lude.Text) (\
 -- | The date and time when the SAML provider was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlpleCreateDate :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.ISO8601)
-samlpleCreateDate = Lens.lens (createDate :: SAMLProviderListEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: SAMLProviderListEntry)
+samlpleCreateDate :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.DateTime)
+samlpleCreateDate = Lens.lens (createDate :: SAMLProviderListEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: SAMLProviderListEntry)
 {-# DEPRECATED samlpleCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The expiration date and time for the SAML provider.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlpleValidUntil :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.ISO8601)
-samlpleValidUntil = Lens.lens (validUntil :: SAMLProviderListEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SAMLProviderListEntry)
+samlpleValidUntil :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.DateTime)
+samlpleValidUntil = Lens.lens (validUntil :: SAMLProviderListEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: SAMLProviderListEntry)
 {-# DEPRECATED samlpleValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 instance Lude.FromXML SAMLProviderListEntry where

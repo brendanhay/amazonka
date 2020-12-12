@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -45,7 +48,7 @@ data ReservedDBInstance = ReservedDBInstance'
       Lude.Maybe Lude.Int,
     state :: Lude.Maybe Lude.Text,
     currencyCode :: Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     productDescription :: Lude.Maybe Lude.Text,
     leaseId :: Lude.Maybe Lude.Text,
     reservedDBInstanceId :: Lude.Maybe Lude.Text,
@@ -132,8 +135,8 @@ rdiCurrencyCode = Lens.lens (currencyCode :: ReservedDBInstance -> Lude.Maybe Lu
 -- | The time the reservation started.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdiStartTime :: Lens.Lens' ReservedDBInstance (Lude.Maybe Lude.ISO8601)
-rdiStartTime = Lens.lens (startTime :: ReservedDBInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ReservedDBInstance)
+rdiStartTime :: Lens.Lens' ReservedDBInstance (Lude.Maybe Lude.DateTime)
+rdiStartTime = Lens.lens (startTime :: ReservedDBInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ReservedDBInstance)
 {-# DEPRECATED rdiStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The description of the reserved DB instance.

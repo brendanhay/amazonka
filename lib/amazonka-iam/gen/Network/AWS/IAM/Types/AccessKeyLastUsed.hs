@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -30,7 +33,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkAccessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'
   { lastUsedDate ::
-      Lude.ISO8601,
+      Lude.DateTime,
     serviceName :: Lude.Text,
     region :: Lude.Text
   }
@@ -82,7 +85,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --     * There is no sign-in data associated with the user.
 mkAccessKeyLastUsed ::
   -- | 'lastUsedDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'serviceName'
   Lude.Text ->
   -- | 'region'
@@ -109,8 +112,8 @@ mkAccessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
 --
 --
 -- /Note:/ Consider using 'lastUsedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akluLastUsedDate :: Lens.Lens' AccessKeyLastUsed Lude.ISO8601
-akluLastUsedDate = Lens.lens (lastUsedDate :: AccessKeyLastUsed -> Lude.ISO8601) (\s a -> s {lastUsedDate = a} :: AccessKeyLastUsed)
+akluLastUsedDate :: Lens.Lens' AccessKeyLastUsed Lude.DateTime
+akluLastUsedDate = Lens.lens (lastUsedDate :: AccessKeyLastUsed -> Lude.DateTime) (\s a -> s {lastUsedDate = a} :: AccessKeyLastUsed)
 {-# DEPRECATED akluLastUsedDate "Use generic-lens or generic-optics with 'lastUsedDate' instead." #-}
 
 -- | The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:

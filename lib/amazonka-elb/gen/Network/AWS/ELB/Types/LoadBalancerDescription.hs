@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -54,7 +57,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
     securityGroups :: Lude.Maybe [Lude.Text],
     healthCheck :: Lude.Maybe HealthCheck,
     loadBalancerName :: Lude.Maybe Lude.Text,
-    createdTime :: Lude.Maybe Lude.ISO8601,
+    createdTime :: Lude.Maybe Lude.DateTime,
     vpcId :: Lude.Maybe Lude.Text,
     subnets :: Lude.Maybe [Lude.Text],
     availabilityZones :: Lude.Maybe [Lude.Text],
@@ -163,8 +166,8 @@ lbdLoadBalancerName = Lens.lens (loadBalancerName :: LoadBalancerDescription -> 
 -- | The date and time the load balancer was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbdCreatedTime :: Lens.Lens' LoadBalancerDescription (Lude.Maybe Lude.ISO8601)
-lbdCreatedTime = Lens.lens (createdTime :: LoadBalancerDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {createdTime = a} :: LoadBalancerDescription)
+lbdCreatedTime :: Lens.Lens' LoadBalancerDescription (Lude.Maybe Lude.DateTime)
+lbdCreatedTime = Lens.lens (createdTime :: LoadBalancerDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTime = a} :: LoadBalancerDescription)
 {-# DEPRECATED lbdCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The ID of the VPC for the load balancer.

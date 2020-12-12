@@ -84,8 +84,8 @@ data GetMetricStatistics = GetMetricStatistics'
     unit :: Lude.Maybe StandardUnit,
     namespace :: Lude.Text,
     metricName :: Lude.Text,
-    startTime :: Lude.ISO8601,
-    endTime :: Lude.ISO8601,
+    startTime :: Lude.DateTime,
+    endTime :: Lude.DateTime,
     period :: Lude.Natural
   }
   deriving stock
@@ -142,9 +142,9 @@ mkGetMetricStatistics ::
   -- | 'metricName'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'endTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'period'
   Lude.Natural ->
   GetMetricStatistics
@@ -225,8 +225,8 @@ gmsMetricName = Lens.lens (metricName :: GetMetricStatistics -> Lude.Text) (\s a
 -- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsStartTime :: Lens.Lens' GetMetricStatistics Lude.ISO8601
-gmsStartTime = Lens.lens (startTime :: GetMetricStatistics -> Lude.ISO8601) (\s a -> s {startTime = a} :: GetMetricStatistics)
+gmsStartTime :: Lens.Lens' GetMetricStatistics Lude.DateTime
+gmsStartTime = Lens.lens (startTime :: GetMetricStatistics -> Lude.DateTime) (\s a -> s {startTime = a} :: GetMetricStatistics)
 {-# DEPRECATED gmsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The time stamp that determines the last data point to return.
@@ -234,8 +234,8 @@ gmsStartTime = Lens.lens (startTime :: GetMetricStatistics -> Lude.ISO8601) (\s 
 -- The value specified is exclusive; results include data points up to the specified time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsEndTime :: Lens.Lens' GetMetricStatistics Lude.ISO8601
-gmsEndTime = Lens.lens (endTime :: GetMetricStatistics -> Lude.ISO8601) (\s a -> s {endTime = a} :: GetMetricStatistics)
+gmsEndTime :: Lens.Lens' GetMetricStatistics Lude.DateTime
+gmsEndTime = Lens.lens (endTime :: GetMetricStatistics -> Lude.DateTime) (\s a -> s {endTime = a} :: GetMetricStatistics)
 {-# DEPRECATED gmsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second.

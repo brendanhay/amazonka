@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,8 +39,8 @@ import qualified Network.AWS.Prelude as Lude
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
   { scheduledActionARN ::
       Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
-    time :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
+    time :: Lude.Maybe Lude.DateTime,
     scheduledActionName ::
       Lude.Maybe Lude.Text,
     maxSize :: Lude.Maybe Lude.Int,
@@ -47,7 +50,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     minSize :: Lude.Maybe Lude.Int,
     autoScalingGroupName ::
       Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.ISO8601
+    endTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -98,15 +101,15 @@ sugaScheduledActionARN = Lens.lens (scheduledActionARN :: ScheduledUpdateGroupAc
 -- | The date and time in UTC for this action to start. For example, @"2019-06-01T00:00:00Z"@ .
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugaStartTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-sugaStartTime = Lens.lens (startTime :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ScheduledUpdateGroupAction)
+sugaStartTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+sugaStartTime = Lens.lens (startTime :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ScheduledUpdateGroupAction)
 {-# DEPRECATED sugaStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | This parameter is no longer used.
 --
 -- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugaTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-sugaTime = Lens.lens (time :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {time = a} :: ScheduledUpdateGroupAction)
+sugaTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+sugaTime = Lens.lens (time :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {time = a} :: ScheduledUpdateGroupAction)
 {-# DEPRECATED sugaTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
 -- | The name of the scheduled action.
@@ -156,8 +159,8 @@ sugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ScheduledUpdateGro
 -- | The date and time in UTC for the recurring schedule to end. For example, @"2019-06-01T00:00:00Z"@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugaEndTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-sugaEndTime = Lens.lens (endTime :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: ScheduledUpdateGroupAction)
+sugaEndTime :: Lens.Lens' ScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+sugaEndTime = Lens.lens (endTime :: ScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ScheduledUpdateGroupAction)
 {-# DEPRECATED sugaEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Lude.FromXML ScheduledUpdateGroupAction where

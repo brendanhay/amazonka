@@ -193,9 +193,9 @@ data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedD
     jobStatus ::
       JobStatusType,
     jobCreationDate ::
-      Lude.ISO8601,
+      Lude.DateTime,
     jobCompletionDate ::
-      Lude.ISO8601,
+      Lude.DateTime,
     entityDetailsList ::
       [EntityDetails]
   }
@@ -229,9 +229,9 @@ mkGetServiceLastAccessedDetailsWithEntitiesResponse ::
   -- | 'jobStatus'
   JobStatusType ->
   -- | 'jobCreationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'jobCompletionDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   GetServiceLastAccessedDetailsWithEntitiesResponse
 mkGetServiceLastAccessedDetailsWithEntitiesResponse
   pResponseStatus_
@@ -288,8 +288,8 @@ gsladwersJobStatus = Lens.lens (jobStatus :: GetServiceLastAccessedDetailsWithEn
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the report job was created.
 --
 -- /Note:/ Consider using 'jobCreationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladwersJobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Lude.ISO8601
-gsladwersJobCreationDate = Lens.lens (jobCreationDate :: GetServiceLastAccessedDetailsWithEntitiesResponse -> Lude.ISO8601) (\s a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
+gsladwersJobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Lude.DateTime
+gsladwersJobCreationDate = Lens.lens (jobCreationDate :: GetServiceLastAccessedDetailsWithEntitiesResponse -> Lude.DateTime) (\s a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
 {-# DEPRECATED gsladwersJobCreationDate "Use generic-lens or generic-optics with 'jobCreationDate' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the generated report job was completed or failed.
@@ -297,8 +297,8 @@ gsladwersJobCreationDate = Lens.lens (jobCreationDate :: GetServiceLastAccessedD
 -- This field is null if the job is still in progress, as indicated by a job status value of @IN_PROGRESS@ .
 --
 -- /Note:/ Consider using 'jobCompletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladwersJobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Lude.ISO8601
-gsladwersJobCompletionDate = Lens.lens (jobCompletionDate :: GetServiceLastAccessedDetailsWithEntitiesResponse -> Lude.ISO8601) (\s a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
+gsladwersJobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Lude.DateTime
+gsladwersJobCompletionDate = Lens.lens (jobCompletionDate :: GetServiceLastAccessedDetailsWithEntitiesResponse -> Lude.DateTime) (\s a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse)
 {-# DEPRECATED gsladwersJobCompletionDate "Use generic-lens or generic-optics with 'jobCompletionDate' instead." #-}
 
 -- | An @EntityDetailsList@ object that contains details about when an IAM entity (user or role) used group or policy permissions in an attempt to access the specified AWS service.

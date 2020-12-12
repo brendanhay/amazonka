@@ -170,7 +170,7 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
         Lude.Int,
     jobCompletionDate ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     accessDetails ::
       Lude.Maybe
         [AccessDetail],
@@ -191,7 +191,7 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
     jobStatus ::
       JobStatusType,
     jobCreationDate ::
-      Lude.ISO8601
+      Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -222,7 +222,7 @@ mkGetOrganizationsAccessReportResponse ::
   -- | 'jobStatus'
   JobStatusType ->
   -- | 'jobCreationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   GetOrganizationsAccessReportResponse
 mkGetOrganizationsAccessReportResponse
   pResponseStatus_
@@ -254,8 +254,8 @@ getrsNumberOfServicesNotAccessed = Lens.lens (numberOfServicesNotAccessed :: Get
 -- This field is null if the job is still in progress, as indicated by a job status value of @IN_PROGRESS@ .
 --
 -- /Note:/ Consider using 'jobCompletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsJobCompletionDate :: Lens.Lens' GetOrganizationsAccessReportResponse (Lude.Maybe Lude.ISO8601)
-getrsJobCompletionDate = Lens.lens (jobCompletionDate :: GetOrganizationsAccessReportResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {jobCompletionDate = a} :: GetOrganizationsAccessReportResponse)
+getrsJobCompletionDate :: Lens.Lens' GetOrganizationsAccessReportResponse (Lude.Maybe Lude.DateTime)
+getrsJobCompletionDate = Lens.lens (jobCompletionDate :: GetOrganizationsAccessReportResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {jobCompletionDate = a} :: GetOrganizationsAccessReportResponse)
 {-# DEPRECATED getrsJobCompletionDate "Use generic-lens or generic-optics with 'jobCompletionDate' instead." #-}
 
 -- | An object that contains details about the most recent attempt to access the service.
@@ -310,6 +310,6 @@ getrsJobStatus = Lens.lens (jobStatus :: GetOrganizationsAccessReportResponse ->
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the report job was created.
 --
 -- /Note:/ Consider using 'jobCreationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsJobCreationDate :: Lens.Lens' GetOrganizationsAccessReportResponse Lude.ISO8601
-getrsJobCreationDate = Lens.lens (jobCreationDate :: GetOrganizationsAccessReportResponse -> Lude.ISO8601) (\s a -> s {jobCreationDate = a} :: GetOrganizationsAccessReportResponse)
+getrsJobCreationDate :: Lens.Lens' GetOrganizationsAccessReportResponse Lude.DateTime
+getrsJobCreationDate = Lens.lens (jobCreationDate :: GetOrganizationsAccessReportResponse -> Lude.DateTime) (\s a -> s {jobCreationDate = a} :: GetOrganizationsAccessReportResponse)
 {-# DEPRECATED getrsJobCreationDate "Use generic-lens or generic-optics with 'jobCreationDate' instead." #-}

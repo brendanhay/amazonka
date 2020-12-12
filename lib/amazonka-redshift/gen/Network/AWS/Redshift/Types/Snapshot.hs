@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -70,7 +73,7 @@ data Snapshot = Snapshot'
     masterUsername :: Lude.Maybe Lude.Text,
     sourceRegion :: Lude.Maybe Lude.Text,
     maintenanceTrackName :: Lude.Maybe Lude.Text,
-    snapshotRetentionStartTime :: Lude.Maybe Lude.ISO8601,
+    snapshotRetentionStartTime :: Lude.Maybe Lude.DateTime,
     manualSnapshotRemainingDays :: Lude.Maybe Lude.Int,
     vpcId :: Lude.Maybe Lude.Text,
     backupProgressInMegaBytes :: Lude.Maybe Lude.Double,
@@ -81,12 +84,12 @@ data Snapshot = Snapshot'
     kmsKeyId :: Lude.Maybe Lude.Text,
     availabilityZone :: Lude.Maybe Lude.Text,
     currentBackupRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
-    snapshotCreateTime :: Lude.Maybe Lude.ISO8601,
+    snapshotCreateTime :: Lude.Maybe Lude.DateTime,
     clusterVersion :: Lude.Maybe Lude.Text,
     ownerAccount :: Lude.Maybe Lude.Text,
     nodeType :: Lude.Maybe Lude.Text,
     elapsedTimeInSeconds :: Lude.Maybe Lude.Integer,
-    clusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    clusterCreateTime :: Lude.Maybe Lude.DateTime,
     estimatedSecondsToCompletion :: Lude.Maybe Lude.Integer,
     actualIncrementalBackupSizeInMegaBytes :: Lude.Maybe Lude.Double,
     tags :: Lude.Maybe [Tag],
@@ -282,8 +285,8 @@ sMaintenanceTrackName = Lens.lens (maintenanceTrackName :: Snapshot -> Lude.Mayb
 -- | A timestamp representing the start of the retention period for the snapshot.
 --
 -- /Note:/ Consider using 'snapshotRetentionStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSnapshotRetentionStartTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.ISO8601)
-sSnapshotRetentionStartTime = Lens.lens (snapshotRetentionStartTime :: Snapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotRetentionStartTime = a} :: Snapshot)
+sSnapshotRetentionStartTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.DateTime)
+sSnapshotRetentionStartTime = Lens.lens (snapshotRetentionStartTime :: Snapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotRetentionStartTime = a} :: Snapshot)
 {-# DEPRECATED sSnapshotRetentionStartTime "Use generic-lens or generic-optics with 'snapshotRetentionStartTime' instead." #-}
 
 -- | The number of days until a manual snapshot will pass its retention period.
@@ -359,8 +362,8 @@ sCurrentBackupRateInMegaBytesPerSecond = Lens.lens (currentBackupRateInMegaBytes
 -- | The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
 --
 -- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSnapshotCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.ISO8601)
-sSnapshotCreateTime = Lens.lens (snapshotCreateTime :: Snapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotCreateTime = a} :: Snapshot)
+sSnapshotCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.DateTime)
+sSnapshotCreateTime = Lens.lens (snapshotCreateTime :: Snapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotCreateTime = a} :: Snapshot)
 {-# DEPRECATED sSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
 -- | The version ID of the Amazon Redshift engine that is running on the cluster.
@@ -394,8 +397,8 @@ sElapsedTimeInSeconds = Lens.lens (elapsedTimeInSeconds :: Snapshot -> Lude.Mayb
 -- | The time (UTC) when the cluster was originally created.
 --
 -- /Note:/ Consider using 'clusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sClusterCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.ISO8601)
-sClusterCreateTime = Lens.lens (clusterCreateTime :: Snapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {clusterCreateTime = a} :: Snapshot)
+sClusterCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.DateTime)
+sClusterCreateTime = Lens.lens (clusterCreateTime :: Snapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {clusterCreateTime = a} :: Snapshot)
 {-# DEPRECATED sClusterCreateTime "Use generic-lens or generic-optics with 'clusterCreateTime' instead." #-}
 
 -- | The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.

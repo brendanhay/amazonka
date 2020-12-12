@@ -55,7 +55,7 @@ data BacktrackDBCluster = BacktrackDBCluster'
     useEarliestTimeOnPointInTimeUnavailable ::
       Lude.Maybe Lude.Bool,
     dbClusterIdentifier :: Lude.Text,
-    backtrackTo :: Lude.ISO8601
+    backtrackTo :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -99,7 +99,7 @@ mkBacktrackDBCluster ::
   -- | 'dbClusterIdentifier'
   Lude.Text ->
   -- | 'backtrackTo'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   BacktrackDBCluster
 mkBacktrackDBCluster pDBClusterIdentifier_ pBacktrackTo_ =
   BacktrackDBCluster'
@@ -156,8 +156,8 @@ bdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: BacktrackDBCluster ->
 -- Example: @2017-07-08T18:00Z@
 --
 -- /Note:/ Consider using 'backtrackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcBacktrackTo :: Lens.Lens' BacktrackDBCluster Lude.ISO8601
-bdcBacktrackTo = Lens.lens (backtrackTo :: BacktrackDBCluster -> Lude.ISO8601) (\s a -> s {backtrackTo = a} :: BacktrackDBCluster)
+bdcBacktrackTo :: Lens.Lens' BacktrackDBCluster Lude.DateTime
+bdcBacktrackTo = Lens.lens (backtrackTo :: BacktrackDBCluster -> Lude.DateTime) (\s a -> s {backtrackTo = a} :: BacktrackDBCluster)
 {-# DEPRECATED bdcBacktrackTo "Use generic-lens or generic-optics with 'backtrackTo' instead." #-}
 
 instance Lude.AWSRequest BacktrackDBCluster where

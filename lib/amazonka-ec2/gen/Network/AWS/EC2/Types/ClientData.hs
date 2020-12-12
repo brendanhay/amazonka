@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,9 +32,9 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkClientData' smart constructor.
 data ClientData = ClientData'
   { uploadStart ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     uploadSize :: Lude.Maybe Lude.Double,
-    uploadEnd :: Lude.Maybe Lude.ISO8601,
+    uploadEnd :: Lude.Maybe Lude.DateTime,
     comment :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -62,8 +65,8 @@ mkClientData =
 -- | The time that the disk upload starts.
 --
 -- /Note:/ Consider using 'uploadStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdUploadStart :: Lens.Lens' ClientData (Lude.Maybe Lude.ISO8601)
-cdUploadStart = Lens.lens (uploadStart :: ClientData -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadStart = a} :: ClientData)
+cdUploadStart :: Lens.Lens' ClientData (Lude.Maybe Lude.DateTime)
+cdUploadStart = Lens.lens (uploadStart :: ClientData -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadStart = a} :: ClientData)
 {-# DEPRECATED cdUploadStart "Use generic-lens or generic-optics with 'uploadStart' instead." #-}
 
 -- | The size of the uploaded disk image, in GiB.
@@ -76,8 +79,8 @@ cdUploadSize = Lens.lens (uploadSize :: ClientData -> Lude.Maybe Lude.Double) (\
 -- | The time that the disk upload ends.
 --
 -- /Note:/ Consider using 'uploadEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdUploadEnd :: Lens.Lens' ClientData (Lude.Maybe Lude.ISO8601)
-cdUploadEnd = Lens.lens (uploadEnd :: ClientData -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadEnd = a} :: ClientData)
+cdUploadEnd :: Lens.Lens' ClientData (Lude.Maybe Lude.DateTime)
+cdUploadEnd = Lens.lens (uploadEnd :: ClientData -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadEnd = a} :: ClientData)
 {-# DEPRECATED cdUploadEnd "Use generic-lens or generic-optics with 'uploadEnd' instead." #-}
 
 -- | A user-defined comment about the disk upload.

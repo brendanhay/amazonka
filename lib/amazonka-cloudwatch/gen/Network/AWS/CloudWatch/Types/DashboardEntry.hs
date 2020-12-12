@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ data DashboardEntry = DashboardEntry'
   { size ::
       Lude.Maybe Lude.Integer,
     dashboardName :: Lude.Maybe Lude.Text,
-    lastModified :: Lude.Maybe Lude.ISO8601,
+    lastModified :: Lude.Maybe Lude.DateTime,
     dashboardARN :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -76,8 +79,8 @@ deDashboardName = Lens.lens (dashboardName :: DashboardEntry -> Lude.Maybe Lude.
 -- | The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deLastModified :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.ISO8601)
-deLastModified = Lens.lens (lastModified :: DashboardEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: DashboardEntry)
+deLastModified :: Lens.Lens' DashboardEntry (Lude.Maybe Lude.DateTime)
+deLastModified = Lens.lens (lastModified :: DashboardEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: DashboardEntry)
 {-# DEPRECATED deLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the dashboard.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -44,7 +47,7 @@ data ReservedNode = ReservedNode'
       Lude.Maybe ReservedNodeOfferingType,
     state :: Lude.Maybe Lude.Text,
     currencyCode :: Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     nodeCount :: Lude.Maybe Lude.Int,
     reservedNodeId :: Lude.Maybe Lude.Text,
     reservedNodeOfferingId :: Lude.Maybe Lude.Text,
@@ -158,8 +161,8 @@ rnCurrencyCode = Lens.lens (currencyCode :: ReservedNode -> Lude.Maybe Lude.Text
 -- | The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnStartTime :: Lens.Lens' ReservedNode (Lude.Maybe Lude.ISO8601)
-rnStartTime = Lens.lens (startTime :: ReservedNode -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ReservedNode)
+rnStartTime :: Lens.Lens' ReservedNode (Lude.Maybe Lude.DateTime)
+rnStartTime = Lens.lens (startTime :: ReservedNode -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ReservedNode)
 {-# DEPRECATED rnStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The number of reserved compute nodes.

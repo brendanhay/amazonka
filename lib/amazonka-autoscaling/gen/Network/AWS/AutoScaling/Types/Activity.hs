@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -37,13 +40,13 @@ import qualified Network.AWS.Prelude as Lude
 data Activity = Activity'
   { progress :: Lude.Maybe Lude.Int,
     statusMessage :: Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     details :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text,
     activityId :: Lude.Text,
     autoScalingGroupName :: Lude.Text,
     cause :: Lude.Text,
-    startTime :: Lude.ISO8601,
+    startTime :: Lude.DateTime,
     statusCode :: ScalingActivityStatusCode
   }
   deriving stock
@@ -75,7 +78,7 @@ mkActivity ::
   -- | 'cause'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'statusCode'
   ScalingActivityStatusCode ->
   Activity
@@ -115,8 +118,8 @@ aStatusMessage = Lens.lens (statusMessage :: Activity -> Lude.Maybe Lude.Text) (
 -- | The end time of the activity.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aEndTime :: Lens.Lens' Activity (Lude.Maybe Lude.ISO8601)
-aEndTime = Lens.lens (endTime :: Activity -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: Activity)
+aEndTime :: Lens.Lens' Activity (Lude.Maybe Lude.DateTime)
+aEndTime = Lens.lens (endTime :: Activity -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: Activity)
 {-# DEPRECATED aEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The details about the activity.
@@ -157,8 +160,8 @@ aCause = Lens.lens (cause :: Activity -> Lude.Text) (\s a -> s {cause = a} :: Ac
 -- | The start time of the activity.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aStartTime :: Lens.Lens' Activity Lude.ISO8601
-aStartTime = Lens.lens (startTime :: Activity -> Lude.ISO8601) (\s a -> s {startTime = a} :: Activity)
+aStartTime :: Lens.Lens' Activity Lude.DateTime
+aStartTime = Lens.lens (startTime :: Activity -> Lude.DateTime) (\s a -> s {startTime = a} :: Activity)
 {-# DEPRECATED aStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The current status of the activity.

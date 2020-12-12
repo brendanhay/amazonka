@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -47,11 +50,11 @@ data ExportTask = ExportTask'
     iamRoleARN :: Lude.Maybe Lude.Text,
     sourceARN :: Lude.Maybe Lude.Text,
     exportOnly :: Lude.Maybe [Lude.Text],
-    taskStartTime :: Lude.Maybe Lude.ISO8601,
+    taskStartTime :: Lude.Maybe Lude.DateTime,
     warningMessage :: Lude.Maybe Lude.Text,
-    snapshotTime :: Lude.Maybe Lude.ISO8601,
+    snapshotTime :: Lude.Maybe Lude.DateTime,
     kmsKeyId :: Lude.Maybe Lude.Text,
-    taskEndTime :: Lude.Maybe Lude.ISO8601,
+    taskEndTime :: Lude.Maybe Lude.DateTime,
     exportTaskIdentifier :: Lude.Maybe Lude.Text,
     s3Prefix :: Lude.Maybe Lude.Text,
     percentProgress :: Lude.Maybe Lude.Int,
@@ -171,8 +174,8 @@ etExportOnly = Lens.lens (exportOnly :: ExportTask -> Lude.Maybe [Lude.Text]) (\
 -- | The time that the snapshot export task started.
 --
 -- /Note:/ Consider using 'taskStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTaskStartTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.ISO8601)
-etTaskStartTime = Lens.lens (taskStartTime :: ExportTask -> Lude.Maybe Lude.ISO8601) (\s a -> s {taskStartTime = a} :: ExportTask)
+etTaskStartTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.DateTime)
+etTaskStartTime = Lens.lens (taskStartTime :: ExportTask -> Lude.Maybe Lude.DateTime) (\s a -> s {taskStartTime = a} :: ExportTask)
 {-# DEPRECATED etTaskStartTime "Use generic-lens or generic-optics with 'taskStartTime' instead." #-}
 
 -- | A warning about the snapshot export task.
@@ -185,8 +188,8 @@ etWarningMessage = Lens.lens (warningMessage :: ExportTask -> Lude.Maybe Lude.Te
 -- | The time that the snapshot was created.
 --
 -- /Note:/ Consider using 'snapshotTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etSnapshotTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.ISO8601)
-etSnapshotTime = Lens.lens (snapshotTime :: ExportTask -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotTime = a} :: ExportTask)
+etSnapshotTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.DateTime)
+etSnapshotTime = Lens.lens (snapshotTime :: ExportTask -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotTime = a} :: ExportTask)
 {-# DEPRECATED etSnapshotTime "Use generic-lens or generic-optics with 'snapshotTime' instead." #-}
 
 -- | The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export must have encryption and decryption permissions to use this KMS key.
@@ -199,8 +202,8 @@ etKMSKeyId = Lens.lens (kmsKeyId :: ExportTask -> Lude.Maybe Lude.Text) (\s a ->
 -- | The time that the snapshot export task completed.
 --
 -- /Note:/ Consider using 'taskEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTaskEndTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.ISO8601)
-etTaskEndTime = Lens.lens (taskEndTime :: ExportTask -> Lude.Maybe Lude.ISO8601) (\s a -> s {taskEndTime = a} :: ExportTask)
+etTaskEndTime :: Lens.Lens' ExportTask (Lude.Maybe Lude.DateTime)
+etTaskEndTime = Lens.lens (taskEndTime :: ExportTask -> Lude.Maybe Lude.DateTime) (\s a -> s {taskEndTime = a} :: ExportTask)
 {-# DEPRECATED etTaskEndTime "Use generic-lens or generic-optics with 'taskEndTime' instead." #-}
 
 -- | A unique identifier for the snapshot export task. This ID isn't an identifier for the Amazon S3 bucket where the snapshot is exported to.

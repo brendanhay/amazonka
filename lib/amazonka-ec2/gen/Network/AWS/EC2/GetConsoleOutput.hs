@@ -136,7 +136,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
   { instanceId ::
       Lude.Maybe Lude.Text,
     output :: Lude.Maybe Lude.Text,
-    timestamp :: Lude.Maybe Lude.ISO8601,
+    timestamp :: Lude.Maybe Lude.DateTime,
     responseStatus :: Lude.Int
   }
   deriving stock
@@ -183,8 +183,8 @@ gcorsOutput = Lens.lens (output :: GetConsoleOutputResponse -> Lude.Maybe Lude.T
 -- | The time at which the output was last updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsTimestamp :: Lens.Lens' GetConsoleOutputResponse (Lude.Maybe Lude.ISO8601)
-gcorsTimestamp = Lens.lens (timestamp :: GetConsoleOutputResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: GetConsoleOutputResponse)
+gcorsTimestamp :: Lens.Lens' GetConsoleOutputResponse (Lude.Maybe Lude.DateTime)
+gcorsTimestamp = Lens.lens (timestamp :: GetConsoleOutputResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: GetConsoleOutputResponse)
 {-# DEPRECATED gcorsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The response status code.

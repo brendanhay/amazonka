@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -70,7 +73,7 @@ data LaunchConfiguration = LaunchConfiguration'
     launchConfigurationName :: Lude.Text,
     imageId :: Lude.Text,
     instanceType :: Lude.Text,
-    createdTime :: Lude.ISO8601
+    createdTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -121,7 +124,7 @@ mkLaunchConfiguration ::
   -- | 'instanceType'
   Lude.Text ->
   -- | 'createdTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   LaunchConfiguration
 mkLaunchConfiguration
   pLaunchConfigurationName_
@@ -297,8 +300,8 @@ lcInstanceType = Lens.lens (instanceType :: LaunchConfiguration -> Lude.Text) (\
 -- | The creation date and time for the launch configuration.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCreatedTime :: Lens.Lens' LaunchConfiguration Lude.ISO8601
-lcCreatedTime = Lens.lens (createdTime :: LaunchConfiguration -> Lude.ISO8601) (\s a -> s {createdTime = a} :: LaunchConfiguration)
+lcCreatedTime :: Lens.Lens' LaunchConfiguration Lude.DateTime
+lcCreatedTime = Lens.lens (createdTime :: LaunchConfiguration -> Lude.DateTime) (\s a -> s {createdTime = a} :: LaunchConfiguration)
 {-# DEPRECATED lcCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 instance Lude.FromXML LaunchConfiguration where

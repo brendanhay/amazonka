@@ -182,11 +182,11 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
     jobStatus ::
       JobStatusType,
     jobCreationDate ::
-      Lude.ISO8601,
+      Lude.DateTime,
     servicesLastAccessed ::
       [ServiceLastAccessed],
     jobCompletionDate ::
-      Lude.ISO8601
+      Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -216,9 +216,9 @@ mkGetServiceLastAccessedDetailsResponse ::
   -- | 'jobStatus'
   JobStatusType ->
   -- | 'jobCreationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'jobCompletionDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   GetServiceLastAccessedDetailsResponse
 mkGetServiceLastAccessedDetailsResponse
   pResponseStatus_
@@ -282,8 +282,8 @@ gsladrsJobStatus = Lens.lens (jobStatus :: GetServiceLastAccessedDetailsResponse
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the report job was created.
 --
 -- /Note:/ Consider using 'jobCreationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladrsJobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Lude.ISO8601
-gsladrsJobCreationDate = Lens.lens (jobCreationDate :: GetServiceLastAccessedDetailsResponse -> Lude.ISO8601) (\s a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsResponse)
+gsladrsJobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Lude.DateTime
+gsladrsJobCreationDate = Lens.lens (jobCreationDate :: GetServiceLastAccessedDetailsResponse -> Lude.DateTime) (\s a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsResponse)
 {-# DEPRECATED gsladrsJobCreationDate "Use generic-lens or generic-optics with 'jobCreationDate' instead." #-}
 
 -- | A @ServiceLastAccessed@ object that contains details about the most recent attempt to access the service.
@@ -298,6 +298,6 @@ gsladrsServicesLastAccessed = Lens.lens (servicesLastAccessed :: GetServiceLastA
 -- This field is null if the job is still in progress, as indicated by a job status value of @IN_PROGRESS@ .
 --
 -- /Note:/ Consider using 'jobCompletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladrsJobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Lude.ISO8601
-gsladrsJobCompletionDate = Lens.lens (jobCompletionDate :: GetServiceLastAccessedDetailsResponse -> Lude.ISO8601) (\s a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsResponse)
+gsladrsJobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Lude.DateTime
+gsladrsJobCompletionDate = Lens.lens (jobCompletionDate :: GetServiceLastAccessedDetailsResponse -> Lude.DateTime) (\s a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsResponse)
 {-# DEPRECATED gsladrsJobCompletionDate "Use generic-lens or generic-optics with 'jobCompletionDate' instead." #-}

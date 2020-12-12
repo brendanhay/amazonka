@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -54,14 +57,14 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkStack' smart constructor.
 data Stack = Stack'
   { disableRollback :: Lude.Maybe Lude.Bool,
-    lastUpdatedTime :: Lude.Maybe Lude.ISO8601,
+    lastUpdatedTime :: Lude.Maybe Lude.DateTime,
     rootId :: Lude.Maybe Lude.Text,
     notificationARNs :: Lude.Maybe [Lude.Text],
     stackStatusReason :: Lude.Maybe Lude.Text,
     enableTerminationProtection :: Lude.Maybe Lude.Bool,
     driftInformation :: Lude.Maybe StackDriftInformation,
     changeSetId :: Lude.Maybe Lude.Text,
-    deletionTime :: Lude.Maybe Lude.ISO8601,
+    deletionTime :: Lude.Maybe Lude.DateTime,
     outputs :: Lude.Maybe [Output],
     parameters :: Lude.Maybe [Parameter],
     stackId :: Lude.Maybe Lude.Text,
@@ -73,7 +76,7 @@ data Stack = Stack'
     parentId :: Lude.Maybe Lude.Text,
     roleARN :: Lude.Maybe Lude.Text,
     stackName :: Lude.Text,
-    creationTime :: Lude.ISO8601,
+    creationTime :: Lude.DateTime,
     stackStatus :: StackStatus
   }
   deriving stock
@@ -127,7 +130,7 @@ mkStack ::
   -- | 'stackName'
   Lude.Text ->
   -- | 'creationTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'stackStatus'
   StackStatus ->
   Stack
@@ -175,8 +178,8 @@ staDisableRollback = Lens.lens (disableRollback :: Stack -> Lude.Maybe Lude.Bool
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
 -- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staLastUpdatedTime :: Lens.Lens' Stack (Lude.Maybe Lude.ISO8601)
-staLastUpdatedTime = Lens.lens (lastUpdatedTime :: Stack -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUpdatedTime = a} :: Stack)
+staLastUpdatedTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
+staLastUpdatedTime = Lens.lens (lastUpdatedTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdatedTime = a} :: Stack)
 {-# DEPRECATED staLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
@@ -228,8 +231,8 @@ staChangeSetId = Lens.lens (changeSetId :: Stack -> Lude.Maybe Lude.Text) (\s a 
 -- | The time the stack was deleted.
 --
 -- /Note:/ Consider using 'deletionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staDeletionTime :: Lens.Lens' Stack (Lude.Maybe Lude.ISO8601)
-staDeletionTime = Lens.lens (deletionTime :: Stack -> Lude.Maybe Lude.ISO8601) (\s a -> s {deletionTime = a} :: Stack)
+staDeletionTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
+staDeletionTime = Lens.lens (deletionTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {deletionTime = a} :: Stack)
 {-# DEPRECATED staDeletionTime "Use generic-lens or generic-optics with 'deletionTime' instead." #-}
 
 -- | A list of output structures.
@@ -314,8 +317,8 @@ staStackName = Lens.lens (stackName :: Stack -> Lude.Text) (\s a -> s {stackName
 -- | The time at which the stack was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staCreationTime :: Lens.Lens' Stack Lude.ISO8601
-staCreationTime = Lens.lens (creationTime :: Stack -> Lude.ISO8601) (\s a -> s {creationTime = a} :: Stack)
+staCreationTime :: Lens.Lens' Stack Lude.DateTime
+staCreationTime = Lens.lens (creationTime :: Stack -> Lude.DateTime) (\s a -> s {creationTime = a} :: Stack)
 {-# DEPRECATED staCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Current status of the stack.

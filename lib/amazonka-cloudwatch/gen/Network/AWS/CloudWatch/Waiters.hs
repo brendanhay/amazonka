@@ -33,7 +33,7 @@ mkCompositeAlarmExists =
       Wait._waitAttempts = 40,
       Wait._waitDelay = 5,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             ( Lens.folding
@@ -54,7 +54,7 @@ mkAlarmExists =
       Wait._waitAttempts = 40,
       Wait._waitDelay = 5,
       Wait._waitAcceptors =
-        [ Lude.matchNonEmpty
+        [ Wait.matchNonEmpty
             Lude.True
             Wait.AcceptSuccess
             ( Lens.folding

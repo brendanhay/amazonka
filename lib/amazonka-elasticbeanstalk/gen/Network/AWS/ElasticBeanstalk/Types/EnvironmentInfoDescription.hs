@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -30,7 +33,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkEnvironmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
   { sampleTimestamp ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     ec2InstanceId :: Lude.Maybe Lude.Text,
     infoType ::
       Lude.Maybe EnvironmentInfoType,
@@ -66,8 +69,8 @@ mkEnvironmentInfoDescription =
 -- | The time stamp when this information was retrieved.
 --
 -- /Note:/ Consider using 'sampleTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidSampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe Lude.ISO8601)
-eidSampleTimestamp = Lens.lens (sampleTimestamp :: EnvironmentInfoDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription)
+eidSampleTimestamp :: Lens.Lens' EnvironmentInfoDescription (Lude.Maybe Lude.DateTime)
+eidSampleTimestamp = Lens.lens (sampleTimestamp :: EnvironmentInfoDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {sampleTimestamp = a} :: EnvironmentInfoDescription)
 {-# DEPRECATED eidSampleTimestamp "Use generic-lens or generic-optics with 'sampleTimestamp' instead." #-}
 
 -- | The Amazon EC2 Instance ID for this information.

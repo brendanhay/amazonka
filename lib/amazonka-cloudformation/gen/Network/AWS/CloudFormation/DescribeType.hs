@@ -183,7 +183,7 @@ instance Lude.ToQuery DescribeType where
 -- | /See:/ 'mkDescribeTypeResponse' smart constructor.
 data DescribeTypeResponse = DescribeTypeResponse'
   { lastUpdated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     typeName :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
     executionRoleARN :: Lude.Maybe Lude.Text,
@@ -191,7 +191,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     schema :: Lude.Maybe Lude.Text,
     defaultVersionId :: Lude.Maybe Lude.Text,
     deprecatedStatus :: Lude.Maybe DeprecatedStatus,
-    timeCreated :: Lude.Maybe Lude.ISO8601,
+    timeCreated :: Lude.Maybe Lude.DateTime,
     type' :: Lude.Maybe RegistryType,
     isDefaultVersion :: Lude.Maybe Lude.Bool,
     description :: Lude.Maybe Lude.Text,
@@ -301,8 +301,8 @@ mkDescribeTypeResponse pResponseStatus_ =
 -- | When the specified type version was registered.
 --
 -- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttrsLastUpdated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.ISO8601)
-dttrsLastUpdated = Lens.lens (lastUpdated :: DescribeTypeResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUpdated = a} :: DescribeTypeResponse)
+dttrsLastUpdated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.DateTime)
+dttrsLastUpdated = Lens.lens (lastUpdated :: DescribeTypeResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdated = a} :: DescribeTypeResponse)
 {-# DEPRECATED dttrsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | The name of the registered type.
@@ -379,8 +379,8 @@ dttrsDeprecatedStatus = Lens.lens (deprecatedStatus :: DescribeTypeResponse -> L
 -- | When the specified type version was registered.
 --
 -- /Note:/ Consider using 'timeCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttrsTimeCreated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.ISO8601)
-dttrsTimeCreated = Lens.lens (timeCreated :: DescribeTypeResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {timeCreated = a} :: DescribeTypeResponse)
+dttrsTimeCreated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.DateTime)
+dttrsTimeCreated = Lens.lens (timeCreated :: DescribeTypeResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {timeCreated = a} :: DescribeTypeResponse)
 {-# DEPRECATED dttrsTimeCreated "Use generic-lens or generic-optics with 'timeCreated' instead." #-}
 
 -- | The kind of type.

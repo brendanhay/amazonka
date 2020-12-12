@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,7 @@ data Event = Event'
   { sourceType :: Lude.Maybe SourceType,
     sourceARN :: Lude.Maybe Lude.Text,
     sourceIdentifier :: Lude.Maybe Lude.Text,
-    date :: Lude.Maybe Lude.ISO8601,
+    date :: Lude.Maybe Lude.DateTime,
     eventCategories :: Lude.Maybe [Lude.Text],
     message :: Lude.Maybe Lude.Text
   }
@@ -91,8 +94,8 @@ eSourceIdentifier = Lens.lens (sourceIdentifier :: Event -> Lude.Maybe Lude.Text
 -- | Specifies the date and time of the event.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDate :: Lens.Lens' Event (Lude.Maybe Lude.ISO8601)
-eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.ISO8601) (\s a -> s {date = a} :: Event)
+eDate :: Lens.Lens' Event (Lude.Maybe Lude.DateTime)
+eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: Event)
 {-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | Specifies the category for the event.

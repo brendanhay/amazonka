@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -43,11 +46,11 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
   { policyName ::
       Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
-    updateDate :: Lude.Maybe Lude.ISO8601,
+    updateDate :: Lude.Maybe Lude.DateTime,
     policyId :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
     policyVersionList :: Lude.Maybe [PolicyVersion],
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     isAttachable :: Lude.Maybe Lude.Bool,
     permissionsBoundaryUsageCount ::
       Lude.Maybe Lude.Int,
@@ -125,8 +128,8 @@ mpdARN = Lens.lens (arn :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a ->
 -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdUpdateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.ISO8601)
-mpdUpdateDate = Lens.lens (updateDate :: ManagedPolicyDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: ManagedPolicyDetail)
+mpdUpdateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.DateTime)
+mpdUpdateDate = Lens.lens (updateDate :: ManagedPolicyDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {updateDate = a} :: ManagedPolicyDetail)
 {-# DEPRECATED mpdUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The stable and unique string identifying the policy.
@@ -157,8 +160,8 @@ mpdPolicyVersionList = Lens.lens (policyVersionList :: ManagedPolicyDetail -> Lu
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdCreateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.ISO8601)
-mpdCreateDate = Lens.lens (createDate :: ManagedPolicyDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ManagedPolicyDetail)
+mpdCreateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.DateTime)
+mpdCreateDate = Lens.lens (createDate :: ManagedPolicyDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ManagedPolicyDetail)
 {-# DEPRECATED mpdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or role.

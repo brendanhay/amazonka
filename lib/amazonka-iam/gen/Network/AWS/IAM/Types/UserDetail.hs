@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -43,7 +46,7 @@ data UserDetail = UserDetail'
   { groupList :: Lude.Maybe [Lude.Text],
     arn :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     userName :: Lude.Maybe Lude.Text,
     userId :: Lude.Maybe Lude.Text,
     permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
@@ -114,8 +117,8 @@ udPath = Lens.lens (path :: UserDetail -> Lude.Maybe Lude.Text) (\s a -> s {path
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udCreateDate :: Lens.Lens' UserDetail (Lude.Maybe Lude.ISO8601)
-udCreateDate = Lens.lens (createDate :: UserDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: UserDetail)
+udCreateDate :: Lens.Lens' UserDetail (Lude.Maybe Lude.DateTime)
+udCreateDate = Lens.lens (createDate :: UserDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: UserDetail)
 {-# DEPRECATED udCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The friendly name identifying the user.

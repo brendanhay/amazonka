@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,7 +44,7 @@ data ReservedCacheNode = ReservedCacheNode'
   { cacheNodeType ::
       Lude.Maybe Lude.Text,
     state :: Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     productDescription :: Lude.Maybe Lude.Text,
     reservationARN :: Lude.Maybe Lude.Text,
     cacheNodeCount :: Lude.Maybe Lude.Int,
@@ -235,8 +238,8 @@ rcnState = Lens.lens (state :: ReservedCacheNode -> Lude.Maybe Lude.Text) (\s a 
 -- | The time the reservation started.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcnStartTime :: Lens.Lens' ReservedCacheNode (Lude.Maybe Lude.ISO8601)
-rcnStartTime = Lens.lens (startTime :: ReservedCacheNode -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ReservedCacheNode)
+rcnStartTime :: Lens.Lens' ReservedCacheNode (Lude.Maybe Lude.DateTime)
+rcnStartTime = Lens.lens (startTime :: ReservedCacheNode -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ReservedCacheNode)
 {-# DEPRECATED rcnStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The description of the reserved cache node.

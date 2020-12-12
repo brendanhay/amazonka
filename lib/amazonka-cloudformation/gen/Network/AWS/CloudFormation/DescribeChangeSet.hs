@@ -185,7 +185,7 @@ instance Lude.ToQuery DescribeChangeSet where
 -- /See:/ 'mkDescribeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
   { creationTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     parentChangeSetId ::
       Lude.Maybe Lude.Text,
     changes :: Lude.Maybe [Change],
@@ -275,8 +275,8 @@ mkDescribeChangeSetResponse pResponseStatus_ pStatus_ =
 -- | The start time when the change set was created, in UTC.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcscrsCreationTime :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.ISO8601)
-dcscrsCreationTime = Lens.lens (creationTime :: DescribeChangeSetResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: DescribeChangeSetResponse)
+dcscrsCreationTime :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.DateTime)
+dcscrsCreationTime = Lens.lens (creationTime :: DescribeChangeSetResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: DescribeChangeSetResponse)
 {-# DEPRECATED dcscrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Specifies the change set ID of the parent change set in the current nested change set hierarchy.

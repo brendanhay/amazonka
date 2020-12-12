@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -30,7 +33,7 @@ import Network.AWS.S3.Types.ObjectLockRetentionMode
 data ObjectLockRetention = ObjectLockRetention'
   { mode ::
       Lude.Maybe ObjectLockRetentionMode,
-    retainUntilDate :: Lude.Maybe Lude.ISO8601
+    retainUntilDate :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -63,8 +66,8 @@ olrMode = Lens.lens (mode :: ObjectLockRetention -> Lude.Maybe ObjectLockRetenti
 -- | The date on which this Object Lock Retention will expire.
 --
 -- /Note:/ Consider using 'retainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-olrRetainUntilDate :: Lens.Lens' ObjectLockRetention (Lude.Maybe Lude.ISO8601)
-olrRetainUntilDate = Lens.lens (retainUntilDate :: ObjectLockRetention -> Lude.Maybe Lude.ISO8601) (\s a -> s {retainUntilDate = a} :: ObjectLockRetention)
+olrRetainUntilDate :: Lens.Lens' ObjectLockRetention (Lude.Maybe Lude.DateTime)
+olrRetainUntilDate = Lens.lens (retainUntilDate :: ObjectLockRetention -> Lude.Maybe Lude.DateTime) (\s a -> s {retainUntilDate = a} :: ObjectLockRetention)
 {-# DEPRECATED olrRetainUntilDate "Use generic-lens or generic-optics with 'retainUntilDate' instead." #-}
 
 instance Lude.FromXML ObjectLockRetention where

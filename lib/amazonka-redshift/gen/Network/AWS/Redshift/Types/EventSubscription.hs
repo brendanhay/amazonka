@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -45,7 +48,7 @@ data EventSubscription = EventSubscription'
     enabled :: Lude.Maybe Lude.Bool,
     sourceType :: Lude.Maybe Lude.Text,
     severity :: Lude.Maybe Lude.Text,
-    subscriptionCreationTime :: Lude.Maybe Lude.ISO8601,
+    subscriptionCreationTime :: Lude.Maybe Lude.DateTime,
     eventCategoriesList :: Lude.Maybe [Lude.Text],
     tags :: Lude.Maybe [Tag],
     sourceIdsList :: Lude.Maybe [Lude.Text]
@@ -165,8 +168,8 @@ esSeverity = Lens.lens (severity :: EventSubscription -> Lude.Maybe Lude.Text) (
 -- | The date and time the Amazon Redshift event notification subscription was created.
 --
 -- /Note:/ Consider using 'subscriptionCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSubscriptionCreationTime :: Lens.Lens' EventSubscription (Lude.Maybe Lude.ISO8601)
-esSubscriptionCreationTime = Lens.lens (subscriptionCreationTime :: EventSubscription -> Lude.Maybe Lude.ISO8601) (\s a -> s {subscriptionCreationTime = a} :: EventSubscription)
+esSubscriptionCreationTime :: Lens.Lens' EventSubscription (Lude.Maybe Lude.DateTime)
+esSubscriptionCreationTime = Lens.lens (subscriptionCreationTime :: EventSubscription -> Lude.Maybe Lude.DateTime) (\s a -> s {subscriptionCreationTime = a} :: EventSubscription)
 {-# DEPRECATED esSubscriptionCreationTime "Use generic-lens or generic-optics with 'subscriptionCreationTime' instead." #-}
 
 -- | The list of Amazon Redshift event categories specified in the event notification subscription.

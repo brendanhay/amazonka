@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -66,13 +69,13 @@ data SpotInstanceRequest = SpotInstanceRequest'
       Lude.Maybe LaunchSpecification,
     availabilityZoneGroup :: Lude.Maybe Lude.Text,
     launchedAvailabilityZone :: Lude.Maybe Lude.Text,
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.DateTime,
     launchGroup :: Lude.Maybe Lude.Text,
     fault :: Lude.Maybe SpotInstanceStateFault,
     spotInstanceRequestId :: Lude.Maybe Lude.Text,
     type' :: Lude.Maybe SpotInstanceType,
-    validFrom :: Lude.Maybe Lude.ISO8601,
-    createTime :: Lude.Maybe Lude.ISO8601,
+    validFrom :: Lude.Maybe Lude.DateTime,
+    createTime :: Lude.Maybe Lude.DateTime,
     tags :: Lude.Maybe [Tag]
   }
   deriving stock
@@ -224,8 +227,8 @@ sirLaunchedAvailabilityZone = Lens.lens (launchedAvailabilityZone :: SpotInstanc
 --
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirValidUntil :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
-sirValidUntil = Lens.lens (validUntil :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SpotInstanceRequest)
+sirValidUntil :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.DateTime)
+sirValidUntil = Lens.lens (validUntil :: SpotInstanceRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: SpotInstanceRequest)
 {-# DEPRECATED sirValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
@@ -259,15 +262,15 @@ sirType = Lens.lens (type' :: SpotInstanceRequest -> Lude.Maybe SpotInstanceType
 -- | The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirValidFrom :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
-sirValidFrom = Lens.lens (validFrom :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: SpotInstanceRequest)
+sirValidFrom :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.DateTime)
+sirValidFrom = Lens.lens (validFrom :: SpotInstanceRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: SpotInstanceRequest)
 {-# DEPRECATED sirValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirCreateTime :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
-sirCreateTime = Lens.lens (createTime :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: SpotInstanceRequest)
+sirCreateTime :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.DateTime)
+sirCreateTime = Lens.lens (createTime :: SpotInstanceRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: SpotInstanceRequest)
 {-# DEPRECATED sirCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | Any tags assigned to the resource.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSigningCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
   { uploadDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     userName :: Lude.Text,
     certificateId :: Lude.Text,
     certificateBody :: Lude.Text,
@@ -81,8 +84,8 @@ mkSigningCertificate
 -- | The date when the signing certificate was uploaded.
 --
 -- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scUploadDate :: Lens.Lens' SigningCertificate (Lude.Maybe Lude.ISO8601)
-scUploadDate = Lens.lens (uploadDate :: SigningCertificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadDate = a} :: SigningCertificate)
+scUploadDate :: Lens.Lens' SigningCertificate (Lude.Maybe Lude.DateTime)
+scUploadDate = Lens.lens (uploadDate :: SigningCertificate -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadDate = a} :: SigningCertificate)
 {-# DEPRECATED scUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
 
 -- | The name of the user the signing certificate is associated with.

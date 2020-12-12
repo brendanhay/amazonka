@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssocia
         Lude.Text,
     elasticInferenceAcceleratorAssociationTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     elasticInferenceAcceleratorARN ::
       Lude.Maybe
         Lude.Text,
@@ -78,8 +81,8 @@ eiaaElasticInferenceAcceleratorAssociationState = Lens.lens (elasticInferenceAcc
 -- | The time at which the elastic inference accelerator is associated with an instance.
 --
 -- /Note:/ Consider using 'elasticInferenceAcceleratorAssociationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiaaElasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.ISO8601)
-eiaaElasticInferenceAcceleratorAssociationTime = Lens.lens (elasticInferenceAcceleratorAssociationTime :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.ISO8601) (\s a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation)
+eiaaElasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.DateTime)
+eiaaElasticInferenceAcceleratorAssociationTime = Lens.lens (elasticInferenceAcceleratorAssociationTime :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.DateTime) (\s a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation)
 {-# DEPRECATED eiaaElasticInferenceAcceleratorAssociationTime "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,8 +36,8 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkServerCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
   { uploadDate ::
-      Lude.Maybe Lude.ISO8601,
-    expiration :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    expiration :: Lude.Maybe Lude.DateTime,
     path :: Lude.Text,
     serverCertificateName :: Lude.Text,
     serverCertificateId :: Lude.Text,
@@ -84,15 +87,15 @@ mkServerCertificateMetadata
 -- | The date when the server certificate was uploaded.
 --
 -- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmUploadDate :: Lens.Lens' ServerCertificateMetadata (Lude.Maybe Lude.ISO8601)
-scmUploadDate = Lens.lens (uploadDate :: ServerCertificateMetadata -> Lude.Maybe Lude.ISO8601) (\s a -> s {uploadDate = a} :: ServerCertificateMetadata)
+scmUploadDate :: Lens.Lens' ServerCertificateMetadata (Lude.Maybe Lude.DateTime)
+scmUploadDate = Lens.lens (uploadDate :: ServerCertificateMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadDate = a} :: ServerCertificateMetadata)
 {-# DEPRECATED scmUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
 
 -- | The date on which the certificate is set to expire.
 --
 -- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmExpiration :: Lens.Lens' ServerCertificateMetadata (Lude.Maybe Lude.ISO8601)
-scmExpiration = Lens.lens (expiration :: ServerCertificateMetadata -> Lude.Maybe Lude.ISO8601) (\s a -> s {expiration = a} :: ServerCertificateMetadata)
+scmExpiration :: Lens.Lens' ServerCertificateMetadata (Lude.Maybe Lude.DateTime)
+scmExpiration = Lens.lens (expiration :: ServerCertificateMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {expiration = a} :: ServerCertificateMetadata)
 {-# DEPRECATED scmExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | The path to the server certificate. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .

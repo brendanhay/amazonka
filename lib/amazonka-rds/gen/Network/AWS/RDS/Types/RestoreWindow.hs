@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -27,8 +30,8 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkRestoreWindow' smart constructor.
 data RestoreWindow = RestoreWindow'
   { latestTime ::
-      Lude.Maybe Lude.ISO8601,
-    earliestTime :: Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime,
+    earliestTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -54,15 +57,15 @@ mkRestoreWindow =
 -- | The latest time you can restore an instance to.
 --
 -- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwLatestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.ISO8601)
-rwLatestTime = Lens.lens (latestTime :: RestoreWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestTime = a} :: RestoreWindow)
+rwLatestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.DateTime)
+rwLatestTime = Lens.lens (latestTime :: RestoreWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {latestTime = a} :: RestoreWindow)
 {-# DEPRECATED rwLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
 -- | The earliest time you can restore an instance to.
 --
 -- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwEarliestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.ISO8601)
-rwEarliestTime = Lens.lens (earliestTime :: RestoreWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestTime = a} :: RestoreWindow)
+rwEarliestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.DateTime)
+rwEarliestTime = Lens.lens (earliestTime :: RestoreWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {earliestTime = a} :: RestoreWindow)
 {-# DEPRECATED rwEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
 instance Lude.FromXML RestoreWindow where

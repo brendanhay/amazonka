@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -27,8 +30,8 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
-    endTime :: Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime,
+    endTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -54,15 +57,15 @@ mkTimeRangeFilter =
 -- | The start time of the time range filter
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfStartTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.ISO8601)
-trfStartTime = Lens.lens (startTime :: TimeRangeFilter -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: TimeRangeFilter)
+trfStartTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.DateTime)
+trfStartTime = Lens.lens (startTime :: TimeRangeFilter -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: TimeRangeFilter)
 {-# DEPRECATED trfStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the time range filter
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfEndTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.ISO8601)
-trfEndTime = Lens.lens (endTime :: TimeRangeFilter -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: TimeRangeFilter)
+trfEndTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.DateTime)
+trfEndTime = Lens.lens (endTime :: TimeRangeFilter -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: TimeRangeFilter)
 {-# DEPRECATED trfEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Lude.ToQuery TimeRangeFilter where

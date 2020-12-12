@@ -154,7 +154,7 @@ data GetStatusResponse = GetStatusResponse'
     currentManifest :: Lude.Maybe Lude.Text,
     artifactList :: Lude.Maybe [Artifact],
     logBucket :: Lude.Maybe Lude.Text,
-    creationDate :: Lude.Maybe Lude.ISO8601,
+    creationDate :: Lude.Maybe Lude.DateTime,
     progressCode :: Lude.Maybe Lude.Text,
     locationCode :: Lude.Maybe Lude.Text,
     logKey :: Lude.Maybe Lude.Text,
@@ -288,8 +288,8 @@ gsrsLogBucket = Lens.lens (logBucket :: GetStatusResponse -> Lude.Maybe Lude.Tex
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsCreationDate :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.ISO8601)
-gsrsCreationDate = Lens.lens (creationDate :: GetStatusResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationDate = a} :: GetStatusResponse)
+gsrsCreationDate :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.DateTime)
+gsrsCreationDate = Lens.lens (creationDate :: GetStatusResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {creationDate = a} :: GetStatusResponse)
 {-# DEPRECATED gsrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | Undocumented field.

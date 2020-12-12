@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -55,7 +58,7 @@ data StackResourceDrift = StackResourceDrift'
     logicalResourceId :: Lude.Text,
     resourceType :: Lude.Text,
     stackResourceDriftStatus :: StackResourceDriftStatus,
-    timestamp :: Lude.ISO8601
+    timestamp :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -107,7 +110,7 @@ mkStackResourceDrift ::
   -- | 'stackResourceDriftStatus'
   StackResourceDriftStatus ->
   -- | 'timestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   StackResourceDrift
 mkStackResourceDrift
   pStackId_
@@ -220,8 +223,8 @@ srdStackResourceDriftStatus = Lens.lens (stackResourceDriftStatus :: StackResour
 -- | Time at which AWS CloudFormation performed drift detection on the stack resource.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdTimestamp :: Lens.Lens' StackResourceDrift Lude.ISO8601
-srdTimestamp = Lens.lens (timestamp :: StackResourceDrift -> Lude.ISO8601) (\s a -> s {timestamp = a} :: StackResourceDrift)
+srdTimestamp :: Lens.Lens' StackResourceDrift Lude.DateTime
+srdTimestamp = Lens.lens (timestamp :: StackResourceDrift -> Lude.DateTime) (\s a -> s {timestamp = a} :: StackResourceDrift)
 {-# DEPRECATED srdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML StackResourceDrift where

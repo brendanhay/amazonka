@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,11 +39,11 @@ data Certificate = Certificate'
       Lude.Maybe Lude.Text,
     customerOverride :: Lude.Maybe Lude.Bool,
     certificateARN :: Lude.Maybe Lude.Text,
-    customerOverrideValidTill :: Lude.Maybe Lude.ISO8601,
-    validTill :: Lude.Maybe Lude.ISO8601,
+    customerOverrideValidTill :: Lude.Maybe Lude.DateTime,
+    validTill :: Lude.Maybe Lude.DateTime,
     certificateIdentifier :: Lude.Maybe Lude.Text,
     thumbprint :: Lude.Maybe Lude.Text,
-    validFrom :: Lude.Maybe Lude.ISO8601
+    validFrom :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -99,15 +102,15 @@ cCertificateARN = Lens.lens (certificateARN :: Certificate -> Lude.Maybe Lude.Te
 -- | If there is an override for the default certificate identifier, when the override expires.
 --
 -- /Note:/ Consider using 'customerOverrideValidTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCustomerOverrideValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
-cCustomerOverrideValidTill = Lens.lens (customerOverrideValidTill :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {customerOverrideValidTill = a} :: Certificate)
+cCustomerOverrideValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
+cCustomerOverrideValidTill = Lens.lens (customerOverrideValidTill :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {customerOverrideValidTill = a} :: Certificate)
 {-# DEPRECATED cCustomerOverrideValidTill "Use generic-lens or generic-optics with 'customerOverrideValidTill' instead." #-}
 
 -- | The final date that the certificate continues to be valid.
 --
 -- /Note:/ Consider using 'validTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
-cValidTill = Lens.lens (validTill :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {validTill = a} :: Certificate)
+cValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
+cValidTill = Lens.lens (validTill :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {validTill = a} :: Certificate)
 {-# DEPRECATED cValidTill "Use generic-lens or generic-optics with 'validTill' instead." #-}
 
 -- | The unique key that identifies a certificate.
@@ -127,8 +130,8 @@ cThumbprint = Lens.lens (thumbprint :: Certificate -> Lude.Maybe Lude.Text) (\s 
 -- | The starting date from which the certificate is valid.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cValidFrom :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
-cValidFrom = Lens.lens (validFrom :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: Certificate)
+cValidFrom :: Lens.Lens' Certificate (Lude.Maybe Lude.DateTime)
+cValidFrom = Lens.lens (validFrom :: Certificate -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: Certificate)
 {-# DEPRECATED cValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 instance Lude.FromXML Certificate where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,10 +35,10 @@ import qualified Network.AWS.Prelude as Lude
 data VolumeStatusEvent = VolumeStatusEvent'
   { instanceId ::
       Lude.Maybe Lude.Text,
-    notBefore :: Lude.Maybe Lude.ISO8601,
+    notBefore :: Lude.Maybe Lude.DateTime,
     eventType :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text,
-    notAfter :: Lude.Maybe Lude.ISO8601,
+    notAfter :: Lude.Maybe Lude.DateTime,
     eventId :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -77,8 +80,8 @@ vseInstanceId = Lens.lens (instanceId :: VolumeStatusEvent -> Lude.Maybe Lude.Te
 -- | The earliest start time of the event.
 --
 -- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseNotBefore :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.ISO8601)
-vseNotBefore = Lens.lens (notBefore :: VolumeStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notBefore = a} :: VolumeStatusEvent)
+vseNotBefore :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.DateTime)
+vseNotBefore = Lens.lens (notBefore :: VolumeStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notBefore = a} :: VolumeStatusEvent)
 {-# DEPRECATED vseNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The type of this event.
@@ -98,8 +101,8 @@ vseDescription = Lens.lens (description :: VolumeStatusEvent -> Lude.Maybe Lude.
 -- | The latest end time of the event.
 --
 -- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vseNotAfter :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.ISO8601)
-vseNotAfter = Lens.lens (notAfter :: VolumeStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notAfter = a} :: VolumeStatusEvent)
+vseNotAfter :: Lens.Lens' VolumeStatusEvent (Lude.Maybe Lude.DateTime)
+vseNotAfter = Lens.lens (notAfter :: VolumeStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notAfter = a} :: VolumeStatusEvent)
 {-# DEPRECATED vseNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
 -- | The ID of this event.

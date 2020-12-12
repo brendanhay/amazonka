@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,7 +39,7 @@ data TypeVersionSummary = TypeVersionSummary'
       Lude.Maybe Lude.Text,
     typeName :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
-    timeCreated :: Lude.Maybe Lude.ISO8601,
+    timeCreated :: Lude.Maybe Lude.DateTime,
     type' :: Lude.Maybe RegistryType,
     isDefaultVersion :: Lude.Maybe Lude.Bool,
     description :: Lude.Maybe Lude.Text
@@ -96,8 +99,8 @@ tvsARN = Lens.lens (arn :: TypeVersionSummary -> Lude.Maybe Lude.Text) (\s a -> 
 -- | When the version was registered.
 --
 -- /Note:/ Consider using 'timeCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvsTimeCreated :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.ISO8601)
-tvsTimeCreated = Lens.lens (timeCreated :: TypeVersionSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {timeCreated = a} :: TypeVersionSummary)
+tvsTimeCreated :: Lens.Lens' TypeVersionSummary (Lude.Maybe Lude.DateTime)
+tvsTimeCreated = Lens.lens (timeCreated :: TypeVersionSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {timeCreated = a} :: TypeVersionSummary)
 {-# DEPRECATED tvsTimeCreated "Use generic-lens or generic-optics with 'timeCreated' instead." #-}
 
 -- | The kind of type.

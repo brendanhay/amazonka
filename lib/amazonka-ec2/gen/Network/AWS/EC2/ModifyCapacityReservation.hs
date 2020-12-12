@@ -45,7 +45,7 @@ import qualified Network.AWS.Response as Res
 data ModifyCapacityReservation = ModifyCapacityReservation'
   { instanceCount ::
       Lude.Maybe Lude.Int,
-    endDate :: Lude.Maybe Lude.ISO8601,
+    endDate :: Lude.Maybe Lude.DateTime,
     endDateType :: Lude.Maybe EndDateType,
     dryRun :: Lude.Maybe Lude.Bool,
     capacityReservationId :: Lude.Text
@@ -103,8 +103,8 @@ mcrInstanceCount = Lens.lens (instanceCount :: ModifyCapacityReservation -> Lude
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrEndDate :: Lens.Lens' ModifyCapacityReservation (Lude.Maybe Lude.ISO8601)
-mcrEndDate = Lens.lens (endDate :: ModifyCapacityReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {endDate = a} :: ModifyCapacityReservation)
+mcrEndDate :: Lens.Lens' ModifyCapacityReservation (Lude.Maybe Lude.DateTime)
+mcrEndDate = Lens.lens (endDate :: ModifyCapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: ModifyCapacityReservation)
 {-# DEPRECATED mcrEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:

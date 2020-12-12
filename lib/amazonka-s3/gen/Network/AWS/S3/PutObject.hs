@@ -99,7 +99,7 @@ data PutObject = PutObject'
   { contentLength ::
       Lude.Maybe Lude.Integer,
     objectLockMode :: Lude.Maybe ObjectLockMode,
-    expires :: Lude.Maybe Lude.ISO8601,
+    expires :: Lude.Maybe Lude.DateTime,
     grantReadACP :: Lude.Maybe Lude.Text,
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
@@ -114,7 +114,7 @@ data PutObject = PutObject'
     contentEncoding :: Lude.Maybe Lude.Text,
     tagging :: Lude.Maybe Lude.Text,
     contentMD5 :: Lude.Maybe Lude.Text,
-    objectLockRetainUntilDate :: Lude.Maybe Lude.ISO8601,
+    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
     sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
     cacheControl :: Lude.Maybe Lude.Text,
@@ -245,8 +245,8 @@ poObjectLockMode = Lens.lens (objectLockMode :: PutObject -> Lude.Maybe ObjectLo
 -- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poExpires :: Lens.Lens' PutObject (Lude.Maybe Lude.ISO8601)
-poExpires = Lens.lens (expires :: PutObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {expires = a} :: PutObject)
+poExpires :: Lens.Lens' PutObject (Lude.Maybe Lude.DateTime)
+poExpires = Lens.lens (expires :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: PutObject)
 {-# DEPRECATED poExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | Allows grantee to read the object ACL.
@@ -366,8 +366,8 @@ poContentMD5 = Lens.lens (contentMD5 :: PutObject -> Lude.Maybe Lude.Text) (\s a
 -- | The date and time when you want this object's Object Lock to expire.
 --
 -- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poObjectLockRetainUntilDate :: Lens.Lens' PutObject (Lude.Maybe Lude.ISO8601)
-poObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: PutObject -> Lude.Maybe Lude.ISO8601) (\s a -> s {objectLockRetainUntilDate = a} :: PutObject)
+poObjectLockRetainUntilDate :: Lens.Lens' PutObject (Lude.Maybe Lude.DateTime)
+poObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: PutObject)
 {-# DEPRECATED poObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
 
 -- | A map of metadata to store with the object in S3.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
       Lude.Maybe Lude.Int,
     attachTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     deviceIndex ::
       Lude.Maybe Lude.Int
   }
@@ -106,8 +109,8 @@ iniaNetworkCardIndex = Lens.lens (networkCardIndex :: InstanceNetworkInterfaceAt
 -- | The time stamp when the attachment initiated.
 --
 -- /Note:/ Consider using 'attachTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iniaAttachTime :: Lens.Lens' InstanceNetworkInterfaceAttachment (Lude.Maybe Lude.ISO8601)
-iniaAttachTime = Lens.lens (attachTime :: InstanceNetworkInterfaceAttachment -> Lude.Maybe Lude.ISO8601) (\s a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment)
+iniaAttachTime :: Lens.Lens' InstanceNetworkInterfaceAttachment (Lude.Maybe Lude.DateTime)
+iniaAttachTime = Lens.lens (attachTime :: InstanceNetworkInterfaceAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment)
 {-# DEPRECATED iniaAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
 
 -- | The index of the device on the instance for the network interface attachment.

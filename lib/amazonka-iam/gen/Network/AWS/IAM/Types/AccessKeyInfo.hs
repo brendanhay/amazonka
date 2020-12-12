@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkAccessKeyInfo' smart constructor.
 data AccessKeyInfo = AccessKeyInfo'
   { createDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     userName :: Lude.Text,
     accessKeyId :: AccessKey,
     status :: StatusType,
@@ -71,8 +74,8 @@ mkAccessKeyInfo pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
 -- | The date when the access key was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiCreateDate :: Lens.Lens' AccessKeyInfo (Lude.Maybe Lude.ISO8601)
-akiCreateDate = Lens.lens (createDate :: AccessKeyInfo -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: AccessKeyInfo)
+akiCreateDate :: Lens.Lens' AccessKeyInfo (Lude.Maybe Lude.DateTime)
+akiCreateDate = Lens.lens (createDate :: AccessKeyInfo -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: AccessKeyInfo)
 {-# DEPRECATED akiCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The name of the IAM user that the access key is associated with.

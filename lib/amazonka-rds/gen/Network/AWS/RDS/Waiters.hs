@@ -150,7 +150,7 @@ mkDBSnapshotDeleted =
       Wait._waitAttempts = 60,
       Wait._waitDelay = 30,
       Wait._waitAcceptors =
-        [ Lude.matchEmpty
+        [ Wait.matchEmpty
             Lude.True
             Wait.AcceptSuccess
             (ddsrsDBSnapshots Lude.. Lens._Just),
@@ -210,7 +210,7 @@ mkDBInstanceDeleted =
       Wait._waitAttempts = 60,
       Wait._waitDelay = 30,
       Wait._waitAcceptors =
-        [ Lude.matchEmpty
+        [ Wait.matchEmpty
             Lude.True
             Wait.AcceptSuccess
             (ddbirsDBInstances Lude.. Lens._Just),
@@ -270,7 +270,7 @@ mkDBClusterSnapshotDeleted =
       Wait._waitAttempts = 60,
       Wait._waitDelay = 30,
       Wait._waitAcceptors =
-        [ Lude.matchEmpty
+        [ Wait.matchEmpty
             Lude.True
             Wait.AcceptSuccess
             (ddbcsrsDBClusterSnapshots Lude.. Lens._Just),

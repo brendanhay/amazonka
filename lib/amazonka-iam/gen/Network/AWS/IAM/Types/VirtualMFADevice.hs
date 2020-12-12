@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data VirtualMFADevice = VirtualMFADevice'
     base32StringSeed ::
       Lude.Maybe (Lude.Sensitive Lude.Base64),
     user :: Lude.Maybe User,
-    enableDate :: Lude.Maybe Lude.ISO8601,
+    enableDate :: Lude.Maybe Lude.DateTime,
     serialNumber :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -101,8 +104,8 @@ vmdUser = Lens.lens (user :: VirtualMFADevice -> Lude.Maybe User) (\s a -> s {us
 -- | The date and time on which the virtual MFA device was enabled.
 --
 -- /Note:/ Consider using 'enableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmdEnableDate :: Lens.Lens' VirtualMFADevice (Lude.Maybe Lude.ISO8601)
-vmdEnableDate = Lens.lens (enableDate :: VirtualMFADevice -> Lude.Maybe Lude.ISO8601) (\s a -> s {enableDate = a} :: VirtualMFADevice)
+vmdEnableDate :: Lens.Lens' VirtualMFADevice (Lude.Maybe Lude.DateTime)
+vmdEnableDate = Lens.lens (enableDate :: VirtualMFADevice -> Lude.Maybe Lude.DateTime) (\s a -> s {enableDate = a} :: VirtualMFADevice)
 {-# DEPRECATED vmdEnableDate "Use generic-lens or generic-optics with 'enableDate' instead." #-}
 
 -- | The serial number associated with @VirtualMFADevice@ .

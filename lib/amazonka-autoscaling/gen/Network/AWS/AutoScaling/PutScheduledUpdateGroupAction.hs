@@ -46,8 +46,9 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkPutScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
-    time :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    time ::
+      Lude.Maybe Lude.DateTime,
     maxSize :: Lude.Maybe Lude.Int,
     recurrence ::
       Lude.Maybe Lude.Text,
@@ -55,7 +56,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
       Lude.Maybe Lude.Int,
     minSize :: Lude.Maybe Lude.Int,
     endTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     autoScalingGroupName ::
       Lude.Text,
     scheduledActionName ::
@@ -113,15 +114,15 @@ mkPutScheduledUpdateGroupAction
 -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psugaStartTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-psugaStartTime = Lens.lens (startTime :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: PutScheduledUpdateGroupAction)
+psugaStartTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+psugaStartTime = Lens.lens (startTime :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: PutScheduledUpdateGroupAction)
 {-# DEPRECATED psugaStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | This parameter is no longer used.
 --
 -- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psugaTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-psugaTime = Lens.lens (time :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {time = a} :: PutScheduledUpdateGroupAction)
+psugaTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+psugaTime = Lens.lens (time :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {time = a} :: PutScheduledUpdateGroupAction)
 {-# DEPRECATED psugaTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
 -- | The maximum size of the Auto Scaling group.
@@ -157,8 +158,8 @@ psugaMinSize = Lens.lens (minSize :: PutScheduledUpdateGroupAction -> Lude.Maybe
 -- | The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psugaEndTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.ISO8601)
-psugaEndTime = Lens.lens (endTime :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: PutScheduledUpdateGroupAction)
+psugaEndTime :: Lens.Lens' PutScheduledUpdateGroupAction (Lude.Maybe Lude.DateTime)
+psugaEndTime = Lens.lens (endTime :: PutScheduledUpdateGroupAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: PutScheduledUpdateGroupAction)
 {-# DEPRECATED psugaEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The name of the Auto Scaling group.

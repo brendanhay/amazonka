@@ -170,7 +170,8 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
       Lude.Maybe
         InstanceHealthSummary,
     refreshedAt ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe
+        Lude.DateTime,
     responseStatus ::
       Lude.Int
   }
@@ -263,8 +264,8 @@ dehrsInstancesHealth = Lens.lens (instancesHealth :: DescribeEnvironmentHealthRe
 -- | The date and time that the health information was retrieved.
 --
 -- /Note:/ Consider using 'refreshedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dehrsRefreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.ISO8601)
-dehrsRefreshedAt = Lens.lens (refreshedAt :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse)
+dehrsRefreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Lude.Maybe Lude.DateTime)
+dehrsRefreshedAt = Lens.lens (refreshedAt :: DescribeEnvironmentHealthResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse)
 {-# DEPRECATED dehrsRefreshedAt "Use generic-lens or generic-optics with 'refreshedAt' instead." #-}
 
 -- | The response status code.

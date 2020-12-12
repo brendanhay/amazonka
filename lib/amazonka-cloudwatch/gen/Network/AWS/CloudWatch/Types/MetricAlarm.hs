@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -58,7 +61,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkMetricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
   { alarmName :: Lude.Maybe Lude.Text,
-    stateUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    stateUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
     metrics :: Lude.Maybe [MetricDataQuery],
     treatMissingData :: Lude.Maybe Lude.Text,
     period :: Lude.Maybe Lude.Natural,
@@ -73,7 +76,7 @@ data MetricAlarm = MetricAlarm'
     stateValue :: Lude.Maybe StateValue,
     datapointsToAlarm :: Lude.Maybe Lude.Natural,
     threshold :: Lude.Maybe Lude.Double,
-    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
     actionsEnabled :: Lude.Maybe Lude.Bool,
     insufficientDataActions :: Lude.Maybe [Lude.Text],
     stateReason :: Lude.Maybe Lude.Text,
@@ -166,8 +169,8 @@ maAlarmName = Lens.lens (alarmName :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a
 -- | The time stamp of the last update to the alarm state.
 --
 -- /Note:/ Consider using 'stateUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.ISO8601)
-maStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {stateUpdatedTimestamp = a} :: MetricAlarm)
+maStateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.DateTime)
+maStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {stateUpdatedTimestamp = a} :: MetricAlarm)
 {-# DEPRECATED maStateUpdatedTimestamp "Use generic-lens or generic-optics with 'stateUpdatedTimestamp' instead." #-}
 
 -- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
@@ -271,8 +274,8 @@ maThreshold = Lens.lens (threshold :: MetricAlarm -> Lude.Maybe Lude.Double) (\s
 -- | The time stamp of the last update to the alarm configuration.
 --
 -- /Note:/ Consider using 'alarmConfigurationUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.ISO8601)
-maAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm)
+maAlarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.DateTime)
+maAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm)
 {-# DEPRECATED maAlarmConfigurationUpdatedTimestamp "Use generic-lens or generic-optics with 'alarmConfigurationUpdatedTimestamp' instead." #-}
 
 -- | Indicates whether actions should be executed during any changes to the alarm state.

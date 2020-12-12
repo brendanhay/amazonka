@@ -49,12 +49,12 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nextToken :: Lude.Maybe Lude.Text,
     autoScalingGroupName ::
       Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Int,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     scheduledActionNames ::
       Lude.Maybe [Lude.Text]
   }
@@ -90,8 +90,8 @@ mkDescribeScheduledActions =
 -- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
-dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeScheduledActions)
+dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
+dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeScheduledActions)
 {-# DEPRECATED dsasStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
@@ -118,8 +118,8 @@ dsasMaxRecords = Lens.lens (maxRecords :: DescribeScheduledActions -> Lude.Maybe
 -- | The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
-dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeScheduledActions)
+dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
+dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeScheduledActions)
 {-# DEPRECATED dsasEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The names of one or more scheduled actions. You can specify up to 50 actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.

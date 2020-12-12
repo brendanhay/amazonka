@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,7 +35,7 @@ data HistoryRecordEntry = HistoryRecordEntry'
   { eventType ::
       Lude.Maybe FleetEventType,
     eventInformation :: Lude.Maybe EventInformation,
-    timestamp :: Lude.Maybe Lude.ISO8601
+    timestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -74,8 +77,8 @@ hreEventInformation = Lens.lens (eventInformation :: HistoryRecordEntry -> Lude.
 -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hreTimestamp :: Lens.Lens' HistoryRecordEntry (Lude.Maybe Lude.ISO8601)
-hreTimestamp = Lens.lens (timestamp :: HistoryRecordEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: HistoryRecordEntry)
+hreTimestamp :: Lens.Lens' HistoryRecordEntry (Lude.Maybe Lude.DateTime)
+hreTimestamp = Lens.lens (timestamp :: HistoryRecordEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: HistoryRecordEntry)
 {-# DEPRECATED hreTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML HistoryRecordEntry where

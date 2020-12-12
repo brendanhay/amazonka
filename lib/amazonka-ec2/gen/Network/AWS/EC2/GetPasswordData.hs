@@ -122,7 +122,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
       Lude.Int,
     instanceId :: Lude.Text,
     passwordData :: Lude.Text,
-    timestamp :: Lude.ISO8601
+    timestamp :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -147,7 +147,7 @@ mkGetPasswordDataResponse ::
   -- | 'passwordData'
   Lude.Text ->
   -- | 'timestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   GetPasswordDataResponse
 mkGetPasswordDataResponse
   pResponseStatus_
@@ -185,6 +185,6 @@ gpdrsPasswordData = Lens.lens (passwordData :: GetPasswordDataResponse -> Lude.T
 -- | The time the data was last updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrsTimestamp :: Lens.Lens' GetPasswordDataResponse Lude.ISO8601
-gpdrsTimestamp = Lens.lens (timestamp :: GetPasswordDataResponse -> Lude.ISO8601) (\s a -> s {timestamp = a} :: GetPasswordDataResponse)
+gpdrsTimestamp :: Lens.Lens' GetPasswordDataResponse Lude.DateTime
+gpdrsTimestamp = Lens.lens (timestamp :: GetPasswordDataResponse -> Lude.DateTime) (\s a -> s {timestamp = a} :: GetPasswordDataResponse)
 {-# DEPRECATED gpdrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}

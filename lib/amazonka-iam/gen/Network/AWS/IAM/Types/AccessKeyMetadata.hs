@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ import qualified Network.AWS.Prelude as Lude
 data AccessKeyMetadata = AccessKeyMetadata'
   { status ::
       Lude.Maybe StatusType,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     userName :: Lude.Maybe Lude.Text,
     accessKeyId :: Lude.Maybe AccessKey
   }
@@ -72,8 +75,8 @@ akmStatus = Lens.lens (status :: AccessKeyMetadata -> Lude.Maybe StatusType) (\s
 -- | The date when the access key was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akmCreateDate :: Lens.Lens' AccessKeyMetadata (Lude.Maybe Lude.ISO8601)
-akmCreateDate = Lens.lens (createDate :: AccessKeyMetadata -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: AccessKeyMetadata)
+akmCreateDate :: Lens.Lens' AccessKeyMetadata (Lude.Maybe Lude.DateTime)
+akmCreateDate = Lens.lens (createDate :: AccessKeyMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: AccessKeyMetadata)
 {-# DEPRECATED akmCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The name of the IAM user that the key is associated with.

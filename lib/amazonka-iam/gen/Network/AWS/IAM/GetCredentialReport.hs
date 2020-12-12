@@ -88,7 +88,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
   { content ::
       Lude.Maybe Lude.Base64,
     generatedTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     reportFormat ::
       Lude.Maybe ReportFormatType,
     responseStatus :: Lude.Int
@@ -138,8 +138,8 @@ grsContent = Lens.lens (content :: GetCredentialReportResponse -> Lude.Maybe Lud
 -- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
 --
 -- /Note:/ Consider using 'generatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsGeneratedTime :: Lens.Lens' GetCredentialReportResponse (Lude.Maybe Lude.ISO8601)
-grsGeneratedTime = Lens.lens (generatedTime :: GetCredentialReportResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {generatedTime = a} :: GetCredentialReportResponse)
+grsGeneratedTime :: Lens.Lens' GetCredentialReportResponse (Lude.Maybe Lude.DateTime)
+grsGeneratedTime = Lens.lens (generatedTime :: GetCredentialReportResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {generatedTime = a} :: GetCredentialReportResponse)
 {-# DEPRECATED grsGeneratedTime "Use generic-lens or generic-optics with 'generatedTime' instead." #-}
 
 -- | The format (MIME type) of the credential report.

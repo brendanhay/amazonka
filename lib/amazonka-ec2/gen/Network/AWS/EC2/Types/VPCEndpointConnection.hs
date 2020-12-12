@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data VPCEndpointConnection = VPCEndpointConnection'
     vpcEndpointState :: Lude.Maybe State,
     gatewayLoadBalancerARNs ::
       Lude.Maybe [Lude.Text],
-    creationTimestamp :: Lude.Maybe Lude.ISO8601,
+    creationTimestamp :: Lude.Maybe Lude.DateTime,
     serviceId :: Lude.Maybe Lude.Text,
     vpcEndpointId :: Lude.Maybe Lude.Text
   }
@@ -117,8 +120,8 @@ vecGatewayLoadBalancerARNs = Lens.lens (gatewayLoadBalancerARNs :: VPCEndpointCo
 -- | The date and time that the VPC endpoint was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vecCreationTimestamp :: Lens.Lens' VPCEndpointConnection (Lude.Maybe Lude.ISO8601)
-vecCreationTimestamp = Lens.lens (creationTimestamp :: VPCEndpointConnection -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTimestamp = a} :: VPCEndpointConnection)
+vecCreationTimestamp :: Lens.Lens' VPCEndpointConnection (Lude.Maybe Lude.DateTime)
+vecCreationTimestamp = Lens.lens (creationTimestamp :: VPCEndpointConnection -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTimestamp = a} :: VPCEndpointConnection)
 {-# DEPRECATED vecCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the service to which the endpoint is connected.

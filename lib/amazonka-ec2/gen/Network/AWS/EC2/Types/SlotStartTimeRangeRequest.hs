@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -27,8 +30,9 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSlotStartTimeRangeRequest' smart constructor.
 data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
   { latestTime ::
-      Lude.Maybe Lude.ISO8601,
-    earliestTime :: Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime,
+    earliestTime ::
+      Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -54,15 +58,15 @@ mkSlotStartTimeRangeRequest =
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
 --
 -- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sstrrLatestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.ISO8601)
-sstrrLatestTime = Lens.lens (latestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestTime = a} :: SlotStartTimeRangeRequest)
+sstrrLatestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.DateTime)
+sstrrLatestTime = Lens.lens (latestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {latestTime = a} :: SlotStartTimeRangeRequest)
 {-# DEPRECATED sstrrLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
 --
 -- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sstrrEarliestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.ISO8601)
-sstrrEarliestTime = Lens.lens (earliestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestTime = a} :: SlotStartTimeRangeRequest)
+sstrrEarliestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.DateTime)
+sstrrEarliestTime = Lens.lens (earliestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {earliestTime = a} :: SlotStartTimeRangeRequest)
 {-# DEPRECATED sstrrEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
 instance Lude.ToQuery SlotStartTimeRangeRequest where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,12 +35,12 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkInstanceStatusEvent' smart constructor.
 data InstanceStatusEvent = InstanceStatusEvent'
   { notBefore ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     code :: Lude.Maybe EventCode,
     instanceEventId :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text,
-    notBeforeDeadline :: Lude.Maybe Lude.ISO8601,
-    notAfter :: Lude.Maybe Lude.ISO8601
+    notBeforeDeadline :: Lude.Maybe Lude.DateTime,
+    notAfter :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -73,8 +76,8 @@ mkInstanceStatusEvent =
 -- | The earliest scheduled start time for the event.
 --
 -- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iseNotBefore :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
-iseNotBefore = Lens.lens (notBefore :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notBefore = a} :: InstanceStatusEvent)
+iseNotBefore :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.DateTime)
+iseNotBefore = Lens.lens (notBefore :: InstanceStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notBefore = a} :: InstanceStatusEvent)
 {-# DEPRECATED iseNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The event code.
@@ -103,15 +106,15 @@ iseDescription = Lens.lens (description :: InstanceStatusEvent -> Lude.Maybe Lud
 -- | The deadline for starting the event.
 --
 -- /Note:/ Consider using 'notBeforeDeadline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iseNotBeforeDeadline :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
-iseNotBeforeDeadline = Lens.lens (notBeforeDeadline :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notBeforeDeadline = a} :: InstanceStatusEvent)
+iseNotBeforeDeadline :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.DateTime)
+iseNotBeforeDeadline = Lens.lens (notBeforeDeadline :: InstanceStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notBeforeDeadline = a} :: InstanceStatusEvent)
 {-# DEPRECATED iseNotBeforeDeadline "Use generic-lens or generic-optics with 'notBeforeDeadline' instead." #-}
 
 -- | The latest scheduled end time for the event.
 --
 -- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iseNotAfter :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
-iseNotAfter = Lens.lens (notAfter :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notAfter = a} :: InstanceStatusEvent)
+iseNotAfter :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.DateTime)
+iseNotAfter = Lens.lens (notAfter :: InstanceStatusEvent -> Lude.Maybe Lude.DateTime) (\s a -> s {notAfter = a} :: InstanceStatusEvent)
 {-# DEPRECATED iseNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
 instance Lude.FromXML InstanceStatusEvent where

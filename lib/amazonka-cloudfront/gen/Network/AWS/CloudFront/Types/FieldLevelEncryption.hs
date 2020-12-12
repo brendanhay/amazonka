@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,7 +32,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkFieldLevelEncryption' smart constructor.
 data FieldLevelEncryption = FieldLevelEncryption'
   { id :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     fieldLevelEncryptionConfig ::
       FieldLevelEncryptionConfig
   }
@@ -51,7 +54,7 @@ mkFieldLevelEncryption ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'fieldLevelEncryptionConfig'
   FieldLevelEncryptionConfig ->
   FieldLevelEncryption
@@ -75,8 +78,8 @@ fleId = Lens.lens (id :: FieldLevelEncryption -> Lude.Text) (\s a -> s {id = a} 
 -- | The last time the field-level encryption configuration was changed.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleLastModifiedTime :: Lens.Lens' FieldLevelEncryption Lude.ISO8601
-fleLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryption -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryption)
+fleLastModifiedTime :: Lens.Lens' FieldLevelEncryption Lude.DateTime
+fleLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryption -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryption)
 {-# DEPRECATED fleLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | A complex data type that includes the profile configurations specified for field-level encryption.

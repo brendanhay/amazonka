@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import qualified Network.AWS.Prelude as Lude
 data TemplateMetadata = TemplateMetadata'
   { name ::
       Lude.Maybe Lude.Text,
-    createdTimestamp :: Lude.Maybe Lude.ISO8601
+    createdTimestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -61,8 +64,8 @@ tmName = Lens.lens (name :: TemplateMetadata -> Lude.Maybe Lude.Text) (\s a -> s
 -- | The time and date the template was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmCreatedTimestamp :: Lens.Lens' TemplateMetadata (Lude.Maybe Lude.ISO8601)
-tmCreatedTimestamp = Lens.lens (createdTimestamp :: TemplateMetadata -> Lude.Maybe Lude.ISO8601) (\s a -> s {createdTimestamp = a} :: TemplateMetadata)
+tmCreatedTimestamp :: Lens.Lens' TemplateMetadata (Lude.Maybe Lude.DateTime)
+tmCreatedTimestamp = Lens.lens (createdTimestamp :: TemplateMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTimestamp = a} :: TemplateMetadata)
 {-# DEPRECATED tmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 instance Lude.FromXML TemplateMetadata where

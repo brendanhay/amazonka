@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkReputationOptions' smart constructor.
 data ReputationOptions = ReputationOptions'
   { lastFreshStart ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     reputationMetricsEnabled :: Lude.Maybe Lude.Bool,
     sendingEnabled :: Lude.Maybe Lude.Bool
   }
@@ -66,8 +69,8 @@ mkReputationOptions =
 -- If email sending for the configuration set has never been disabled and later re-enabled, the value of this attribute is @null@ .
 --
 -- /Note:/ Consider using 'lastFreshStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roLastFreshStart :: Lens.Lens' ReputationOptions (Lude.Maybe Lude.ISO8601)
-roLastFreshStart = Lens.lens (lastFreshStart :: ReputationOptions -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastFreshStart = a} :: ReputationOptions)
+roLastFreshStart :: Lens.Lens' ReputationOptions (Lude.Maybe Lude.DateTime)
+roLastFreshStart = Lens.lens (lastFreshStart :: ReputationOptions -> Lude.Maybe Lude.DateTime) (\s a -> s {lastFreshStart = a} :: ReputationOptions)
 {-# DEPRECATED roLastFreshStart "Use generic-lens or generic-optics with 'lastFreshStart' instead." #-}
 
 -- | Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.

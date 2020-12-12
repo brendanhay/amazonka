@@ -63,7 +63,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
       Lude.Maybe Lude.Text,
     tagValues :: Lude.Maybe [Lude.Text],
     clusterExists :: Lude.Maybe Lude.Bool,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     tagKeys :: Lude.Maybe [Lude.Text],
     clusterIdentifier :: Lude.Maybe Lude.Text,
     snapshotType :: Lude.Maybe Lude.Text,
@@ -71,7 +71,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
       Lude.Maybe [SnapshotSortingEntity],
     marker :: Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Int,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     ownerAccount :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -178,8 +178,8 @@ dClusterExists = Lens.lens (clusterExists :: DescribeClusterSnapshots -> Lude.Ma
 -- Example: @2012-07-16T18:00:00Z@
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStartTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.ISO8601)
-dStartTime = Lens.lens (startTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeClusterSnapshots)
+dStartTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.DateTime)
+dStartTime = Lens.lens (startTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeClusterSnapshots)
 {-# DEPRECATED dStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
@@ -234,8 +234,8 @@ dMaxRecords = Lens.lens (maxRecords :: DescribeClusterSnapshots -> Lude.Maybe Lu
 -- Example: @2012-07-16T18:00:00Z@
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEndTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.ISO8601)
-dEndTime = Lens.lens (endTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeClusterSnapshots)
+dEndTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.DateTime)
+dEndTime = Lens.lens (endTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeClusterSnapshots)
 {-# DEPRECATED dEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.

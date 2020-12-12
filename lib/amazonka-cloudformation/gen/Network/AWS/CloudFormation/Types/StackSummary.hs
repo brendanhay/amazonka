@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -38,16 +41,16 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkStackSummary' smart constructor.
 data StackSummary = StackSummary'
   { lastUpdatedTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     rootId :: Lude.Maybe Lude.Text,
     stackStatusReason :: Lude.Maybe Lude.Text,
     templateDescription :: Lude.Maybe Lude.Text,
     driftInformation :: Lude.Maybe StackDriftInformationSummary,
-    deletionTime :: Lude.Maybe Lude.ISO8601,
+    deletionTime :: Lude.Maybe Lude.DateTime,
     stackId :: Lude.Maybe Lude.Text,
     parentId :: Lude.Maybe Lude.Text,
     stackName :: Lude.Text,
-    creationTime :: Lude.ISO8601,
+    creationTime :: Lude.DateTime,
     stackStatus :: StackStatus
   }
   deriving stock
@@ -80,7 +83,7 @@ mkStackSummary ::
   -- | 'stackName'
   Lude.Text ->
   -- | 'creationTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'stackStatus'
   StackStatus ->
   StackSummary
@@ -102,8 +105,8 @@ mkStackSummary pStackName_ pCreationTime_ pStackStatus_ =
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
 -- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssLastUpdatedTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.ISO8601)
-ssLastUpdatedTime = Lens.lens (lastUpdatedTime :: StackSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUpdatedTime = a} :: StackSummary)
+ssLastUpdatedTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.DateTime)
+ssLastUpdatedTime = Lens.lens (lastUpdatedTime :: StackSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdatedTime = a} :: StackSummary)
 {-# DEPRECATED ssLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
@@ -139,8 +142,8 @@ ssDriftInformation = Lens.lens (driftInformation :: StackSummary -> Lude.Maybe S
 -- | The time the stack was deleted.
 --
 -- /Note:/ Consider using 'deletionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDeletionTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.ISO8601)
-ssDeletionTime = Lens.lens (deletionTime :: StackSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {deletionTime = a} :: StackSummary)
+ssDeletionTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.DateTime)
+ssDeletionTime = Lens.lens (deletionTime :: StackSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {deletionTime = a} :: StackSummary)
 {-# DEPRECATED ssDeletionTime "Use generic-lens or generic-optics with 'deletionTime' instead." #-}
 
 -- | Unique stack identifier.
@@ -169,8 +172,8 @@ ssStackName = Lens.lens (stackName :: StackSummary -> Lude.Text) (\s a -> s {sta
 -- | The time the stack was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCreationTime :: Lens.Lens' StackSummary Lude.ISO8601
-ssCreationTime = Lens.lens (creationTime :: StackSummary -> Lude.ISO8601) (\s a -> s {creationTime = a} :: StackSummary)
+ssCreationTime :: Lens.Lens' StackSummary Lude.DateTime
+ssCreationTime = Lens.lens (creationTime :: StackSummary -> Lude.DateTime) (\s a -> s {creationTime = a} :: StackSummary)
 {-# DEPRECATED ssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The current status of the stack.

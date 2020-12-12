@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data SpotMarketOptions = SpotMarketOptions'
       Lude.Maybe Lude.Int,
     instanceInterruptionBehavior ::
       Lude.Maybe InstanceInterruptionBehavior,
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.DateTime,
     spotInstanceType :: Lude.Maybe SpotInstanceType,
     maxPrice :: Lude.Maybe Lude.Text
   }
@@ -105,8 +108,8 @@ smoInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: Spo
 --
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smoValidUntil :: Lens.Lens' SpotMarketOptions (Lude.Maybe Lude.ISO8601)
-smoValidUntil = Lens.lens (validUntil :: SpotMarketOptions -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SpotMarketOptions)
+smoValidUntil :: Lens.Lens' SpotMarketOptions (Lude.Maybe Lude.DateTime)
+smoValidUntil = Lens.lens (validUntil :: SpotMarketOptions -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: SpotMarketOptions)
 {-# DEPRECATED smoValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The Spot Instance request type. For <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances> , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -37,7 +40,7 @@ data VolumeAttachment = VolumeAttachment'
     state :: Lude.Maybe VolumeAttachmentState,
     device :: Lude.Maybe Lude.Text,
     volumeId :: Lude.Maybe Lude.Text,
-    attachTime :: Lude.Maybe Lude.ISO8601
+    attachTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -106,8 +109,8 @@ volVolumeId = Lens.lens (volumeId :: VolumeAttachment -> Lude.Maybe Lude.Text) (
 -- | The time stamp when the attachment initiated.
 --
 -- /Note:/ Consider using 'attachTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volAttachTime :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.ISO8601)
-volAttachTime = Lens.lens (attachTime :: VolumeAttachment -> Lude.Maybe Lude.ISO8601) (\s a -> s {attachTime = a} :: VolumeAttachment)
+volAttachTime :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.DateTime)
+volAttachTime = Lens.lens (attachTime :: VolumeAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: VolumeAttachment)
 {-# DEPRECATED volAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
 
 instance Lude.FromXML VolumeAttachment where

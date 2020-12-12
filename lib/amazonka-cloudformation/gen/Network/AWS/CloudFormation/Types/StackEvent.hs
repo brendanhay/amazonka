@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -47,7 +50,7 @@ data StackEvent = StackEvent'
     stackId :: Lude.Text,
     eventId :: Lude.Text,
     stackName :: Lude.Text,
-    timestamp :: Lude.ISO8601
+    timestamp :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -82,7 +85,7 @@ mkStackEvent ::
   -- | 'stackName'
   Lude.Text ->
   -- | 'timestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   StackEvent
 mkStackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
   StackEvent'
@@ -175,8 +178,8 @@ seStackName = Lens.lens (stackName :: StackEvent -> Lude.Text) (\s a -> s {stack
 -- | Time the status was updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seTimestamp :: Lens.Lens' StackEvent Lude.ISO8601
-seTimestamp = Lens.lens (timestamp :: StackEvent -> Lude.ISO8601) (\s a -> s {timestamp = a} :: StackEvent)
+seTimestamp :: Lens.Lens' StackEvent Lude.DateTime
+seTimestamp = Lens.lens (timestamp :: StackEvent -> Lude.DateTime) (\s a -> s {timestamp = a} :: StackEvent)
 {-# DEPRECATED seTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML StackEvent where

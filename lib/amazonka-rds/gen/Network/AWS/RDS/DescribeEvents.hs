@@ -54,14 +54,14 @@ import qualified Network.AWS.Response as Res
 -- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     sourceType :: Lude.Maybe SourceType,
     filters :: Lude.Maybe [Filter],
     sourceIdentifier :: Lude.Maybe Lude.Text,
     eventCategories :: Lude.Maybe [Lude.Text],
     marker :: Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Int,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     duration :: Lude.Maybe Lude.Int
   }
   deriving stock
@@ -140,8 +140,8 @@ mkDescribeEvents =
 -- Example: 2009-07-08T18:00Z
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
-deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeEvents)
+deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeEvents)
 {-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The event source to retrieve events for. If no value is specified, all events are returned.
@@ -221,8 +221,8 @@ deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (
 -- Example: 2009-07-08T18:00Z
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
-deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeEvents)
+deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeEvents)
 {-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The number of minutes to retrieve events for.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -46,14 +49,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { passwordLastUsed :: Lude.Maybe Lude.ISO8601,
+  { passwordLastUsed :: Lude.Maybe Lude.DateTime,
     permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
     tags :: Lude.Maybe [Tag],
     path :: Lude.Text,
     userName :: Lude.Text,
     userId :: Lude.Text,
     arn :: Lude.Text,
-    createDate :: Lude.ISO8601
+    createDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -96,7 +99,7 @@ mkUser ::
   -- | 'arn'
   Lude.Text ->
   -- | 'createDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   User
 mkUser pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
   User'
@@ -123,8 +126,8 @@ mkUser pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
 -- This value is returned only in the 'GetUser' and 'ListUsers' operations.
 --
 -- /Note:/ Consider using 'passwordLastUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uPasswordLastUsed :: Lens.Lens' User (Lude.Maybe Lude.ISO8601)
-uPasswordLastUsed = Lens.lens (passwordLastUsed :: User -> Lude.Maybe Lude.ISO8601) (\s a -> s {passwordLastUsed = a} :: User)
+uPasswordLastUsed :: Lens.Lens' User (Lude.Maybe Lude.DateTime)
+uPasswordLastUsed = Lens.lens (passwordLastUsed :: User -> Lude.Maybe Lude.DateTime) (\s a -> s {passwordLastUsed = a} :: User)
 {-# DEPRECATED uPasswordLastUsed "Use generic-lens or generic-optics with 'passwordLastUsed' instead." #-}
 
 -- | The ARN of the policy used to set the permissions boundary for the user.
@@ -174,8 +177,8 @@ uARN = Lens.lens (arn :: User -> Lude.Text) (\s a -> s {arn = a} :: User)
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uCreateDate :: Lens.Lens' User Lude.ISO8601
-uCreateDate = Lens.lens (createDate :: User -> Lude.ISO8601) (\s a -> s {createDate = a} :: User)
+uCreateDate :: Lens.Lens' User Lude.DateTime
+uCreateDate = Lens.lens (createDate :: User -> Lude.DateTime) (\s a -> s {createDate = a} :: User)
 {-# DEPRECATED uCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 instance Lude.FromXML User where

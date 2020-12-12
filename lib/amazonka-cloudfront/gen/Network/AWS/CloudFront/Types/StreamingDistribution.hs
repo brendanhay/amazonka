@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkStreamingDistribution' smart constructor.
 data StreamingDistribution = StreamingDistribution'
   { lastModifiedTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     id :: Lude.Text,
     arn :: Lude.Text,
     status :: Lude.Text,
@@ -98,8 +101,8 @@ mkStreamingDistribution
 -- | The date and time that the distribution was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdLastModifiedTime :: Lens.Lens' StreamingDistribution (Lude.Maybe Lude.ISO8601)
-sdLastModifiedTime = Lens.lens (lastModifiedTime :: StreamingDistribution -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: StreamingDistribution)
+sdLastModifiedTime :: Lens.Lens' StreamingDistribution (Lude.Maybe Lude.DateTime)
+sdLastModifiedTime = Lens.lens (lastModifiedTime :: StreamingDistribution -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: StreamingDistribution)
 {-# DEPRECATED sdLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The identifier for the RTMP distribution. For example: @EGTXBD79EXAMPLE@ .

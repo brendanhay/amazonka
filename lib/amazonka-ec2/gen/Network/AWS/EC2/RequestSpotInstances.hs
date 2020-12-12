@@ -67,10 +67,10 @@ data RequestSpotInstances = RequestSpotInstances'
     availabilityZoneGroup :: Lude.Maybe Lude.Text,
     tagSpecifications ::
       Lude.Maybe [TagSpecification],
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.DateTime,
     launchGroup :: Lude.Maybe Lude.Text,
     type' :: Lude.Maybe SpotInstanceType,
-    validFrom :: Lude.Maybe Lude.ISO8601,
+    validFrom :: Lude.Maybe Lude.DateTime,
     dryRun :: Lude.Maybe Lude.Bool
   }
   deriving stock
@@ -215,8 +215,8 @@ rsisTagSpecifications = Lens.lens (tagSpecifications :: RequestSpotInstances -> 
 --
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisValidUntil :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.ISO8601)
-rsisValidUntil = Lens.lens (validUntil :: RequestSpotInstances -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: RequestSpotInstances)
+rsisValidUntil :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
+rsisValidUntil = Lens.lens (validUntil :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: RequestSpotInstances)
 {-# DEPRECATED rsisValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
@@ -242,8 +242,8 @@ rsisType = Lens.lens (type' :: RequestSpotInstances -> Lude.Maybe SpotInstanceTy
 -- The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisValidFrom :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.ISO8601)
-rsisValidFrom = Lens.lens (validFrom :: RequestSpotInstances -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: RequestSpotInstances)
+rsisValidFrom :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
+rsisValidFrom = Lens.lens (validFrom :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: RequestSpotInstances)
 {-# DEPRECATED rsisValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .

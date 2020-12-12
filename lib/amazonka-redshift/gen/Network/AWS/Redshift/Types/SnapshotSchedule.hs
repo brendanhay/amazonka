@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,7 +39,7 @@ import Network.AWS.Redshift.Types.Tag
 data SnapshotSchedule = SnapshotSchedule'
   { associatedClusters ::
       Lude.Maybe [ClusterAssociatedToSchedule],
-    nextInvocations :: Lude.Maybe [Lude.ISO8601],
+    nextInvocations :: Lude.Maybe [Lude.DateTime],
     scheduleDefinitions :: Lude.Maybe [Lude.Text],
     scheduleDescription :: Lude.Maybe Lude.Text,
     scheduleIdentifier :: Lude.Maybe Lude.Text,
@@ -84,8 +87,8 @@ ssAssociatedClusters = Lens.lens (associatedClusters :: SnapshotSchedule -> Lude
 -- |
 --
 -- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssNextInvocations :: Lens.Lens' SnapshotSchedule (Lude.Maybe [Lude.ISO8601])
-ssNextInvocations = Lens.lens (nextInvocations :: SnapshotSchedule -> Lude.Maybe [Lude.ISO8601]) (\s a -> s {nextInvocations = a} :: SnapshotSchedule)
+ssNextInvocations :: Lens.Lens' SnapshotSchedule (Lude.Maybe [Lude.DateTime])
+ssNextInvocations = Lens.lens (nextInvocations :: SnapshotSchedule -> Lude.Maybe [Lude.DateTime]) (\s a -> s {nextInvocations = a} :: SnapshotSchedule)
 {-# DEPRECATED ssNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
 
 -- | A list of ScheduleDefinitions.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data LaunchTemplateVersion = LaunchTemplateVersion'
     versionDescription :: Lude.Maybe Lude.Text,
     launchTemplateData ::
       Lude.Maybe ResponseLaunchTemplateData,
-    createTime :: Lude.Maybe Lude.ISO8601
+    createTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -129,8 +132,8 @@ ltvLaunchTemplateData = Lens.lens (launchTemplateData :: LaunchTemplateVersion -
 -- | The time the version was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltvCreateTime :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.ISO8601)
-ltvCreateTime = Lens.lens (createTime :: LaunchTemplateVersion -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: LaunchTemplateVersion)
+ltvCreateTime :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.DateTime)
+ltvCreateTime = Lens.lens (createTime :: LaunchTemplateVersion -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: LaunchTemplateVersion)
 {-# DEPRECATED ltvCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 instance Lude.FromXML LaunchTemplateVersion where

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -28,7 +31,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkStackResourceDriftInformation' smart constructor.
 data StackResourceDriftInformation = StackResourceDriftInformation'
   { lastCheckTimestamp ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     stackResourceDriftStatus ::
       StackResourceDriftStatus
   }
@@ -71,8 +74,8 @@ mkStackResourceDriftInformation pStackResourceDriftStatus_ =
 -- | When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
 --
 -- /Note:/ Consider using 'lastCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdiLastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Lude.Maybe Lude.ISO8601)
-srdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackResourceDriftInformation -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation)
+srdiLastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Lude.Maybe Lude.DateTime)
+srdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackResourceDriftInformation -> Lude.Maybe Lude.DateTime) (\s a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation)
 {-# DEPRECATED srdiLastCheckTimestamp "Use generic-lens or generic-optics with 'lastCheckTimestamp' instead." #-}
 
 -- | Status of the resource's actual configuration compared to its expected configuration

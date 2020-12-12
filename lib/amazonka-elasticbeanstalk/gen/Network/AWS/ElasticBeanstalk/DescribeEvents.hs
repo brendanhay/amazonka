@@ -59,14 +59,14 @@ data DescribeEvents = DescribeEvents'
   { requestId ::
       Lude.Maybe Lude.Text,
     templateName :: Lude.Maybe Lude.Text,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     severity :: Lude.Maybe EventSeverity,
     nextToken :: Lude.Maybe Lude.Text,
     versionLabel :: Lude.Maybe Lude.Text,
     platformARN :: Lude.Maybe Lude.Text,
     environmentName :: Lude.Maybe Lude.Text,
     maxRecords :: Lude.Maybe Lude.Natural,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     applicationName :: Lude.Maybe Lude.Text,
     environmentId :: Lude.Maybe Lude.Text
   }
@@ -128,8 +128,8 @@ deTemplateName = Lens.lens (templateName :: DescribeEvents -> Lude.Maybe Lude.Te
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
-deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeEvents)
+deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeEvents)
 {-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | If specified, limits the events returned from this call to include only those with the specified severity or higher.
@@ -177,8 +177,8 @@ deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Natura
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
-deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeEvents)
+deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeEvents)
 {-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.

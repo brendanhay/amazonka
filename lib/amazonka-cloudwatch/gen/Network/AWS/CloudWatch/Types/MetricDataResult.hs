@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data MetricDataResult = MetricDataResult'
   { values ::
       Lude.Maybe [Lude.Double],
     id :: Lude.Maybe Lude.Text,
-    timestamps :: Lude.Maybe [Lude.ISO8601],
+    timestamps :: Lude.Maybe [Lude.DateTime],
     messages :: Lude.Maybe [MessageData],
     label :: Lude.Maybe Lude.Text,
     statusCode :: Lude.Maybe StatusCode
@@ -86,8 +89,8 @@ mdrId = Lens.lens (id :: MetricDataResult -> Lude.Maybe Lude.Text) (\s a -> s {i
 -- | The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
 --
 -- /Note:/ Consider using 'timestamps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdrTimestamps :: Lens.Lens' MetricDataResult (Lude.Maybe [Lude.ISO8601])
-mdrTimestamps = Lens.lens (timestamps :: MetricDataResult -> Lude.Maybe [Lude.ISO8601]) (\s a -> s {timestamps = a} :: MetricDataResult)
+mdrTimestamps :: Lens.Lens' MetricDataResult (Lude.Maybe [Lude.DateTime])
+mdrTimestamps = Lens.lens (timestamps :: MetricDataResult -> Lude.Maybe [Lude.DateTime]) (\s a -> s {timestamps = a} :: MetricDataResult)
 {-# DEPRECATED mdrTimestamps "Use generic-lens or generic-optics with 'timestamps' instead." #-}
 
 -- | A list of messages with additional information about the data returned.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -48,7 +51,7 @@ data SingleInstanceHealth = SingleInstanceHealth'
     availabilityZone :: Lude.Maybe Lude.Text,
     healthStatus :: Lude.Maybe Lude.Text,
     deployment :: Lude.Maybe Deployment,
-    launchedAt :: Lude.Maybe Lude.ISO8601
+    launchedAt :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -153,8 +156,8 @@ sihDeployment = Lens.lens (deployment :: SingleInstanceHealth -> Lude.Maybe Depl
 -- | The time at which the EC2 instance was launched.
 --
 -- /Note:/ Consider using 'launchedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihLaunchedAt :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.ISO8601)
-sihLaunchedAt = Lens.lens (launchedAt :: SingleInstanceHealth -> Lude.Maybe Lude.ISO8601) (\s a -> s {launchedAt = a} :: SingleInstanceHealth)
+sihLaunchedAt :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.DateTime)
+sihLaunchedAt = Lens.lens (launchedAt :: SingleInstanceHealth -> Lude.Maybe Lude.DateTime) (\s a -> s {launchedAt = a} :: SingleInstanceHealth)
 {-# DEPRECATED sihLaunchedAt "Use generic-lens or generic-optics with 'launchedAt' instead." #-}
 
 instance Lude.FromXML SingleInstanceHealth where

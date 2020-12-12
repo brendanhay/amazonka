@@ -60,7 +60,7 @@ data CreateCapacityReservation = CreateCapacityReservation'
       Lude.Maybe Lude.Text,
     availabilityZoneId ::
       Lude.Maybe Lude.Text,
-    endDate :: Lude.Maybe Lude.ISO8601,
+    endDate :: Lude.Maybe Lude.DateTime,
     ephemeralStorage ::
       Lude.Maybe Lude.Bool,
     instanceMatchCriteria ::
@@ -179,8 +179,8 @@ ccrAvailabilityZoneId = Lens.lens (availabilityZoneId :: CreateCapacityReservati
 -- If the @EndDateType@ is @limited@ , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrEndDate :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.ISO8601)
-ccrEndDate = Lens.lens (endDate :: CreateCapacityReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {endDate = a} :: CreateCapacityReservation)
+ccrEndDate :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.DateTime)
+ccrEndDate = Lens.lens (endDate :: CreateCapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: CreateCapacityReservation)
 {-# DEPRECATED ccrEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.

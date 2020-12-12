@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -38,7 +41,7 @@ data AlarmHistoryItem = AlarmHistoryItem'
     historyData :: Lude.Maybe Lude.Text,
     alarmType :: Lude.Maybe AlarmType,
     historySummary :: Lude.Maybe Lude.Text,
-    timestamp :: Lude.Maybe Lude.ISO8601
+    timestamp :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -107,8 +110,8 @@ ahiHistorySummary = Lens.lens (historySummary :: AlarmHistoryItem -> Lude.Maybe 
 -- | The time stamp for the alarm history item.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiTimestamp :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.ISO8601)
-ahiTimestamp = Lens.lens (timestamp :: AlarmHistoryItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: AlarmHistoryItem)
+ahiTimestamp :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.DateTime)
+ahiTimestamp = Lens.lens (timestamp :: AlarmHistoryItem -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: AlarmHistoryItem)
 {-# DEPRECATED ahiTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML AlarmHistoryItem where

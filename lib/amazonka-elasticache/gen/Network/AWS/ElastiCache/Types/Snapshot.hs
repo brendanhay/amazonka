@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -55,7 +58,7 @@ import qualified Network.AWS.Prelude as Lude
 data Snapshot = Snapshot'
   { engineVersion :: Lude.Maybe Lude.Text,
     cacheNodeType :: Lude.Maybe Lude.Text,
-    cacheClusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    cacheClusterCreateTime :: Lude.Maybe Lude.DateTime,
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
     arn :: Lude.Maybe Lude.Text,
     cacheParameterGroupName :: Lude.Maybe Lude.Text,
@@ -319,8 +322,8 @@ sCacheNodeType = Lens.lens (cacheNodeType :: Snapshot -> Lude.Maybe Lude.Text) (
 -- | The date and time when the source cluster was created.
 --
 -- /Note:/ Consider using 'cacheClusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCacheClusterCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.ISO8601)
-sCacheClusterCreateTime = Lens.lens (cacheClusterCreateTime :: Snapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {cacheClusterCreateTime = a} :: Snapshot)
+sCacheClusterCreateTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.DateTime)
+sCacheClusterCreateTime = Lens.lens (cacheClusterCreateTime :: Snapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheClusterCreateTime = a} :: Snapshot)
 {-# DEPRECATED sCacheClusterCreateTime "Use generic-lens or generic-optics with 'cacheClusterCreateTime' instead." #-}
 
 -- | This parameter is currently disabled.

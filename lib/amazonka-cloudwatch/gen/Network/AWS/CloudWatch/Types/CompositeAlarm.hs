@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,12 +43,13 @@ import qualified Network.AWS.Prelude as Lude
 data CompositeAlarm = CompositeAlarm'
   { alarmName ::
       Lude.Maybe Lude.Text,
-    stateUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    stateUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
     alarmDescription :: Lude.Maybe Lude.Text,
     alarmRule :: Lude.Maybe Lude.Text,
     okActions :: Lude.Maybe [Lude.Text],
     stateValue :: Lude.Maybe StateValue,
-    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    alarmConfigurationUpdatedTimestamp ::
+      Lude.Maybe Lude.DateTime,
     actionsEnabled :: Lude.Maybe Lude.Bool,
     insufficientDataActions :: Lude.Maybe [Lude.Text],
     stateReason :: Lude.Maybe Lude.Text,
@@ -106,8 +110,8 @@ caAlarmName = Lens.lens (alarmName :: CompositeAlarm -> Lude.Maybe Lude.Text) (\
 -- | The time stamp of the last update to the alarm state.
 --
 -- /Note:/ Consider using 'stateUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caStateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.ISO8601)
-caStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm)
+caStateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.DateTime)
+caStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm)
 {-# DEPRECATED caStateUpdatedTimestamp "Use generic-lens or generic-optics with 'stateUpdatedTimestamp' instead." #-}
 
 -- | The description of the alarm.
@@ -141,8 +145,8 @@ caStateValue = Lens.lens (stateValue :: CompositeAlarm -> Lude.Maybe StateValue)
 -- | The time stamp of the last update to the alarm configuration.
 --
 -- /Note:/ Consider using 'alarmConfigurationUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAlarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.ISO8601)
-caAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm)
+caAlarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.DateTime)
+caAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm)
 {-# DEPRECATED caAlarmConfigurationUpdatedTimestamp "Use generic-lens or generic-optics with 'alarmConfigurationUpdatedTimestamp' instead." #-}
 
 -- | Indicates whether actions should be executed during any changes to the alarm state.

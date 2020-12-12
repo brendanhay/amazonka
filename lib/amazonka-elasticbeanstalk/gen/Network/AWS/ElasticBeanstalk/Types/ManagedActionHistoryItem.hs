@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,9 +44,9 @@ data ManagedActionHistoryItem = ManagedActionHistoryItem'
     actionId :: Lude.Maybe Lude.Text,
     failureDescription ::
       Lude.Maybe Lude.Text,
-    finishedTime :: Lude.Maybe Lude.ISO8601,
+    finishedTime :: Lude.Maybe Lude.DateTime,
     actionDescription :: Lude.Maybe Lude.Text,
-    executedTime :: Lude.Maybe Lude.ISO8601,
+    executedTime :: Lude.Maybe Lude.DateTime,
     actionType :: Lude.Maybe ActionType
   }
   deriving stock
@@ -110,8 +113,8 @@ mahiFailureDescription = Lens.lens (failureDescription :: ManagedActionHistoryIt
 -- | The date and time that the action finished executing.
 --
 -- /Note:/ Consider using 'finishedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mahiFinishedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.ISO8601)
-mahiFinishedTime = Lens.lens (finishedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {finishedTime = a} :: ManagedActionHistoryItem)
+mahiFinishedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.DateTime)
+mahiFinishedTime = Lens.lens (finishedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.DateTime) (\s a -> s {finishedTime = a} :: ManagedActionHistoryItem)
 {-# DEPRECATED mahiFinishedTime "Use generic-lens or generic-optics with 'finishedTime' instead." #-}
 
 -- | A description of the managed action.
@@ -124,8 +127,8 @@ mahiActionDescription = Lens.lens (actionDescription :: ManagedActionHistoryItem
 -- | The date and time that the action started executing.
 --
 -- /Note:/ Consider using 'executedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mahiExecutedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.ISO8601)
-mahiExecutedTime = Lens.lens (executedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {executedTime = a} :: ManagedActionHistoryItem)
+mahiExecutedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.DateTime)
+mahiExecutedTime = Lens.lens (executedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.DateTime) (\s a -> s {executedTime = a} :: ManagedActionHistoryItem)
 {-# DEPRECATED mahiExecutedTime "Use generic-lens or generic-optics with 'executedTime' instead." #-}
 
 -- | The type of the managed action.

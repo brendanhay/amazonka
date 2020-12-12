@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -43,7 +46,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
       Lude.Text,
     arn :: Lude.Text,
     status :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     domainName :: Lude.Text,
     s3Origin :: S3Origin,
     aliases :: Aliases,
@@ -84,7 +87,7 @@ mkStreamingDistributionSummary ::
   -- | 'status'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'domainName'
   Lude.Text ->
   -- | 's3Origin'
@@ -150,8 +153,8 @@ sdsStatus = Lens.lens (status :: StreamingDistributionSummary -> Lude.Text) (\s 
 -- | The date and time the distribution was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsLastModifiedTime :: Lens.Lens' StreamingDistributionSummary Lude.ISO8601
-sdsLastModifiedTime = Lens.lens (lastModifiedTime :: StreamingDistributionSummary -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: StreamingDistributionSummary)
+sdsLastModifiedTime :: Lens.Lens' StreamingDistributionSummary Lude.DateTime
+sdsLastModifiedTime = Lens.lens (lastModifiedTime :: StreamingDistributionSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: StreamingDistributionSummary)
 {-# DEPRECATED sdsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The domain name corresponding to the distribution, for example, @d111111abcdef8.cloudfront.net@ .

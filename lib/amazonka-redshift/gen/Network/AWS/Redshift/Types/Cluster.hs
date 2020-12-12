@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -99,7 +102,7 @@ data Cluster = Cluster'
     publiclyAccessible :: Lude.Maybe Lude.Bool,
     masterUsername :: Lude.Maybe Lude.Text,
     maintenanceTrackName :: Lude.Maybe Lude.Text,
-    expectedNextSnapshotScheduleTime :: Lude.Maybe Lude.ISO8601,
+    expectedNextSnapshotScheduleTime :: Lude.Maybe Lude.DateTime,
     elasticResizeNumberOfNodeOptions :: Lude.Maybe Lude.Text,
     vpcId :: Lude.Maybe Lude.Text,
     clusterSecurityGroups ::
@@ -128,8 +131,8 @@ data Cluster = Cluster'
     elasticIPStatus :: Lude.Maybe ElasticIPStatus,
     clusterVersion :: Lude.Maybe Lude.Text,
     nodeType :: Lude.Maybe Lude.Text,
-    nextMaintenanceWindowStartTime :: Lude.Maybe Lude.ISO8601,
-    clusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    nextMaintenanceWindowStartTime :: Lude.Maybe Lude.DateTime,
+    clusterCreateTime :: Lude.Maybe Lude.DateTime,
     endpoint :: Lude.Maybe Endpoint,
     allowVersionUpgrade :: Lude.Maybe Lude.Bool,
     clusterStatus :: Lude.Maybe Lude.Text,
@@ -463,8 +466,8 @@ cMaintenanceTrackName = Lens.lens (maintenanceTrackName :: Cluster -> Lude.Maybe
 -- | The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled.
 --
 -- /Note:/ Consider using 'expectedNextSnapshotScheduleTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cExpectedNextSnapshotScheduleTime :: Lens.Lens' Cluster (Lude.Maybe Lude.ISO8601)
-cExpectedNextSnapshotScheduleTime = Lens.lens (expectedNextSnapshotScheduleTime :: Cluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {expectedNextSnapshotScheduleTime = a} :: Cluster)
+cExpectedNextSnapshotScheduleTime :: Lens.Lens' Cluster (Lude.Maybe Lude.DateTime)
+cExpectedNextSnapshotScheduleTime = Lens.lens (expectedNextSnapshotScheduleTime :: Cluster -> Lude.Maybe Lude.DateTime) (\s a -> s {expectedNextSnapshotScheduleTime = a} :: Cluster)
 {-# DEPRECATED cExpectedNextSnapshotScheduleTime "Use generic-lens or generic-optics with 'expectedNextSnapshotScheduleTime' instead." #-}
 
 -- | The number of nodes that you can resize the cluster to with the elastic resize method.
@@ -664,15 +667,15 @@ cNodeType = Lens.lens (nodeType :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {
 -- | The date and time in UTC when system maintenance can begin.
 --
 -- /Note:/ Consider using 'nextMaintenanceWindowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cNextMaintenanceWindowStartTime :: Lens.Lens' Cluster (Lude.Maybe Lude.ISO8601)
-cNextMaintenanceWindowStartTime = Lens.lens (nextMaintenanceWindowStartTime :: Cluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {nextMaintenanceWindowStartTime = a} :: Cluster)
+cNextMaintenanceWindowStartTime :: Lens.Lens' Cluster (Lude.Maybe Lude.DateTime)
+cNextMaintenanceWindowStartTime = Lens.lens (nextMaintenanceWindowStartTime :: Cluster -> Lude.Maybe Lude.DateTime) (\s a -> s {nextMaintenanceWindowStartTime = a} :: Cluster)
 {-# DEPRECATED cNextMaintenanceWindowStartTime "Use generic-lens or generic-optics with 'nextMaintenanceWindowStartTime' instead." #-}
 
 -- | The date and time that the cluster was created.
 --
 -- /Note:/ Consider using 'clusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cClusterCreateTime :: Lens.Lens' Cluster (Lude.Maybe Lude.ISO8601)
-cClusterCreateTime = Lens.lens (clusterCreateTime :: Cluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {clusterCreateTime = a} :: Cluster)
+cClusterCreateTime :: Lens.Lens' Cluster (Lude.Maybe Lude.DateTime)
+cClusterCreateTime = Lens.lens (clusterCreateTime :: Cluster -> Lude.Maybe Lude.DateTime) (\s a -> s {clusterCreateTime = a} :: Cluster)
 {-# DEPRECATED cClusterCreateTime "Use generic-lens or generic-optics with 'clusterCreateTime' instead." #-}
 
 -- | The connection endpoint.

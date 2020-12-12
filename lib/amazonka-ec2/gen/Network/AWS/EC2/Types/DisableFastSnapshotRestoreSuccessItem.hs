@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -38,7 +41,7 @@ import qualified Network.AWS.Prelude as Lude
 data DisableFastSnapshotRestoreSuccessItem = DisableFastSnapshotRestoreSuccessItem'
   { disablingTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     state ::
       Lude.Maybe
         FastSnapshotRestoreStateCode,
@@ -47,13 +50,13 @@ data DisableFastSnapshotRestoreSuccessItem = DisableFastSnapshotRestoreSuccessIt
         Lude.Text,
     disabledTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     enabledTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     optimizingTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     ownerId ::
       Lude.Maybe
         Lude.Text,
@@ -68,7 +71,7 @@ data DisableFastSnapshotRestoreSuccessItem = DisableFastSnapshotRestoreSuccessIt
         Lude.Text,
     enablingTime ::
       Lude.Maybe
-        Lude.ISO8601
+        Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -119,8 +122,8 @@ mkDisableFastSnapshotRestoreSuccessItem =
 -- | The time at which fast snapshot restores entered the @disabling@ state.
 --
 -- /Note:/ Consider using 'disablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDisablingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.ISO8601)
-dDisablingTime = Lens.lens (disablingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {disablingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
+dDisablingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
+dDisablingTime = Lens.lens (disablingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {disablingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
 {-# DEPRECATED dDisablingTime "Use generic-lens or generic-optics with 'disablingTime' instead." #-}
 
 -- | The state of fast snapshot restores for the snapshot.
@@ -140,22 +143,22 @@ dOwnerAlias = Lens.lens (ownerAlias :: DisableFastSnapshotRestoreSuccessItem -> 
 -- | The time at which fast snapshot restores entered the @disabled@ state.
 --
 -- /Note:/ Consider using 'disabledTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDisabledTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.ISO8601)
-dDisabledTime = Lens.lens (disabledTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {disabledTime = a} :: DisableFastSnapshotRestoreSuccessItem)
+dDisabledTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
+dDisabledTime = Lens.lens (disabledTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {disabledTime = a} :: DisableFastSnapshotRestoreSuccessItem)
 {-# DEPRECATED dDisabledTime "Use generic-lens or generic-optics with 'disabledTime' instead." #-}
 
 -- | The time at which fast snapshot restores entered the @enabled@ state.
 --
 -- /Note:/ Consider using 'enabledTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEnabledTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.ISO8601)
-dEnabledTime = Lens.lens (enabledTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {enabledTime = a} :: DisableFastSnapshotRestoreSuccessItem)
+dEnabledTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
+dEnabledTime = Lens.lens (enabledTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {enabledTime = a} :: DisableFastSnapshotRestoreSuccessItem)
 {-# DEPRECATED dEnabledTime "Use generic-lens or generic-optics with 'enabledTime' instead." #-}
 
 -- | The time at which fast snapshot restores entered the @optimizing@ state.
 --
 -- /Note:/ Consider using 'optimizingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOptimizingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.ISO8601)
-dOptimizingTime = Lens.lens (optimizingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {optimizingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
+dOptimizingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
+dOptimizingTime = Lens.lens (optimizingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {optimizingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
 {-# DEPRECATED dOptimizingTime "Use generic-lens or generic-optics with 'optimizingTime' instead." #-}
 
 -- | The ID of the AWS account that enabled fast snapshot restores on the snapshot.
@@ -197,8 +200,8 @@ dSnapshotId = Lens.lens (snapshotId :: DisableFastSnapshotRestoreSuccessItem -> 
 -- | The time at which fast snapshot restores entered the @enabling@ state.
 --
 -- /Note:/ Consider using 'enablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEnablingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.ISO8601)
-dEnablingTime = Lens.lens (enablingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {enablingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
+dEnablingTime :: Lens.Lens' DisableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
+dEnablingTime = Lens.lens (enablingTime :: DisableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {enablingTime = a} :: DisableFastSnapshotRestoreSuccessItem)
 {-# DEPRECATED dEnablingTime "Use generic-lens or generic-optics with 'enablingTime' instead." #-}
 
 instance Lude.FromXML DisableFastSnapshotRestoreSuccessItem where

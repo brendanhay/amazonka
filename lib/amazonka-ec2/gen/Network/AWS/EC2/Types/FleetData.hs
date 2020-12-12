@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -64,17 +67,17 @@ data FleetData = FleetData'
     onDemandOptions :: Lude.Maybe OnDemandOptions,
     fleetState :: Lude.Maybe FleetStateCode,
     launchTemplateConfigs :: Lude.Maybe [FleetLaunchTemplateConfig],
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.DateTime,
     terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
     instances :: Lude.Maybe [DescribeFleetsInstances],
     fulfilledCapacity :: Lude.Maybe Lude.Double,
     type' :: Lude.Maybe FleetType,
-    validFrom :: Lude.Maybe Lude.ISO8601,
+    validFrom :: Lude.Maybe Lude.DateTime,
     replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
     fulfilledOnDemandCapacity :: Lude.Maybe Lude.Double,
     fleetId :: Lude.Maybe Lude.Text,
     errors :: Lude.Maybe [DescribeFleetError],
-    createTime :: Lude.Maybe Lude.ISO8601,
+    createTime :: Lude.Maybe Lude.DateTime,
     tags :: Lude.Maybe [Tag],
     activityStatus :: Lude.Maybe FleetActivityStatus
   }
@@ -191,8 +194,8 @@ fdLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: FleetData -> Lude.
 -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdValidUntil :: Lens.Lens' FleetData (Lude.Maybe Lude.ISO8601)
-fdValidUntil = Lens.lens (validUntil :: FleetData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: FleetData)
+fdValidUntil :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
+fdValidUntil = Lens.lens (validUntil :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: FleetData)
 {-# DEPRECATED fdValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
@@ -226,8 +229,8 @@ fdType = Lens.lens (type' :: FleetData -> Lude.Maybe FleetType) (\s a -> s {type
 -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdValidFrom :: Lens.Lens' FleetData (Lude.Maybe Lude.ISO8601)
-fdValidFrom = Lens.lens (validFrom :: FleetData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: FleetData)
+fdValidFrom :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
+fdValidFrom = Lens.lens (validFrom :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: FleetData)
 {-# DEPRECATED fdValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Indicates whether EC2 Fleet should replace unhealthy instances.
@@ -261,8 +264,8 @@ fdErrors = Lens.lens (errors :: FleetData -> Lude.Maybe [DescribeFleetError]) (\
 -- | The creation date and time of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdCreateTime :: Lens.Lens' FleetData (Lude.Maybe Lude.ISO8601)
-fdCreateTime = Lens.lens (createTime :: FleetData -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: FleetData)
+fdCreateTime :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
+fdCreateTime = Lens.lens (createTime :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: FleetData)
 {-# DEPRECATED fdCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The tags for an EC2 Fleet resource.

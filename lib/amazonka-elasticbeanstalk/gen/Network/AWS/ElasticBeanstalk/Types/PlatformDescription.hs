@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -60,9 +63,9 @@ data PlatformDescription = PlatformDescription'
     maintainer :: Lude.Maybe Lude.Text,
     platformLifecycleState :: Lude.Maybe Lude.Text,
     platformOwner :: Lude.Maybe Lude.Text,
-    dateUpdated :: Lude.Maybe Lude.ISO8601,
+    dateUpdated :: Lude.Maybe Lude.DateTime,
     customAMIList :: Lude.Maybe [CustomAMI],
-    dateCreated :: Lude.Maybe Lude.ISO8601,
+    dateCreated :: Lude.Maybe Lude.DateTime,
     operatingSystemName :: Lude.Maybe Lude.Text,
     frameworks :: Lude.Maybe [PlatformFramework],
     platformARN :: Lude.Maybe Lude.Text,
@@ -209,8 +212,8 @@ pdPlatformOwner = Lens.lens (platformOwner :: PlatformDescription -> Lude.Maybe 
 -- | The date when the platform version was last updated.
 --
 -- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDateUpdated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.ISO8601)
-pdDateUpdated = Lens.lens (dateUpdated :: PlatformDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: PlatformDescription)
+pdDateUpdated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.DateTime)
+pdDateUpdated = Lens.lens (dateUpdated :: PlatformDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: PlatformDescription)
 {-# DEPRECATED pdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The custom AMIs supported by the platform version.
@@ -223,8 +226,8 @@ pdCustomAMIList = Lens.lens (customAMIList :: PlatformDescription -> Lude.Maybe 
 -- | The date when the platform version was created.
 --
 -- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDateCreated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.ISO8601)
-pdDateCreated = Lens.lens (dateCreated :: PlatformDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: PlatformDescription)
+pdDateCreated :: Lens.Lens' PlatformDescription (Lude.Maybe Lude.DateTime)
+pdDateCreated = Lens.lens (dateCreated :: PlatformDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: PlatformDescription)
 {-# DEPRECATED pdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | The operating system used by the platform version.

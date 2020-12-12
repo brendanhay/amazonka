@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 data MFADevice = MFADevice'
   { userName :: Lude.Text,
     serialNumber :: Lude.Text,
-    enableDate :: Lude.ISO8601
+    enableDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -53,7 +56,7 @@ mkMFADevice ::
   -- | 'serialNumber'
   Lude.Text ->
   -- | 'enableDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   MFADevice
 mkMFADevice pUserName_ pSerialNumber_ pEnableDate_ =
   MFADevice'
@@ -79,8 +82,8 @@ mdSerialNumber = Lens.lens (serialNumber :: MFADevice -> Lude.Text) (\s a -> s {
 -- | The date when the MFA device was enabled for the user.
 --
 -- /Note:/ Consider using 'enableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdEnableDate :: Lens.Lens' MFADevice Lude.ISO8601
-mdEnableDate = Lens.lens (enableDate :: MFADevice -> Lude.ISO8601) (\s a -> s {enableDate = a} :: MFADevice)
+mdEnableDate :: Lens.Lens' MFADevice Lude.DateTime
+mdEnableDate = Lens.lens (enableDate :: MFADevice -> Lude.DateTime) (\s a -> s {enableDate = a} :: MFADevice)
 {-# DEPRECATED mdEnableDate "Use generic-lens or generic-optics with 'enableDate' instead." #-}
 
 instance Lude.FromXML MFADevice where

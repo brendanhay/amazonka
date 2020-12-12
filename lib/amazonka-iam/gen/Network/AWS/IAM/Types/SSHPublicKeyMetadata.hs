@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
       Lude.Text,
     sshPublicKeyId :: Lude.Text,
     status :: StatusType,
-    uploadDate :: Lude.ISO8601
+    uploadDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -60,7 +63,7 @@ mkSSHPublicKeyMetadata ::
   -- | 'status'
   StatusType ->
   -- | 'uploadDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   SSHPublicKeyMetadata
 mkSSHPublicKeyMetadata
   pUserName_
@@ -98,8 +101,8 @@ spkmStatus = Lens.lens (status :: SSHPublicKeyMetadata -> StatusType) (\s a -> s
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
 --
 -- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkmUploadDate :: Lens.Lens' SSHPublicKeyMetadata Lude.ISO8601
-spkmUploadDate = Lens.lens (uploadDate :: SSHPublicKeyMetadata -> Lude.ISO8601) (\s a -> s {uploadDate = a} :: SSHPublicKeyMetadata)
+spkmUploadDate :: Lens.Lens' SSHPublicKeyMetadata Lude.DateTime
+spkmUploadDate = Lens.lens (uploadDate :: SSHPublicKeyMetadata -> Lude.DateTime) (\s a -> s {uploadDate = a} :: SSHPublicKeyMetadata)
 {-# DEPRECATED spkmUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
 
 instance Lude.FromXML SSHPublicKeyMetadata where

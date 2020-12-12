@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,9 +32,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'mkDeferredMaintenanceWindow' smart constructor.
 data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
   { deferMaintenanceEndTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     deferMaintenanceStartTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     deferMaintenanceIdentifier ::
       Lude.Maybe Lude.Text
   }
@@ -62,15 +65,15 @@ mkDeferredMaintenanceWindow =
 -- | A timestamp for the end of the time period when we defer maintenance.
 --
 -- /Note:/ Consider using 'deferMaintenanceEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwDeferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.ISO8601)
-dmwDeferMaintenanceEndTime = Lens.lens (deferMaintenanceEndTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow)
+dmwDeferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.DateTime)
+dmwDeferMaintenanceEndTime = Lens.lens (deferMaintenanceEndTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow)
 {-# DEPRECATED dmwDeferMaintenanceEndTime "Use generic-lens or generic-optics with 'deferMaintenanceEndTime' instead." #-}
 
 -- | A timestamp for the beginning of the time period when we defer maintenance.
 --
 -- /Note:/ Consider using 'deferMaintenanceStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwDeferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.ISO8601)
-dmwDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow)
+dmwDeferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.DateTime)
+dmwDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow)
 {-# DEPRECATED dmwDeferMaintenanceStartTime "Use generic-lens or generic-optics with 'deferMaintenanceStartTime' instead." #-}
 
 -- | A unique identifier for the maintenance window.

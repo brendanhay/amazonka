@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -50,11 +53,11 @@ data FpgaImage = FpgaImage'
     fpgaImageId :: Lude.Maybe Lude.Text,
     dataRetentionSupport :: Lude.Maybe Lude.Bool,
     ownerId :: Lude.Maybe Lude.Text,
-    updateTime :: Lude.Maybe Lude.ISO8601,
+    updateTime :: Lude.Maybe Lude.DateTime,
     name :: Lude.Maybe Lude.Text,
     productCodes :: Lude.Maybe [ProductCode],
     description :: Lude.Maybe Lude.Text,
-    createTime :: Lude.Maybe Lude.ISO8601,
+    createTime :: Lude.Maybe Lude.DateTime,
     tags :: Lude.Maybe [Tag],
     public :: Lude.Maybe Lude.Bool,
     fpgaImageGlobalId :: Lude.Maybe Lude.Text
@@ -158,8 +161,8 @@ fiOwnerId = Lens.lens (ownerId :: FpgaImage -> Lude.Maybe Lude.Text) (\s a -> s 
 -- | The time of the most recent update to the AFI.
 --
 -- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiUpdateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.ISO8601)
-fiUpdateTime = Lens.lens (updateTime :: FpgaImage -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateTime = a} :: FpgaImage)
+fiUpdateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.DateTime)
+fiUpdateTime = Lens.lens (updateTime :: FpgaImage -> Lude.Maybe Lude.DateTime) (\s a -> s {updateTime = a} :: FpgaImage)
 {-# DEPRECATED fiUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
 
 -- | The name of the AFI.
@@ -186,8 +189,8 @@ fiDescription = Lens.lens (description :: FpgaImage -> Lude.Maybe Lude.Text) (\s
 -- | The date and time the AFI was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiCreateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.ISO8601)
-fiCreateTime = Lens.lens (createTime :: FpgaImage -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: FpgaImage)
+fiCreateTime :: Lens.Lens' FpgaImage (Lude.Maybe Lude.DateTime)
+fiCreateTime = Lens.lens (createTime :: FpgaImage -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: FpgaImage)
 {-# DEPRECATED fiCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | Any tags assigned to the AFI.

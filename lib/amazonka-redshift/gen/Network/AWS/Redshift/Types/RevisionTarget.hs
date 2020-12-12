@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -29,7 +32,7 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'mkRevisionTarget' smart constructor.
 data RevisionTarget = RevisionTarget'
   { databaseRevisionReleaseDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     databaseRevision :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text
   }
@@ -59,8 +62,8 @@ mkRevisionTarget =
 -- | The date on which the database revision was released.
 --
 -- /Note:/ Consider using 'databaseRevisionReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtDatabaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Lude.Maybe Lude.ISO8601)
-rtDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: RevisionTarget -> Lude.Maybe Lude.ISO8601) (\s a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget)
+rtDatabaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Lude.Maybe Lude.DateTime)
+rtDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: RevisionTarget -> Lude.Maybe Lude.DateTime) (\s a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget)
 {-# DEPRECATED rtDatabaseRevisionReleaseDate "Use generic-lens or generic-optics with 'databaseRevisionReleaseDate' instead." #-}
 
 -- | A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .

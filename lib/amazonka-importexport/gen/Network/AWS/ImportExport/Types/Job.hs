@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -32,7 +35,7 @@ data Job = Job'
   { jobType :: JobType,
     jobId :: Lude.Text,
     isCanceled :: Lude.Bool,
-    creationDate :: Lude.ISO8601
+    creationDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -57,7 +60,7 @@ mkJob ::
   -- | 'isCanceled'
   Lude.Bool ->
   -- | 'creationDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   Job
 mkJob pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
   Job'
@@ -91,8 +94,8 @@ jIsCanceled = Lens.lens (isCanceled :: Job -> Lude.Bool) (\s a -> s {isCanceled 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jCreationDate :: Lens.Lens' Job Lude.ISO8601
-jCreationDate = Lens.lens (creationDate :: Job -> Lude.ISO8601) (\s a -> s {creationDate = a} :: Job)
+jCreationDate :: Lens.Lens' Job Lude.DateTime
+jCreationDate = Lens.lens (creationDate :: Job -> Lude.DateTime) (\s a -> s {creationDate = a} :: Job)
 {-# DEPRECATED jCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 instance Lude.FromXML Job where

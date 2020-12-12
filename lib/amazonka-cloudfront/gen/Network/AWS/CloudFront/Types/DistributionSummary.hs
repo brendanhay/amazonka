@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -61,7 +64,7 @@ data DistributionSummary = DistributionSummary'
     id :: Lude.Text,
     arn :: Lude.Text,
     status :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     domainName :: Lude.Text,
     aliases :: Aliases,
     origins :: Origins,
@@ -118,7 +121,7 @@ mkDistributionSummary ::
   -- | 'status'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'domainName'
   Lude.Text ->
   -- | 'aliases'
@@ -230,8 +233,8 @@ dsStatus = Lens.lens (status :: DistributionSummary -> Lude.Text) (\s a -> s {st
 -- | The date and time the distribution was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLastModifiedTime :: Lens.Lens' DistributionSummary Lude.ISO8601
-dsLastModifiedTime = Lens.lens (lastModifiedTime :: DistributionSummary -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: DistributionSummary)
+dsLastModifiedTime :: Lens.Lens' DistributionSummary Lude.DateTime
+dsLastModifiedTime = Lens.lens (lastModifiedTime :: DistributionSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: DistributionSummary)
 {-# DEPRECATED dsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The domain name that corresponds to the distribution, for example, @d111111abcdef8.cloudfront.net@ .

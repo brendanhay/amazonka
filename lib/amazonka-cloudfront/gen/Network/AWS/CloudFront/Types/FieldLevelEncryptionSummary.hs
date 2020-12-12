@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -37,7 +40,7 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
       Lude.Maybe ContentTypeProfileConfig,
     comment :: Lude.Maybe Lude.Text,
     id :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601
+    lastModifiedTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -59,7 +62,7 @@ mkFieldLevelEncryptionSummary ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   FieldLevelEncryptionSummary
 mkFieldLevelEncryptionSummary pId_ pLastModifiedTime_ =
   FieldLevelEncryptionSummary'
@@ -102,8 +105,8 @@ flesId = Lens.lens (id :: FieldLevelEncryptionSummary -> Lude.Text) (\s a -> s {
 -- | The last time that the summary of field-level encryption items was modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesLastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Lude.ISO8601
-flesLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionSummary -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary)
+flesLastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Lude.DateTime
+flesLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary)
 {-# DEPRECATED flesLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 instance Lude.FromXML FieldLevelEncryptionSummary where

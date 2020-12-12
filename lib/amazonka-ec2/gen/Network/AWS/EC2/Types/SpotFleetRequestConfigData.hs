@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -79,7 +82,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
       Lude.Maybe [LaunchTemplateConfig],
     tagSpecifications ::
       Lude.Maybe [TagSpecification],
-    validUntil :: Lude.Maybe Lude.ISO8601,
+    validUntil ::
+      Lude.Maybe Lude.DateTime,
     terminateInstancesWithExpiration ::
       Lude.Maybe Lude.Bool,
     onDemandAllocationStrategy ::
@@ -89,7 +93,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     fulfilledCapacity ::
       Lude.Maybe Lude.Double,
     type' :: Lude.Maybe FleetType,
-    validFrom :: Lude.Maybe Lude.ISO8601,
+    validFrom :: Lude.Maybe Lude.DateTime,
     replaceUnhealthyInstances ::
       Lude.Maybe Lude.Bool,
     launchSpecifications ::
@@ -254,8 +258,8 @@ sfrcdTagSpecifications = Lens.lens (tagSpecifications :: SpotFleetRequestConfigD
 -- | The end date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfrcdValidUntil :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.ISO8601)
-sfrcdValidUntil = Lens.lens (validUntil :: SpotFleetRequestConfigData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SpotFleetRequestConfigData)
+sfrcdValidUntil :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.DateTime)
+sfrcdValidUntil = Lens.lens (validUntil :: SpotFleetRequestConfigData -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: SpotFleetRequestConfigData)
 {-# DEPRECATED sfrcdValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
@@ -296,8 +300,8 @@ sfrcdType = Lens.lens (type' :: SpotFleetRequestConfigData -> Lude.Maybe FleetTy
 -- | The start date and time of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). By default, Amazon EC2 starts fulfilling the request immediately.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfrcdValidFrom :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.ISO8601)
-sfrcdValidFrom = Lens.lens (validFrom :: SpotFleetRequestConfigData -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: SpotFleetRequestConfigData)
+sfrcdValidFrom :: Lens.Lens' SpotFleetRequestConfigData (Lude.Maybe Lude.DateTime)
+sfrcdValidFrom = Lens.lens (validFrom :: SpotFleetRequestConfigData -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: SpotFleetRequestConfigData)
 {-# DEPRECATED sfrcdValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Indicates whether Spot Fleet should replace unhealthy instances.

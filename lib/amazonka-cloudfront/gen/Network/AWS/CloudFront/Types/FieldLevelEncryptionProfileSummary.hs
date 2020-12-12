@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,7 @@ data FieldLevelEncryptionProfileSummary = FieldLevelEncryptionProfileSummary'
       Lude.Maybe Lude.Text,
     id :: Lude.Text,
     lastModifiedTime ::
-      Lude.ISO8601,
+      Lude.DateTime,
     name :: Lude.Text,
     encryptionEntities ::
       EncryptionEntities
@@ -59,7 +62,7 @@ mkFieldLevelEncryptionProfileSummary ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'name'
   Lude.Text ->
   -- | 'encryptionEntities'
@@ -95,8 +98,8 @@ flepsId = Lens.lens (id :: FieldLevelEncryptionProfileSummary -> Lude.Text) (\s 
 -- | The time when the the field-level encryption profile summary was last updated.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsLastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfileSummary Lude.ISO8601
-flepsLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionProfileSummary -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfileSummary)
+flepsLastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfileSummary Lude.DateTime
+flepsLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionProfileSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfileSummary)
 {-# DEPRECATED flepsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | Name for the field-level encryption profile summary.

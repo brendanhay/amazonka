@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkServiceLastAccessed' smart constructor.
 data ServiceLastAccessed = ServiceLastAccessed'
   { lastAuthenticated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     trackedActionsLastAccessed ::
       Lude.Maybe [TrackedActionLastAccessed],
     lastAuthenticatedEntity :: Lude.Maybe Lude.Text,
@@ -96,8 +99,8 @@ mkServiceLastAccessed pServiceName_ pServiceNamespace_ =
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 --
 -- /Note:/ Consider using 'lastAuthenticated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slaLastAuthenticated :: Lens.Lens' ServiceLastAccessed (Lude.Maybe Lude.ISO8601)
-slaLastAuthenticated = Lens.lens (lastAuthenticated :: ServiceLastAccessed -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAuthenticated = a} :: ServiceLastAccessed)
+slaLastAuthenticated :: Lens.Lens' ServiceLastAccessed (Lude.Maybe Lude.DateTime)
+slaLastAuthenticated = Lens.lens (lastAuthenticated :: ServiceLastAccessed -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAuthenticated = a} :: ServiceLastAccessed)
 {-# DEPRECATED slaLastAuthenticated "Use generic-lens or generic-optics with 'lastAuthenticated' instead." #-}
 
 -- | An object that contains details about the most recent attempt to access a tracked action within the service.

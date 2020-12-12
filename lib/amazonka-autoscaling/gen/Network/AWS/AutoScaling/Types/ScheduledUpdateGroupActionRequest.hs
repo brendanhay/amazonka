@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -34,7 +37,8 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkScheduledUpdateGroupActionRequest' smart constructor.
 data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe
+        Lude.DateTime,
     maxSize ::
       Lude.Maybe Lude.Int,
     recurrence ::
@@ -44,7 +48,8 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     minSize ::
       Lude.Maybe Lude.Int,
     endTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe
+        Lude.DateTime,
     scheduledActionName ::
       Lude.Text
   }
@@ -92,8 +97,8 @@ mkScheduledUpdateGroupActionRequest pScheduledActionName_ =
 -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugarStartTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.ISO8601)
-sugarStartTime = Lens.lens (startTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest)
+sugarStartTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.DateTime)
+sugarStartTime = Lens.lens (startTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest)
 {-# DEPRECATED sugarStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The maximum size of the Auto Scaling group.
@@ -129,8 +134,8 @@ sugarMinSize = Lens.lens (minSize :: ScheduledUpdateGroupActionRequest -> Lude.M
 -- | The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugarEndTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.ISO8601)
-sugarEndTime = Lens.lens (endTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest)
+sugarEndTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.DateTime)
+sugarEndTime = Lens.lens (endTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest)
 {-# DEPRECATED sugarEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The name of the scaling action.

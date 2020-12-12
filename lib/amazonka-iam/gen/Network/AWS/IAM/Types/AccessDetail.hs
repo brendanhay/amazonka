@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data AccessDetail = AccessDetail'
   { entityPath ::
       Lude.Maybe Lude.Text,
     region :: Lude.Maybe Lude.Text,
-    lastAuthenticatedTime :: Lude.Maybe Lude.ISO8601,
+    lastAuthenticatedTime :: Lude.Maybe Lude.DateTime,
     totalAuthenticatedEntities :: Lude.Maybe Lude.Int,
     serviceName :: Lude.Text,
     serviceNamespace :: Lude.Text
@@ -104,8 +107,8 @@ adRegion = Lens.lens (region :: AccessDetail -> Lude.Maybe Lude.Text) (\s a -> s
 -- This field is null if no principals in the reported Organizations entity attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 --
 -- /Note:/ Consider using 'lastAuthenticatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adLastAuthenticatedTime :: Lens.Lens' AccessDetail (Lude.Maybe Lude.ISO8601)
-adLastAuthenticatedTime = Lens.lens (lastAuthenticatedTime :: AccessDetail -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAuthenticatedTime = a} :: AccessDetail)
+adLastAuthenticatedTime :: Lens.Lens' AccessDetail (Lude.Maybe Lude.DateTime)
+adLastAuthenticatedTime = Lens.lens (lastAuthenticatedTime :: AccessDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAuthenticatedTime = a} :: AccessDetail)
 {-# DEPRECATED adLastAuthenticatedTime "Use generic-lens or generic-optics with 'lastAuthenticatedTime' instead." #-}
 
 -- | The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.

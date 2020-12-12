@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import Network.AWS.SES.Types.ExtensionField
 -- /See:/ 'mkMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
   { arrivalDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     extensionFields :: Lude.Maybe [ExtensionField],
     reportingMta :: Lude.Text
   }
@@ -63,8 +66,8 @@ mkMessageDsn pReportingMta_ =
 -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
 -- /Note:/ Consider using 'arrivalDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdArrivalDate :: Lens.Lens' MessageDsn (Lude.Maybe Lude.ISO8601)
-mdArrivalDate = Lens.lens (arrivalDate :: MessageDsn -> Lude.Maybe Lude.ISO8601) (\s a -> s {arrivalDate = a} :: MessageDsn)
+mdArrivalDate :: Lens.Lens' MessageDsn (Lude.Maybe Lude.DateTime)
+mdArrivalDate = Lens.lens (arrivalDate :: MessageDsn -> Lude.Maybe Lude.DateTime) (\s a -> s {arrivalDate = a} :: MessageDsn)
 {-# DEPRECATED mdArrivalDate "Use generic-lens or generic-optics with 'arrivalDate' instead." #-}
 
 -- | Additional X-headers to include in the DSN.

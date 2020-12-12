@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -49,7 +52,7 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHost' smart constructor.
 data Host = Host'
-  { releaseTime :: Lude.Maybe Lude.ISO8601,
+  { releaseTime :: Lude.Maybe Lude.DateTime,
     state :: Lude.Maybe AllocationState,
     clientToken :: Lude.Maybe Lude.Text,
     availabilityZoneId :: Lude.Maybe Lude.Text,
@@ -62,7 +65,7 @@ data Host = Host'
     ownerId :: Lude.Maybe Lude.Text,
     availabilityZone :: Lude.Maybe Lude.Text,
     instances :: Lude.Maybe [HostInstance],
-    allocationTime :: Lude.Maybe Lude.ISO8601,
+    allocationTime :: Lude.Maybe Lude.DateTime,
     memberOfServiceLinkedResourceGroup :: Lude.Maybe Lude.Bool,
     hostRecovery :: Lude.Maybe HostRecovery,
     autoPlacement :: Lude.Maybe AutoPlacement,
@@ -122,8 +125,8 @@ mkHost =
 -- | The time that the Dedicated Host was released.
 --
 -- /Note:/ Consider using 'releaseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hReleaseTime :: Lens.Lens' Host (Lude.Maybe Lude.ISO8601)
-hReleaseTime = Lens.lens (releaseTime :: Host -> Lude.Maybe Lude.ISO8601) (\s a -> s {releaseTime = a} :: Host)
+hReleaseTime :: Lens.Lens' Host (Lude.Maybe Lude.DateTime)
+hReleaseTime = Lens.lens (releaseTime :: Host -> Lude.Maybe Lude.DateTime) (\s a -> s {releaseTime = a} :: Host)
 {-# DEPRECATED hReleaseTime "Use generic-lens or generic-optics with 'releaseTime' instead." #-}
 
 -- | The Dedicated Host's state.
@@ -206,8 +209,8 @@ hInstances = Lens.lens (instances :: Host -> Lude.Maybe [HostInstance]) (\s a ->
 -- | The time that the Dedicated Host was allocated.
 --
 -- /Note:/ Consider using 'allocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAllocationTime :: Lens.Lens' Host (Lude.Maybe Lude.ISO8601)
-hAllocationTime = Lens.lens (allocationTime :: Host -> Lude.Maybe Lude.ISO8601) (\s a -> s {allocationTime = a} :: Host)
+hAllocationTime :: Lens.Lens' Host (Lude.Maybe Lude.DateTime)
+hAllocationTime = Lens.lens (allocationTime :: Host -> Lude.Maybe Lude.DateTime) (\s a -> s {allocationTime = a} :: Host)
 {-# DEPRECATED hAllocationTime "Use generic-lens or generic-optics with 'allocationTime' instead." #-}
 
 -- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.

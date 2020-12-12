@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import Network.AWS.Redshift.Types.RevisionTarget
 -- /See:/ 'mkClusterDBRevision' smart constructor.
 data ClusterDBRevision = ClusterDBRevision'
   { databaseRevisionReleaseDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     clusterIdentifier :: Lude.Maybe Lude.Text,
     currentDatabaseRevision :: Lude.Maybe Lude.Text,
     revisionTargets :: Lude.Maybe [RevisionTarget]
@@ -64,8 +67,8 @@ mkClusterDBRevision =
 -- | The date on which the database revision was released.
 --
 -- /Note:/ Consider using 'databaseRevisionReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrDatabaseRevisionReleaseDate :: Lens.Lens' ClusterDBRevision (Lude.Maybe Lude.ISO8601)
-cdrDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: ClusterDBRevision -> Lude.Maybe Lude.ISO8601) (\s a -> s {databaseRevisionReleaseDate = a} :: ClusterDBRevision)
+cdrDatabaseRevisionReleaseDate :: Lens.Lens' ClusterDBRevision (Lude.Maybe Lude.DateTime)
+cdrDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: ClusterDBRevision -> Lude.Maybe Lude.DateTime) (\s a -> s {databaseRevisionReleaseDate = a} :: ClusterDBRevision)
 {-# DEPRECATED cdrDatabaseRevisionReleaseDate "Use generic-lens or generic-optics with 'databaseRevisionReleaseDate' instead." #-}
 
 -- | The unique identifier of the cluster.

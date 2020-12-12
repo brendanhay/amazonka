@@ -62,7 +62,7 @@ data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
       Lude.Maybe Lude.Natural,
     spotFleetRequestId ::
       Lude.Text,
-    startTime :: Lude.ISO8601
+    startTime :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -85,7 +85,7 @@ mkDescribeSpotFleetRequestHistory ::
   -- | 'spotFleetRequestId'
   Lude.Text ->
   -- | 'startTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   DescribeSpotFleetRequestHistory
 mkDescribeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ =
   DescribeSpotFleetRequestHistory'
@@ -135,8 +135,8 @@ dsfrhSpotFleetRequestId = Lens.lens (spotFleetRequestId :: DescribeSpotFleetRequ
 -- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrhStartTime :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.ISO8601
-dsfrhStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistory -> Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistory)
+dsfrhStartTime :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.DateTime
+dsfrhStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistory)
 {-# DEPRECATED dsfrhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 instance Lude.AWSRequest DescribeSpotFleetRequestHistory where
@@ -184,10 +184,10 @@ instance Lude.ToQuery DescribeSpotFleetRequestHistory where
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
   { startTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     lastEvaluatedTime ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     nextToken ::
       Lude.Maybe
         Lude.Text,
@@ -237,8 +237,8 @@ mkDescribeSpotFleetRequestHistoryResponse pResponseStatus_ =
 -- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrhrsStartTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Lude.Maybe Lude.ISO8601)
-dsfrhrsStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistoryResponse)
+dsfrhrsStartTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Lude.Maybe Lude.DateTime)
+dsfrhrsStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistoryResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistoryResponse)
 {-# DEPRECATED dsfrhrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
@@ -246,8 +246,8 @@ dsfrhrsStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistoryRespon
 -- If @nextToken@ indicates that there are more results, this value is not present.
 --
 -- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrhrsLastEvaluatedTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Lude.Maybe Lude.ISO8601)
-dsfrhrsLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: DescribeSpotFleetRequestHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastEvaluatedTime = a} :: DescribeSpotFleetRequestHistoryResponse)
+dsfrhrsLastEvaluatedTime :: Lens.Lens' DescribeSpotFleetRequestHistoryResponse (Lude.Maybe Lude.DateTime)
+dsfrhrsLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: DescribeSpotFleetRequestHistoryResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastEvaluatedTime = a} :: DescribeSpotFleetRequestHistoryResponse)
 {-# DEPRECATED dsfrhrsLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.

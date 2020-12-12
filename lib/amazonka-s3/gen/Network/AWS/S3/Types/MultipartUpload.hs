@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ import Network.AWS.S3.Types.StorageClass
 -- /See:/ 'mkMultipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
   { initiated ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     initiator :: Lude.Maybe Initiator,
     owner :: Lude.Maybe Owner,
     key :: Lude.Maybe ObjectKey,
@@ -74,8 +77,8 @@ mkMultipartUpload =
 -- | Date and time at which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'initiated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muInitiated :: Lens.Lens' MultipartUpload (Lude.Maybe Lude.ISO8601)
-muInitiated = Lens.lens (initiated :: MultipartUpload -> Lude.Maybe Lude.ISO8601) (\s a -> s {initiated = a} :: MultipartUpload)
+muInitiated :: Lens.Lens' MultipartUpload (Lude.Maybe Lude.DateTime)
+muInitiated = Lens.lens (initiated :: MultipartUpload -> Lude.Maybe Lude.DateTime) (\s a -> s {initiated = a} :: MultipartUpload)
 {-# DEPRECATED muInitiated "Use generic-lens or generic-optics with 'initiated' instead." #-}
 
 -- | Identifies who initiated the multipart upload.

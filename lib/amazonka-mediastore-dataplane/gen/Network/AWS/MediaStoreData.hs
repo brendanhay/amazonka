@@ -68,9 +68,8 @@ module Network.AWS.MediaStoreData
     Lude._Sensitive,
     Lude.Time (..),
     Lude._Time,
-    Lude.ISO8601,
+    Lude.DateTime,
     Lude.Timestamp,
-    Lude.UTCTime,
   )
 where
 

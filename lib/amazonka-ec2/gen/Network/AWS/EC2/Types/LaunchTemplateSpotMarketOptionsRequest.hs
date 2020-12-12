@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ data LaunchTemplateSpotMarketOptionsRequest = LaunchTemplateSpotMarketOptionsReq
         InstanceInterruptionBehavior,
     validUntil ::
       Lude.Maybe
-        Lude.ISO8601,
+        Lude.DateTime,
     spotInstanceType ::
       Lude.Maybe
         SpotInstanceType,
@@ -92,8 +95,8 @@ ltsmorInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: 
 -- | The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltsmorValidUntil :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe Lude.ISO8601)
-ltsmorValidUntil = Lens.lens (validUntil :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptionsRequest)
+ltsmorValidUntil :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe Lude.DateTime)
+ltsmorValidUntil = Lens.lens (validUntil :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptionsRequest)
 {-# DEPRECATED ltsmorValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The Spot Instance request type.

@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -139,7 +142,7 @@ data Instance = Instance'
     imageId :: Lude.Text,
     amiLaunchIndex :: Lude.Int,
     instanceType :: InstanceType,
-    launchTime :: Lude.ISO8601,
+    launchTime :: Lude.DateTime,
     placement :: Placement,
     monitoring :: Monitoring,
     architecture :: ArchitectureValues,
@@ -221,7 +224,7 @@ mkInstance ::
   -- | 'instanceType'
   InstanceType ->
   -- | 'launchTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'placement'
   Placement ->
   -- | 'monitoring'
@@ -588,8 +591,8 @@ insInstanceType = Lens.lens (instanceType :: Instance -> InstanceType) (\s a -> 
 -- | The time the instance was launched.
 --
 -- /Note:/ Consider using 'launchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-insLaunchTime :: Lens.Lens' Instance Lude.ISO8601
-insLaunchTime = Lens.lens (launchTime :: Instance -> Lude.ISO8601) (\s a -> s {launchTime = a} :: Instance)
+insLaunchTime :: Lens.Lens' Instance Lude.DateTime
+insLaunchTime = Lens.lens (launchTime :: Instance -> Lude.DateTime) (\s a -> s {launchTime = a} :: Instance)
 {-# DEPRECATED insLaunchTime "Use generic-lens or generic-optics with 'launchTime' instead." #-}
 
 -- | The location where the instance launched, if applicable.

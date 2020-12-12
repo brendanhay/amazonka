@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -36,22 +39,22 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkNodeGroupMemberUpdateStatus' smart constructor.
 data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
   { nodeUpdateEndDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nodeUpdateInitiatedBy ::
       Lude.Maybe NodeUpdateInitiatedBy,
     nodeUpdateStatusModifiedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     cacheClusterId ::
       Lude.Maybe Lude.Text,
     cacheNodeId :: Lude.Maybe Lude.Text,
     nodeUpdateInitiatedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nodeUpdateStartDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     nodeUpdateStatus ::
       Lude.Maybe NodeUpdateStatus,
     nodeDeletionDate ::
-      Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -91,8 +94,8 @@ mkNodeGroupMemberUpdateStatus =
 -- | The end date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateEndDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.ISO8601)
-ngmusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateEndDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateEndDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
+ngmusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateEndDate = a} :: NodeGroupMemberUpdateStatus)
 {-# DEPRECATED ngmusNodeUpdateEndDate "Use generic-lens or generic-optics with 'nodeUpdateEndDate' instead." #-}
 
 -- | Reflects whether the update was initiated by the customer or automatically applied
@@ -105,8 +108,8 @@ ngmusNodeUpdateInitiatedBy = Lens.lens (nodeUpdateInitiatedBy :: NodeGroupMember
 -- | The date when the NodeUpdateStatus was last modified
 --
 -- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.ISO8601)
-ngmusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
+ngmusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus)
 {-# DEPRECATED ngmusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
 
 -- | The cache cluster ID
@@ -126,15 +129,15 @@ ngmusCacheNodeId = Lens.lens (cacheNodeId :: NodeGroupMemberUpdateStatus -> Lude
 -- | The date when the update is triggered
 --
 -- /Note:/ Consider using 'nodeUpdateInitiatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.ISO8601)
-ngmusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateInitiatedDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
+ngmusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateInitiatedDate = a} :: NodeGroupMemberUpdateStatus)
 {-# DEPRECATED ngmusNodeUpdateInitiatedDate "Use generic-lens or generic-optics with 'nodeUpdateInitiatedDate' instead." #-}
 
 -- | The start date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateStartDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.ISO8601)
-ngmusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeUpdateStartDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateStartDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
+ngmusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStartDate = a} :: NodeGroupMemberUpdateStatus)
 {-# DEPRECATED ngmusNodeUpdateStartDate "Use generic-lens or generic-optics with 'nodeUpdateStartDate' instead." #-}
 
 -- | The update status of the node
@@ -147,8 +150,8 @@ ngmusNodeUpdateStatus = Lens.lens (nodeUpdateStatus :: NodeGroupMemberUpdateStat
 -- | The deletion date of the node
 --
 -- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeDeletionDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.ISO8601)
-ngmusNodeDeletionDate = Lens.lens (nodeDeletionDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {nodeDeletionDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeDeletionDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
+ngmusNodeDeletionDate = Lens.lens (nodeDeletionDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeDeletionDate = a} :: NodeGroupMemberUpdateStatus)
 {-# DEPRECATED ngmusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
 
 instance Lude.FromXML NodeGroupMemberUpdateStatus where

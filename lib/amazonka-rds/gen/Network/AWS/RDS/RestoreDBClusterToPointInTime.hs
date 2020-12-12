@@ -83,7 +83,7 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     copyTagsToSnapshot ::
       Lude.Maybe Lude.Bool,
     restoreToTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     domainIAMRoleName ::
       Lude.Maybe Lude.Text,
     tags :: Lude.Maybe [Tag],
@@ -397,8 +397,8 @@ rdctpitCopyTagsToSnapshot = Lens.lens (copyTagsToSnapshot :: RestoreDBClusterToP
 -- Example: @2015-03-07T23:45:00Z@
 --
 -- /Note:/ Consider using 'restoreToTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdctpitRestoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Lude.Maybe Lude.ISO8601)
-rdctpitRestoreToTime = Lens.lens (restoreToTime :: RestoreDBClusterToPointInTime -> Lude.Maybe Lude.ISO8601) (\s a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime)
+rdctpitRestoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Lude.Maybe Lude.DateTime)
+rdctpitRestoreToTime = Lens.lens (restoreToTime :: RestoreDBClusterToPointInTime -> Lude.Maybe Lude.DateTime) (\s a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime)
 {-# DEPRECATED rdctpitRestoreToTime "Use generic-lens or generic-optics with 'restoreToTime' instead." #-}
 
 -- | Specify the name of the IAM role to be used when making API calls to the Directory Service.

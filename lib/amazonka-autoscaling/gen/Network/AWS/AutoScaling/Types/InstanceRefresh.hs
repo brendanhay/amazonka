@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,11 +38,11 @@ import qualified Network.AWS.Prelude as Lude
 data InstanceRefresh = InstanceRefresh'
   { status ::
       Lude.Maybe InstanceRefreshStatus,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     instancesToUpdate :: Lude.Maybe Lude.Natural,
     percentageComplete :: Lude.Maybe Lude.Natural,
     autoScalingGroupName :: Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.ISO8601,
+    endTime :: Lude.Maybe Lude.DateTime,
     statusReason :: Lude.Maybe Lude.Text,
     instanceRefreshId :: Lude.Maybe Lude.Text
   }
@@ -126,8 +129,8 @@ irStatus = Lens.lens (status :: InstanceRefresh -> Lude.Maybe InstanceRefreshSta
 -- | The date and time at which the instance refresh began.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irStartTime :: Lens.Lens' InstanceRefresh (Lude.Maybe Lude.ISO8601)
-irStartTime = Lens.lens (startTime :: InstanceRefresh -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: InstanceRefresh)
+irStartTime :: Lens.Lens' InstanceRefresh (Lude.Maybe Lude.DateTime)
+irStartTime = Lens.lens (startTime :: InstanceRefresh -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: InstanceRefresh)
 {-# DEPRECATED irStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The number of instances remaining to update before the instance refresh is complete.
@@ -154,8 +157,8 @@ irAutoScalingGroupName = Lens.lens (autoScalingGroupName :: InstanceRefresh -> L
 -- | The date and time at which the instance refresh ended.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irEndTime :: Lens.Lens' InstanceRefresh (Lude.Maybe Lude.ISO8601)
-irEndTime = Lens.lens (endTime :: InstanceRefresh -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: InstanceRefresh)
+irEndTime :: Lens.Lens' InstanceRefresh (Lude.Maybe Lude.DateTime)
+irEndTime = Lens.lens (endTime :: InstanceRefresh -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: InstanceRefresh)
 {-# DEPRECATED irEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Provides more details about the current status of the instance refresh.

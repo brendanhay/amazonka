@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,7 +43,7 @@ data RecipientDsnFields = RecipientDsnFields'
     remoteMta :: Lude.Maybe Lude.Text,
     finalRecipient :: Lude.Maybe Lude.Text,
     extensionFields :: Lude.Maybe [ExtensionField],
-    lastAttemptDate :: Lude.Maybe Lude.ISO8601,
+    lastAttemptDate :: Lude.Maybe Lude.DateTime,
     action :: DsnAction,
     status :: Lude.Text
   }
@@ -110,8 +113,8 @@ rdfExtensionFields = Lens.lens (extensionFields :: RecipientDsnFields -> Lude.Ma
 -- | The time the final delivery attempt was made, in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
 -- /Note:/ Consider using 'lastAttemptDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdfLastAttemptDate :: Lens.Lens' RecipientDsnFields (Lude.Maybe Lude.ISO8601)
-rdfLastAttemptDate = Lens.lens (lastAttemptDate :: RecipientDsnFields -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAttemptDate = a} :: RecipientDsnFields)
+rdfLastAttemptDate :: Lens.Lens' RecipientDsnFields (Lude.Maybe Lude.DateTime)
+rdfLastAttemptDate = Lens.lens (lastAttemptDate :: RecipientDsnFields -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAttemptDate = a} :: RecipientDsnFields)
 {-# DEPRECATED rdfLastAttemptDate "Use generic-lens or generic-optics with 'lastAttemptDate' instead." #-}
 
 -- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .

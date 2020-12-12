@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,8 +43,8 @@ data DBProxyTargetGroup = DBProxyTargetGroup'
     connectionPoolConfig ::
       Lude.Maybe ConnectionPoolConfigurationInfo,
     targetGroupARN :: Lude.Maybe Lude.Text,
-    updatedDate :: Lude.Maybe Lude.ISO8601,
-    createdDate :: Lude.Maybe Lude.ISO8601,
+    updatedDate :: Lude.Maybe Lude.DateTime,
+    createdDate :: Lude.Maybe Lude.DateTime,
     dbProxyName :: Lude.Maybe Lude.Text,
     targetGroupName :: Lude.Maybe Lude.Text,
     isDefault :: Lude.Maybe Lude.Bool
@@ -103,15 +106,15 @@ dptgTargetGroupARN = Lens.lens (targetGroupARN :: DBProxyTargetGroup -> Lude.May
 -- | The date and time when the target group was last updated.
 --
 -- /Note:/ Consider using 'updatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgUpdatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.ISO8601)
-dptgUpdatedDate = Lens.lens (updatedDate :: DBProxyTargetGroup -> Lude.Maybe Lude.ISO8601) (\s a -> s {updatedDate = a} :: DBProxyTargetGroup)
+dptgUpdatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.DateTime)
+dptgUpdatedDate = Lens.lens (updatedDate :: DBProxyTargetGroup -> Lude.Maybe Lude.DateTime) (\s a -> s {updatedDate = a} :: DBProxyTargetGroup)
 {-# DEPRECATED dptgUpdatedDate "Use generic-lens or generic-optics with 'updatedDate' instead." #-}
 
 -- | The date and time when the target group was first created.
 --
 -- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgCreatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.ISO8601)
-dptgCreatedDate = Lens.lens (createdDate :: DBProxyTargetGroup -> Lude.Maybe Lude.ISO8601) (\s a -> s {createdDate = a} :: DBProxyTargetGroup)
+dptgCreatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.DateTime)
+dptgCreatedDate = Lens.lens (createdDate :: DBProxyTargetGroup -> Lude.Maybe Lude.DateTime) (\s a -> s {createdDate = a} :: DBProxyTargetGroup)
 {-# DEPRECATED dptgCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The identifier for the RDS proxy associated with this target group.

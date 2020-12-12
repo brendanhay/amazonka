@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,12 +42,12 @@ data ScheduledAction = ScheduledAction'
   { state ::
       Lude.Maybe ScheduledActionState,
     targetAction :: Lude.Maybe ScheduledActionType,
-    startTime :: Lude.Maybe Lude.ISO8601,
+    startTime :: Lude.Maybe Lude.DateTime,
     schedule :: Lude.Maybe Lude.Text,
     scheduledActionName :: Lude.Maybe Lude.Text,
     scheduledActionDescription :: Lude.Maybe Lude.Text,
-    nextInvocations :: Lude.Maybe [Lude.ISO8601],
-    endTime :: Lude.Maybe Lude.ISO8601,
+    nextInvocations :: Lude.Maybe [Lude.DateTime],
+    endTime :: Lude.Maybe Lude.DateTime,
     iamRole :: Lude.Maybe Lude.Text
   }
   deriving stock
@@ -106,8 +109,8 @@ saTargetAction = Lens.lens (targetAction :: ScheduledAction -> Lude.Maybe Schedu
 -- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saStartTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.ISO8601)
-saStartTime = Lens.lens (startTime :: ScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ScheduledAction)
+saStartTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.DateTime)
+saStartTime = Lens.lens (startTime :: ScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ScheduledAction)
 {-# DEPRECATED saStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
@@ -137,15 +140,15 @@ saScheduledActionDescription = Lens.lens (scheduledActionDescription :: Schedule
 -- | List of times when the scheduled action will run.
 --
 -- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saNextInvocations :: Lens.Lens' ScheduledAction (Lude.Maybe [Lude.ISO8601])
-saNextInvocations = Lens.lens (nextInvocations :: ScheduledAction -> Lude.Maybe [Lude.ISO8601]) (\s a -> s {nextInvocations = a} :: ScheduledAction)
+saNextInvocations :: Lens.Lens' ScheduledAction (Lude.Maybe [Lude.DateTime])
+saNextInvocations = Lens.lens (nextInvocations :: ScheduledAction -> Lude.Maybe [Lude.DateTime]) (\s a -> s {nextInvocations = a} :: ScheduledAction)
 {-# DEPRECATED saNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
 
 -- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saEndTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.ISO8601)
-saEndTime = Lens.lens (endTime :: ScheduledAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: ScheduledAction)
+saEndTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.DateTime)
+saEndTime = Lens.lens (endTime :: ScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ScheduledAction)
 {-# DEPRECATED saEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .

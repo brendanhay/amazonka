@@ -44,8 +44,8 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkReportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
   { startTime ::
-      Lude.Maybe Lude.ISO8601,
-    endTime :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    endTime :: Lude.Maybe Lude.DateTime,
     description :: Lude.Maybe Lude.Text,
     dryRun :: Lude.Maybe Lude.Bool,
     instances :: [Lude.Text],
@@ -117,15 +117,15 @@ mkReportInstanceStatus pStatus_ =
 -- | The time at which the reported instance health state began.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rissStartTime :: Lens.Lens' ReportInstanceStatus (Lude.Maybe Lude.ISO8601)
-rissStartTime = Lens.lens (startTime :: ReportInstanceStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ReportInstanceStatus)
+rissStartTime :: Lens.Lens' ReportInstanceStatus (Lude.Maybe Lude.DateTime)
+rissStartTime = Lens.lens (startTime :: ReportInstanceStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ReportInstanceStatus)
 {-# DEPRECATED rissStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The time at which the reported instance health state ended.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rissEndTime :: Lens.Lens' ReportInstanceStatus (Lude.Maybe Lude.ISO8601)
-rissEndTime = Lens.lens (endTime :: ReportInstanceStatus -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: ReportInstanceStatus)
+rissEndTime :: Lens.Lens' ReportInstanceStatus (Lude.Maybe Lude.DateTime)
+rissEndTime = Lens.lens (endTime :: ReportInstanceStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ReportInstanceStatus)
 {-# DEPRECATED rissEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Descriptive text about the health state of your instance.

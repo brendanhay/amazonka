@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -43,7 +46,7 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
     uniqueContributors ::
       Lude.Maybe Lude.Double,
     sum :: Lude.Maybe Lude.Double,
-    timestamp :: Lude.ISO8601
+    timestamp :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -80,7 +83,7 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
 mkInsightRuleMetricDatapoint ::
   -- | 'timestamp'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   InsightRuleMetricDatapoint
 mkInsightRuleMetricDatapoint pTimestamp_ =
   InsightRuleMetricDatapoint'
@@ -160,8 +163,8 @@ irmdSum = Lens.lens (sum :: InsightRuleMetricDatapoint -> Lude.Maybe Lude.Double
 -- | The timestamp of the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irmdTimestamp :: Lens.Lens' InsightRuleMetricDatapoint Lude.ISO8601
-irmdTimestamp = Lens.lens (timestamp :: InsightRuleMetricDatapoint -> Lude.ISO8601) (\s a -> s {timestamp = a} :: InsightRuleMetricDatapoint)
+irmdTimestamp :: Lens.Lens' InsightRuleMetricDatapoint Lude.DateTime
+irmdTimestamp = Lens.lens (timestamp :: InsightRuleMetricDatapoint -> Lude.DateTime) (\s a -> s {timestamp = a} :: InsightRuleMetricDatapoint)
 {-# DEPRECATED irmdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML InsightRuleMetricDatapoint where

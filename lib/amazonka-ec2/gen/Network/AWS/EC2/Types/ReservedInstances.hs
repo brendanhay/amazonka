@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -57,9 +60,9 @@ data ReservedInstances = ReservedInstances'
     currencyCode :: Lude.Maybe CurrencyCodeValues,
     instanceCount :: Lude.Maybe Lude.Int,
     productDescription :: Lude.Maybe RIProductDescription,
-    start :: Lude.Maybe Lude.ISO8601,
+    start :: Lude.Maybe Lude.DateTime,
     instanceType :: Lude.Maybe InstanceType,
-    end :: Lude.Maybe Lude.ISO8601,
+    end :: Lude.Maybe Lude.DateTime,
     availabilityZone :: Lude.Maybe Lude.Text,
     scope :: Lude.Maybe Scope,
     recurringCharges :: Lude.Maybe [RecurringCharge],
@@ -156,8 +159,8 @@ riProductDescription = Lens.lens (productDescription :: ReservedInstances -> Lud
 -- | The date and time the Reserved Instance started.
 --
 -- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riStart :: Lens.Lens' ReservedInstances (Lude.Maybe Lude.ISO8601)
-riStart = Lens.lens (start :: ReservedInstances -> Lude.Maybe Lude.ISO8601) (\s a -> s {start = a} :: ReservedInstances)
+riStart :: Lens.Lens' ReservedInstances (Lude.Maybe Lude.DateTime)
+riStart = Lens.lens (start :: ReservedInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {start = a} :: ReservedInstances)
 {-# DEPRECATED riStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The instance type on which the Reserved Instance can be used.
@@ -170,8 +173,8 @@ riInstanceType = Lens.lens (instanceType :: ReservedInstances -> Lude.Maybe Inst
 -- | The time when the Reserved Instance expires.
 --
 -- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riEnd :: Lens.Lens' ReservedInstances (Lude.Maybe Lude.ISO8601)
-riEnd = Lens.lens (end :: ReservedInstances -> Lude.Maybe Lude.ISO8601) (\s a -> s {end = a} :: ReservedInstances)
+riEnd :: Lens.Lens' ReservedInstances (Lude.Maybe Lude.DateTime)
+riEnd = Lens.lens (end :: ReservedInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {end = a} :: ReservedInstances)
 {-# DEPRECATED riEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
 -- | The Availability Zone in which the Reserved Instance can be used.

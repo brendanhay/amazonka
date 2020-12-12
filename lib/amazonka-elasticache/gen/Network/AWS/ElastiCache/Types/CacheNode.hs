@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -96,7 +99,7 @@ data CacheNode = CacheNode'
   { sourceCacheNodeId ::
       Lude.Maybe Lude.Text,
     parameterGroupStatus :: Lude.Maybe Lude.Text,
-    cacheNodeCreateTime :: Lude.Maybe Lude.ISO8601,
+    cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
     customerAvailabilityZone :: Lude.Maybe Lude.Text,
     cacheNodeId :: Lude.Maybe Lude.Text,
     customerOutpostARN :: Lude.Maybe Lude.Text,
@@ -153,8 +156,8 @@ cnParameterGroupStatus = Lens.lens (parameterGroupStatus :: CacheNode -> Lude.Ma
 -- | The date and time when the cache node was created.
 --
 -- /Note:/ Consider using 'cacheNodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnCacheNodeCreateTime :: Lens.Lens' CacheNode (Lude.Maybe Lude.ISO8601)
-cnCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: CacheNode -> Lude.Maybe Lude.ISO8601) (\s a -> s {cacheNodeCreateTime = a} :: CacheNode)
+cnCacheNodeCreateTime :: Lens.Lens' CacheNode (Lude.Maybe Lude.DateTime)
+cnCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: CacheNode -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheNodeCreateTime = a} :: CacheNode)
 {-# DEPRECATED cnCacheNodeCreateTime "Use generic-lens or generic-optics with 'cacheNodeCreateTime' instead." #-}
 
 -- | The Availability Zone where this node was created and now resides.

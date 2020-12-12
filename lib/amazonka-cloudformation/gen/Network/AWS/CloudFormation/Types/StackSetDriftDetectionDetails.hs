@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkStackSetDriftDetectionDetails' smart constructor.
 data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
   { lastDriftCheckTimestamp ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     totalStackInstancesCount ::
       Lude.Maybe Lude.Natural,
     inProgressStackInstancesCount ::
@@ -134,8 +137,8 @@ mkStackSetDriftDetectionDetails =
 -- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
 --
 -- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdddLastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Lude.Maybe Lude.ISO8601)
-ssdddLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackSetDriftDetectionDetails -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails)
+ssdddLastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Lude.Maybe Lude.DateTime)
+ssdddLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackSetDriftDetectionDetails -> Lude.Maybe Lude.DateTime) (\s a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails)
 {-# DEPRECATED ssdddLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
 
 -- | The total number of stack instances belonging to this stack set.

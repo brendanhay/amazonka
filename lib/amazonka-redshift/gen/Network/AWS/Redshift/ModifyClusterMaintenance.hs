@@ -45,12 +45,12 @@ import qualified Network.AWS.Response as Res
 -- | /See:/ 'mkModifyClusterMaintenance' smart constructor.
 data ModifyClusterMaintenance = ModifyClusterMaintenance'
   { deferMaintenanceEndTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     deferMaintenance :: Lude.Maybe Lude.Bool,
     deferMaintenanceDuration ::
       Lude.Maybe Lude.Int,
     deferMaintenanceStartTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     deferMaintenanceIdentifier ::
       Lude.Maybe Lude.Text,
     clusterIdentifier :: Lude.Text
@@ -89,8 +89,8 @@ mkModifyClusterMaintenance pClusterIdentifier_ =
 -- | A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
 --
 -- /Note:/ Consider using 'deferMaintenanceEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcmDeferMaintenanceEndTime :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe Lude.ISO8601)
-mcmDeferMaintenanceEndTime = Lens.lens (deferMaintenanceEndTime :: ModifyClusterMaintenance -> Lude.Maybe Lude.ISO8601) (\s a -> s {deferMaintenanceEndTime = a} :: ModifyClusterMaintenance)
+mcmDeferMaintenanceEndTime :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe Lude.DateTime)
+mcmDeferMaintenanceEndTime = Lens.lens (deferMaintenanceEndTime :: ModifyClusterMaintenance -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceEndTime = a} :: ModifyClusterMaintenance)
 {-# DEPRECATED mcmDeferMaintenanceEndTime "Use generic-lens or generic-optics with 'deferMaintenanceEndTime' instead." #-}
 
 -- | A boolean indicating whether to enable the deferred maintenance window.
@@ -110,8 +110,8 @@ mcmDeferMaintenanceDuration = Lens.lens (deferMaintenanceDuration :: ModifyClust
 -- | A timestamp indicating the start time for the deferred maintenance window.
 --
 -- /Note:/ Consider using 'deferMaintenanceStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcmDeferMaintenanceStartTime :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe Lude.ISO8601)
-mcmDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: ModifyClusterMaintenance -> Lude.Maybe Lude.ISO8601) (\s a -> s {deferMaintenanceStartTime = a} :: ModifyClusterMaintenance)
+mcmDeferMaintenanceStartTime :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe Lude.DateTime)
+mcmDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: ModifyClusterMaintenance -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceStartTime = a} :: ModifyClusterMaintenance)
 {-# DEPRECATED mcmDeferMaintenanceStartTime "Use generic-lens or generic-optics with 'deferMaintenanceStartTime' instead." #-}
 
 -- | A unique identifier for the deferred maintenance window.

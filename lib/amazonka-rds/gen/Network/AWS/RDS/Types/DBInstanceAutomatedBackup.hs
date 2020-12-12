@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -59,7 +62,7 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
     iops :: Lude.Maybe Lude.Int,
     vpcId :: Lude.Maybe Lude.Text,
     instanceCreateTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     engine :: Lude.Maybe Lude.Text,
     encrypted :: Lude.Maybe Lude.Bool,
     licenseModel :: Lude.Maybe Lude.Text,
@@ -225,8 +228,8 @@ diabVPCId = Lens.lens (vpcId :: DBInstanceAutomatedBackup -> Lude.Maybe Lude.Tex
 -- | Provides the date and time that the DB instance was created.
 --
 -- /Note:/ Consider using 'instanceCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diabInstanceCreateTime :: Lens.Lens' DBInstanceAutomatedBackup (Lude.Maybe Lude.ISO8601)
-diabInstanceCreateTime = Lens.lens (instanceCreateTime :: DBInstanceAutomatedBackup -> Lude.Maybe Lude.ISO8601) (\s a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup)
+diabInstanceCreateTime :: Lens.Lens' DBInstanceAutomatedBackup (Lude.Maybe Lude.DateTime)
+diabInstanceCreateTime = Lens.lens (instanceCreateTime :: DBInstanceAutomatedBackup -> Lude.Maybe Lude.DateTime) (\s a -> s {instanceCreateTime = a} :: DBInstanceAutomatedBackup)
 {-# DEPRECATED diabInstanceCreateTime "Use generic-lens or generic-optics with 'instanceCreateTime' instead." #-}
 
 -- | The name of the database engine for this automated backup.

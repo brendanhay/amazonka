@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -60,11 +63,11 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCacheCluster' smart constructor.
 data CacheCluster = CacheCluster'
   { authTokenLastModifiedDate ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     engineVersion :: Lude.Maybe Lude.Text,
     cacheNodeType :: Lude.Maybe Lude.Text,
     cacheNodes :: Lude.Maybe [CacheNode],
-    cacheClusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    cacheClusterCreateTime :: Lude.Maybe Lude.DateTime,
     atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
     securityGroups :: Lude.Maybe [SecurityGroupMembership],
@@ -268,8 +271,8 @@ mkCacheCluster =
 -- | The date the auth token was last modified
 --
 -- /Note:/ Consider using 'authTokenLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccAuthTokenLastModifiedDate :: Lens.Lens' CacheCluster (Lude.Maybe Lude.ISO8601)
-ccAuthTokenLastModifiedDate = Lens.lens (authTokenLastModifiedDate :: CacheCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {authTokenLastModifiedDate = a} :: CacheCluster)
+ccAuthTokenLastModifiedDate :: Lens.Lens' CacheCluster (Lude.Maybe Lude.DateTime)
+ccAuthTokenLastModifiedDate = Lens.lens (authTokenLastModifiedDate :: CacheCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {authTokenLastModifiedDate = a} :: CacheCluster)
 {-# DEPRECATED ccAuthTokenLastModifiedDate "Use generic-lens or generic-optics with 'authTokenLastModifiedDate' instead." #-}
 
 -- | The version of the cache engine that is used in this cluster.
@@ -356,8 +359,8 @@ ccCacheNodes = Lens.lens (cacheNodes :: CacheCluster -> Lude.Maybe [CacheNode]) 
 -- | The date and time when the cluster was created.
 --
 -- /Note:/ Consider using 'cacheClusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCacheClusterCreateTime :: Lens.Lens' CacheCluster (Lude.Maybe Lude.ISO8601)
-ccCacheClusterCreateTime = Lens.lens (cacheClusterCreateTime :: CacheCluster -> Lude.Maybe Lude.ISO8601) (\s a -> s {cacheClusterCreateTime = a} :: CacheCluster)
+ccCacheClusterCreateTime :: Lens.Lens' CacheCluster (Lude.Maybe Lude.DateTime)
+ccCacheClusterCreateTime = Lens.lens (cacheClusterCreateTime :: CacheCluster -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheClusterCreateTime = a} :: CacheCluster)
 {-# DEPRECATED ccCacheClusterCreateTime "Use generic-lens or generic-optics with 'cacheClusterCreateTime' instead." #-}
 
 -- | A flag that enables encryption at-rest when set to @true@ .

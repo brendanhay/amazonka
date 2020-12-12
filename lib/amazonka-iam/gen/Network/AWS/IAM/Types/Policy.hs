@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -40,10 +43,10 @@ import qualified Network.AWS.Prelude as Lude
 data Policy = Policy'
   { policyName :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
-    updateDate :: Lude.Maybe Lude.ISO8601,
+    updateDate :: Lude.Maybe Lude.DateTime,
     policyId :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
-    createDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.DateTime,
     isAttachable :: Lude.Maybe Lude.Bool,
     permissionsBoundaryUsageCount :: Lude.Maybe Lude.Int,
     defaultVersionId :: Lude.Maybe Lude.Text,
@@ -118,8 +121,8 @@ pARN = Lens.lens (arn :: Policy -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} ::
 -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pUpdateDate :: Lens.Lens' Policy (Lude.Maybe Lude.ISO8601)
-pUpdateDate = Lens.lens (updateDate :: Policy -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: Policy)
+pUpdateDate :: Lens.Lens' Policy (Lude.Maybe Lude.DateTime)
+pUpdateDate = Lens.lens (updateDate :: Policy -> Lude.Maybe Lude.DateTime) (\s a -> s {updateDate = a} :: Policy)
 {-# DEPRECATED pUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The stable and unique string identifying the policy.
@@ -143,8 +146,8 @@ pPath = Lens.lens (path :: Policy -> Lude.Maybe Lude.Text) (\s a -> s {path = a}
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pCreateDate :: Lens.Lens' Policy (Lude.Maybe Lude.ISO8601)
-pCreateDate = Lens.lens (createDate :: Policy -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: Policy)
+pCreateDate :: Lens.Lens' Policy (Lude.Maybe Lude.DateTime)
+pCreateDate = Lens.lens (createDate :: Policy -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: Policy)
 {-# DEPRECATED pCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or role.

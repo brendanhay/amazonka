@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -51,7 +54,7 @@ data Volume = Volume'
     kmsKeyId :: Lude.Maybe Lude.Text,
     tags :: Lude.Maybe [Tag],
     availabilityZone :: Lude.Text,
-    createTime :: Lude.ISO8601,
+    createTime :: Lude.DateTime,
     encrypted :: Lude.Bool,
     size :: Lude.Int,
     snapshotId :: Lude.Text,
@@ -92,7 +95,7 @@ mkVolume ::
   -- | 'availabilityZone'
   Lude.Text ->
   -- | 'createTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'encrypted'
   Lude.Bool ->
   -- | 'size'
@@ -195,8 +198,8 @@ vAvailabilityZone = Lens.lens (availabilityZone :: Volume -> Lude.Text) (\s a ->
 -- | The time stamp when volume creation was initiated.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vCreateTime :: Lens.Lens' Volume Lude.ISO8601
-vCreateTime = Lens.lens (createTime :: Volume -> Lude.ISO8601) (\s a -> s {createTime = a} :: Volume)
+vCreateTime :: Lens.Lens' Volume Lude.DateTime
+vCreateTime = Lens.lens (createTime :: Volume -> Lude.DateTime) (\s a -> s {createTime = a} :: Volume)
 {-# DEPRECATED vCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | Indicates whether the volume is encrypted.

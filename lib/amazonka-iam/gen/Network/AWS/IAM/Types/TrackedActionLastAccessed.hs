@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -31,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTrackedActionLastAccessed' smart constructor.
 data TrackedActionLastAccessed = TrackedActionLastAccessed'
   { lastAccessedTime ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     actionName :: Lude.Maybe Lude.Text,
     lastAccessedEntity ::
       Lude.Maybe Lude.Text,
@@ -72,8 +75,8 @@ mkTrackedActionLastAccessed =
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 --
 -- /Note:/ Consider using 'lastAccessedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-talaLastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Lude.Maybe Lude.ISO8601)
-talaLastAccessedTime = Lens.lens (lastAccessedTime :: TrackedActionLastAccessed -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed)
+talaLastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Lude.Maybe Lude.DateTime)
+talaLastAccessedTime = Lens.lens (lastAccessedTime :: TrackedActionLastAccessed -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed)
 {-# DEPRECATED talaLastAccessedTime "Use generic-lens or generic-optics with 'lastAccessedTime' instead." #-}
 
 -- | The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.

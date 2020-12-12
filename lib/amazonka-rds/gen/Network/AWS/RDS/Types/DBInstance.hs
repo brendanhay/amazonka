@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -114,14 +117,14 @@ data DBInstance = DBInstance'
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
     monitoringRoleARN :: Lude.Maybe Lude.Text,
     iops :: Lude.Maybe Lude.Int,
-    instanceCreateTime :: Lude.Maybe Lude.ISO8601,
+    instanceCreateTime :: Lude.Maybe Lude.DateTime,
     tagList :: Lude.Maybe [Tag],
     readReplicaSourceDBInstanceIdentifier :: Lude.Maybe Lude.Text,
     replicaMode :: Lude.Maybe ReplicaMode,
     monitoringInterval :: Lude.Maybe Lude.Int,
     engine :: Lude.Maybe Lude.Text,
     processorFeatures :: Lude.Maybe [ProcessorFeature],
-    latestRestorableTime :: Lude.Maybe Lude.ISO8601,
+    latestRestorableTime :: Lude.Maybe Lude.DateTime,
     dbInstanceClass :: Lude.Maybe Lude.Text,
     promotionTier :: Lude.Maybe Lude.Int,
     licenseModel :: Lude.Maybe Lude.Text,
@@ -441,8 +444,8 @@ diIOPS = Lens.lens (iops :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {iops 
 -- | Provides the date and time the DB instance was created.
 --
 -- /Note:/ Consider using 'instanceCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diInstanceCreateTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.ISO8601)
-diInstanceCreateTime = Lens.lens (instanceCreateTime :: DBInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {instanceCreateTime = a} :: DBInstance)
+diInstanceCreateTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.DateTime)
+diInstanceCreateTime = Lens.lens (instanceCreateTime :: DBInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {instanceCreateTime = a} :: DBInstance)
 {-# DEPRECATED diInstanceCreateTime "Use generic-lens or generic-optics with 'instanceCreateTime' instead." #-}
 
 -- | Undocumented field.
@@ -490,8 +493,8 @@ diProcessorFeatures = Lens.lens (processorFeatures :: DBInstance -> Lude.Maybe [
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 --
 -- /Note:/ Consider using 'latestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diLatestRestorableTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.ISO8601)
-diLatestRestorableTime = Lens.lens (latestRestorableTime :: DBInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestRestorableTime = a} :: DBInstance)
+diLatestRestorableTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.DateTime)
+diLatestRestorableTime = Lens.lens (latestRestorableTime :: DBInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {latestRestorableTime = a} :: DBInstance)
 {-# DEPRECATED diLatestRestorableTime "Use generic-lens or generic-optics with 'latestRestorableTime' instead." #-}
 
 -- | Contains the name of the compute and memory capacity class of the DB instance.

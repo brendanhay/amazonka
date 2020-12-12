@@ -107,8 +107,8 @@ instance Lude.ToQuery GetSAMLProvider where
 -- /See:/ 'mkGetSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
   { createDate ::
-      Lude.Maybe Lude.ISO8601,
-    validUntil :: Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
+    validUntil :: Lude.Maybe Lude.DateTime,
     sAMLMetadataDocument ::
       Lude.Maybe Lude.Text,
     responseStatus :: Lude.Int
@@ -143,15 +143,15 @@ mkGetSAMLProviderResponse pResponseStatus_ =
 -- | The date and time when the SAML provider was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsamlprsCreateDate :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.ISO8601)
-gsamlprsCreateDate = Lens.lens (createDate :: GetSAMLProviderResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: GetSAMLProviderResponse)
+gsamlprsCreateDate :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.DateTime)
+gsamlprsCreateDate = Lens.lens (createDate :: GetSAMLProviderResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: GetSAMLProviderResponse)
 {-# DEPRECATED gsamlprsCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The expiration date and time for the SAML provider.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsamlprsValidUntil :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.ISO8601)
-gsamlprsValidUntil = Lens.lens (validUntil :: GetSAMLProviderResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: GetSAMLProviderResponse)
+gsamlprsValidUntil :: Lens.Lens' GetSAMLProviderResponse (Lude.Maybe Lude.DateTime)
+gsamlprsValidUntil = Lens.lens (validUntil :: GetSAMLProviderResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: GetSAMLProviderResponse)
 {-# DEPRECATED gsamlprsValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The XML metadata document that includes information about an identity provider.

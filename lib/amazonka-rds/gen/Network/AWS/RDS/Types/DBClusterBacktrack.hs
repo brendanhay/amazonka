@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,11 +36,11 @@ data DBClusterBacktrack = DBClusterBacktrack'
   { status ::
       Lude.Maybe Lude.Text,
     backtrackIdentifier :: Lude.Maybe Lude.Text,
-    backtrackTo :: Lude.Maybe Lude.ISO8601,
+    backtrackTo :: Lude.Maybe Lude.DateTime,
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
-    backtrackedFrom :: Lude.Maybe Lude.ISO8601,
+    backtrackedFrom :: Lude.Maybe Lude.DateTime,
     backtrackRequestCreationTime ::
-      Lude.Maybe Lude.ISO8601
+      Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -111,8 +114,8 @@ dcbBacktrackIdentifier = Lens.lens (backtrackIdentifier :: DBClusterBacktrack ->
 -- | The timestamp of the time to which the DB cluster was backtracked.
 --
 -- /Note:/ Consider using 'backtrackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackTo :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.ISO8601)
-dcbBacktrackTo = Lens.lens (backtrackTo :: DBClusterBacktrack -> Lude.Maybe Lude.ISO8601) (\s a -> s {backtrackTo = a} :: DBClusterBacktrack)
+dcbBacktrackTo :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
+dcbBacktrackTo = Lens.lens (backtrackTo :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackTo = a} :: DBClusterBacktrack)
 {-# DEPRECATED dcbBacktrackTo "Use generic-lens or generic-optics with 'backtrackTo' instead." #-}
 
 -- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
@@ -125,15 +128,15 @@ dcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DBClusterBacktrack ->
 -- | The timestamp of the time from which the DB cluster was backtracked.
 --
 -- /Note:/ Consider using 'backtrackedFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackedFrom :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.ISO8601)
-dcbBacktrackedFrom = Lens.lens (backtrackedFrom :: DBClusterBacktrack -> Lude.Maybe Lude.ISO8601) (\s a -> s {backtrackedFrom = a} :: DBClusterBacktrack)
+dcbBacktrackedFrom :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
+dcbBacktrackedFrom = Lens.lens (backtrackedFrom :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackedFrom = a} :: DBClusterBacktrack)
 {-# DEPRECATED dcbBacktrackedFrom "Use generic-lens or generic-optics with 'backtrackedFrom' instead." #-}
 
 -- | The timestamp of the time at which the backtrack was requested.
 --
 -- /Note:/ Consider using 'backtrackRequestCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackRequestCreationTime :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.ISO8601)
-dcbBacktrackRequestCreationTime = Lens.lens (backtrackRequestCreationTime :: DBClusterBacktrack -> Lude.Maybe Lude.ISO8601) (\s a -> s {backtrackRequestCreationTime = a} :: DBClusterBacktrack)
+dcbBacktrackRequestCreationTime :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
+dcbBacktrackRequestCreationTime = Lens.lens (backtrackRequestCreationTime :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackRequestCreationTime = a} :: DBClusterBacktrack)
 {-# DEPRECATED dcbBacktrackRequestCreationTime "Use generic-lens or generic-optics with 'backtrackRequestCreationTime' instead." #-}
 
 instance Lude.FromXML DBClusterBacktrack where

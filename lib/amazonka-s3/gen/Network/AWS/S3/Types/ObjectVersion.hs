@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -42,7 +45,7 @@ data ObjectVersion = ObjectVersion'
     owner :: Lude.Maybe Owner,
     key :: Lude.Maybe ObjectKey,
     storageClass :: Lude.Maybe ObjectVersionStorageClass,
-    lastModified :: Lude.Maybe Lude.ISO8601
+    lastModified :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -129,8 +132,8 @@ ovStorageClass = Lens.lens (storageClass :: ObjectVersion -> Lude.Maybe ObjectVe
 -- | Date and time the object was last modified.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ovLastModified :: Lens.Lens' ObjectVersion (Lude.Maybe Lude.ISO8601)
-ovLastModified = Lens.lens (lastModified :: ObjectVersion -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: ObjectVersion)
+ovLastModified :: Lens.Lens' ObjectVersion (Lude.Maybe Lude.DateTime)
+ovLastModified = Lens.lens (lastModified :: ObjectVersion -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: ObjectVersion)
 {-# DEPRECATED ovLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 instance Lude.FromXML ObjectVersion where

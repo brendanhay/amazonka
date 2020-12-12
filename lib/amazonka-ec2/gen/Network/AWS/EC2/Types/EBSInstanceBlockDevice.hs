@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -33,7 +36,7 @@ data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
       Lude.Maybe AttachmentStatus,
     deleteOnTermination :: Lude.Maybe Lude.Bool,
     volumeId :: Lude.Maybe Lude.Text,
-    attachTime :: Lude.Maybe Lude.ISO8601
+    attachTime :: Lude.Maybe Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -84,8 +87,8 @@ eibdVolumeId = Lens.lens (volumeId :: EBSInstanceBlockDevice -> Lude.Maybe Lude.
 -- | The time stamp when the attachment initiated.
 --
 -- /Note:/ Consider using 'attachTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eibdAttachTime :: Lens.Lens' EBSInstanceBlockDevice (Lude.Maybe Lude.ISO8601)
-eibdAttachTime = Lens.lens (attachTime :: EBSInstanceBlockDevice -> Lude.Maybe Lude.ISO8601) (\s a -> s {attachTime = a} :: EBSInstanceBlockDevice)
+eibdAttachTime :: Lens.Lens' EBSInstanceBlockDevice (Lude.Maybe Lude.DateTime)
+eibdAttachTime = Lens.lens (attachTime :: EBSInstanceBlockDevice -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: EBSInstanceBlockDevice)
 {-# DEPRECATED eibdAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
 
 instance Lude.FromXML EBSInstanceBlockDevice where

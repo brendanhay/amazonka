@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -41,7 +44,7 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFlowLog' smart constructor.
 data FlowLog = FlowLog'
-  { creationTime :: Lude.Maybe Lude.ISO8601,
+  { creationTime :: Lude.Maybe Lude.DateTime,
     logFormat :: Lude.Maybe Lude.Text,
     maxAggregationInterval :: Lude.Maybe Lude.Int,
     resourceId :: Lude.Maybe Lude.Text,
@@ -107,8 +110,8 @@ mkFlowLog =
 -- | The date and time the flow log was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flCreationTime :: Lens.Lens' FlowLog (Lude.Maybe Lude.ISO8601)
-flCreationTime = Lens.lens (creationTime :: FlowLog -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: FlowLog)
+flCreationTime :: Lens.Lens' FlowLog (Lude.Maybe Lude.DateTime)
+flCreationTime = Lens.lens (creationTime :: FlowLog -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: FlowLog)
 {-# DEPRECATED flCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The format of the flow log record.

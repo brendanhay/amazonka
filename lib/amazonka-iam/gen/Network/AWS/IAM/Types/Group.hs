@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -45,7 +48,7 @@ data Group = Group'
     groupName :: Lude.Text,
     groupId :: Lude.Text,
     arn :: Lude.Text,
-    createDate :: Lude.ISO8601
+    createDate :: Lude.DateTime
   }
   deriving stock
     ( Lude.Eq,
@@ -73,7 +76,7 @@ mkGroup ::
   -- | 'arn'
   Lude.Text ->
   -- | 'createDate'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   Group
 mkGroup pPath_ pGroupName_ pGroupId_ pARN_ pCreateDate_ =
   Group'
@@ -115,8 +118,8 @@ gARN = Lens.lens (arn :: Group -> Lude.Text) (\s a -> s {arn = a} :: Group)
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gCreateDate :: Lens.Lens' Group Lude.ISO8601
-gCreateDate = Lens.lens (createDate :: Group -> Lude.ISO8601) (\s a -> s {createDate = a} :: Group)
+gCreateDate :: Lens.Lens' Group Lude.DateTime
+gCreateDate = Lens.lens (createDate :: Group -> Lude.DateTime) (\s a -> s {createDate = a} :: Group)
 {-# DEPRECATED gCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 instance Lude.FromXML Group where

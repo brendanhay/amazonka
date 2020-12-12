@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -39,7 +42,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCachePolicy' smart constructor.
 data CachePolicy = CachePolicy'
   { id :: Lude.Text,
-    lastModifiedTime :: Lude.ISO8601,
+    lastModifiedTime :: Lude.DateTime,
     cachePolicyConfig :: CachePolicyConfig
   }
   deriving stock
@@ -60,7 +63,7 @@ mkCachePolicy ::
   -- | 'id'
   Lude.Text ->
   -- | 'lastModifiedTime'
-  Lude.ISO8601 ->
+  Lude.DateTime ->
   -- | 'cachePolicyConfig'
   CachePolicyConfig ->
   CachePolicy
@@ -81,8 +84,8 @@ cpId = Lens.lens (id :: CachePolicy -> Lude.Text) (\s a -> s {id = a} :: CachePo
 -- | The date and time when the cache policy was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpLastModifiedTime :: Lens.Lens' CachePolicy Lude.ISO8601
-cpLastModifiedTime = Lens.lens (lastModifiedTime :: CachePolicy -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: CachePolicy)
+cpLastModifiedTime :: Lens.Lens' CachePolicy Lude.DateTime
+cpLastModifiedTime = Lens.lens (lastModifiedTime :: CachePolicy -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: CachePolicy)
 {-# DEPRECATED cpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The cache policy configuration.

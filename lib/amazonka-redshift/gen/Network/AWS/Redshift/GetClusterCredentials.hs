@@ -293,7 +293,7 @@ data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
   { dbUser ::
       Lude.Maybe Lude.Text,
     expiration ::
-      Lude.Maybe Lude.ISO8601,
+      Lude.Maybe Lude.DateTime,
     dbPassword ::
       Lude.Maybe
         (Lude.Sensitive Lude.Text),
@@ -330,8 +330,8 @@ gccrsDBUser = Lens.lens (dbUser :: GetClusterCredentialsResponse -> Lude.Maybe L
 -- | The date and time the password in @DbPassword@ expires.
 --
 -- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gccrsExpiration :: Lens.Lens' GetClusterCredentialsResponse (Lude.Maybe Lude.ISO8601)
-gccrsExpiration = Lens.lens (expiration :: GetClusterCredentialsResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {expiration = a} :: GetClusterCredentialsResponse)
+gccrsExpiration :: Lens.Lens' GetClusterCredentialsResponse (Lude.Maybe Lude.DateTime)
+gccrsExpiration = Lens.lens (expiration :: GetClusterCredentialsResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {expiration = a} :: GetClusterCredentialsResponse)
 {-# DEPRECATED gccrsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | A temporary password that authorizes the user name returned by @DbUser@ to log on to the database @DbName@ .

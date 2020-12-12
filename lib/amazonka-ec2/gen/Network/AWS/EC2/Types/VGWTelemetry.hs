@@ -1,3 +1,6 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -35,7 +38,7 @@ data VGWTelemetry = VGWTelemetry'
       Lude.Maybe TelemetryStatus,
     outsideIPAddress :: Lude.Maybe Lude.Text,
     certificateARN :: Lude.Maybe Lude.Text,
-    lastStatusChange :: Lude.Maybe Lude.ISO8601,
+    lastStatusChange :: Lude.Maybe Lude.DateTime,
     acceptedRouteCount :: Lude.Maybe Lude.Int,
     statusMessage :: Lude.Maybe Lude.Text
   }
@@ -92,8 +95,8 @@ vtCertificateARN = Lens.lens (certificateARN :: VGWTelemetry -> Lude.Maybe Lude.
 -- | The date and time of the last change in status.
 --
 -- /Note:/ Consider using 'lastStatusChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtLastStatusChange :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.ISO8601)
-vtLastStatusChange = Lens.lens (lastStatusChange :: VGWTelemetry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastStatusChange = a} :: VGWTelemetry)
+vtLastStatusChange :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.DateTime)
+vtLastStatusChange = Lens.lens (lastStatusChange :: VGWTelemetry -> Lude.Maybe Lude.DateTime) (\s a -> s {lastStatusChange = a} :: VGWTelemetry)
 {-# DEPRECATED vtLastStatusChange "Use generic-lens or generic-optics with 'lastStatusChange' instead." #-}
 
 -- | The number of accepted routes.

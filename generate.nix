@@ -49,7 +49,7 @@ let
     # The available botocore service definitions.
     available = configNames botocoreDir;
     # The available amazonka config files.
-    configured = configNames configDir;
+    configured = configNames servicesDir;
     # Botocore service definitions _without_ a corresponding amazonka config.
     unconfigured = lib.subtractLists configured available;
     # Supplied 'models' arguments that don't correspond to an amazonka config.

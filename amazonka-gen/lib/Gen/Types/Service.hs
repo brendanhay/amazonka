@@ -66,7 +66,7 @@ data Timestamp
 
 tsToText :: Timestamp -> Text
 tsToText = \case
-  ISO8601 -> "ISO8601"
+  ISO8601 -> "DateTime"
   POSIX -> "Timestamp"
 
 instance FromJSON Timestamp where

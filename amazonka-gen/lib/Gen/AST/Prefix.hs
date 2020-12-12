@@ -12,6 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Gen.AST.Prefix
   ( prefixes,
+    acronymPrefixes
   )
 where
 
@@ -100,11 +101,10 @@ assignPrefix = annotate Prefixed memo go
           ++ show (HashSet.toList ks)
           ++ show (map f hs)
     --
-    unique r seen n (h : hs) ks = do
-      m <- Lens.uses seen (HashMap.lookup h)
+    unique r seen n (h : hs) ks =
       -- Find if this particular naming heuristic is used already, and if
       -- it is, then is there overlap with this set of ks?
-      case m of
+      Lens.uses seen (HashMap.lookup h) >>= \case
         Just ys
           | overlap ys ks ->
             unique r seen n hs ks
@@ -129,36 +129,18 @@ acronymPrefixes r (stripSuffix "Response" -> n)
   | isOrphan r,
     Uni d <- _relMode r =
     case d of
-      Input -> ci ss
+      Input -> ci xs
       Output -> ci rs
-  | otherwise = ci ss
+  | otherwise = ci xs
   where
-    rs = map (<> "rs") ss
-    ss = xs ++ map suffix ys
+    rs = map (<> "rs") xs
 
     ci = map CI.mk
 
-    -- Take the next char
-    suffix x = Text.snoc x c
-      where
-        c
-          | Text.length x >= 2 = Text.head (Text.drop 1 x)
-          | otherwise = Text.head x
-
-    xs = catMaybes [r2, r3, r4, r5, r6]
-    ys = catMaybes [r2, r3, r4, r6, r7]
+    xs = catMaybes [r2, r3, r4, r5, r6, r7]
 
     a = camelAcronym n
     a' = upperAcronym n
-
-    limit = 3
-
-    -- Note: omitted as now with DuplicateRecordFields it creates too many
-    -- clashes with existing field names.
-    -- -- Full name if leq limit
-    -- r1
-    --   | Text.length n <= limit = Just n
-    --   | otherwise = Nothing
 
     -- VpcPeeringInfo -> VPI
     r2 = Manipulate.toAcronym a
@@ -173,13 +155,13 @@ acronymPrefixes r (stripSuffix "Response" -> n)
     -- SomeTestTType -> S
     r4 = Text.toUpper <$> safeHead n
 
-    -- SomeTypes -> STS (retain pural)
+    -- SomeTypes -> STs (retain pural)
     r5
       | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> (r2 <|> r3)
       | otherwise = Nothing
 
-    -- SomeTestTType -> Som
-    r6 = Text.take limit <$> listToMaybe (Manipulate.splitWords a)
+    -- VpcPeeringInfo -> lVPC
+    r6 = (<> "l") <$> r2
 
-    -- SomeTestTType -> SomeTestTType
+    -- SomeTypeName -> SomeTypeName
     r7 = Just n

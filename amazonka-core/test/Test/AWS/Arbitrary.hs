@@ -164,7 +164,7 @@ instance Arbitrary Day where
   arbitrary = ModifiedJulianDay . (2000 +) <$> arbitrary
   shrink = fmap ModifiedJulianDay . shrink . toModifiedJulianDay
 
-instance Arbitrary (Time a) where
+instance Arbitrary a => Arbitrary (Time a) where
   arbitrary = Time <$> arbitrary
 
 instance Arbitrary AccessKey where

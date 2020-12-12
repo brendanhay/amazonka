@@ -10,7 +10,6 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Numeric (tests) where
 
-import Control.Applicative
 import Network.AWS.Prelude
 import Test.AWS.Util
 import Test.Tasty

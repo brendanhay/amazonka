@@ -65,9 +65,6 @@ _Time = iso fromTime Time
 toTimestamp :: DateTime -> Timestamp
 toTimestamp = Time . Time.POSIX.utcTimeToPOSIXSeconds . fromTime
 
--- fromTimestamp :: Timestamp -> DateTime
--- fromTimestamp = Time . Time.POSIX.posixSecondsToUTCTime . fromTime
-
 -- IS8601 DateTimes
 
 type DateTime = Time UTCTime
@@ -79,7 +76,7 @@ instance Hashable DateTime where
 basicFormat, awsFormat, iso8601Format, rfc822Format :: String
 basicFormat = "%Y%m%d"
 awsFormat = "%Y%m%dT%H%M%SZ"
-iso8601Format = Time.iso8601DateFormat (Just "%XZ")
+iso8601Format = "%Y-%m-%dT%XZ"
 rfc822Format = "%a, %d %b %Y %H:%M:%S GMT"
 
 formatDateTime :: String -> DateTime -> String
@@ -94,7 +91,7 @@ parseDateTime format text = fmap Time parse
         Just x -> Right x
         Nothing ->
           Left $
-            "Unable to parse Time format "
+            "Unable to parse time format "
               ++ show format
               ++ " from "
               ++ show string

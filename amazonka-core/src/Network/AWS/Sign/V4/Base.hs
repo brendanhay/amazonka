@@ -25,7 +25,6 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.Foldable as Fold
 import Data.Function (on)
 import Data.List (nubBy, sortBy)
-import qualified Data.Time as Time
 import GHC.TypeLits
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto
@@ -300,10 +299,6 @@ normaliseHeaders =
     . filter ((/= "authorization") . fst)
     . filter ((/= "content-length") . fst)
 
-formatAWSTime :: UTCTime -> ByteString
-formatAWSTime =
-  BS8.pack . Time.formatTime Time.defaultTimeLocale "%Y%m%dT%H%M%SZ"
-
-formatBasicTime :: UTCTime -> ByteString
-formatBasicTime =
-  BS8.pack . Time.formatTime Time.defaultTimeLocale "%Y%m%d"
+formatAWSTime, formatBasicTime :: UTCTime -> ByteString
+formatAWSTime = BS8.pack . formatDateTime awsFormat . Time
+formatBasicTime = BS8.pack . formatDateTime basicFormat . Time

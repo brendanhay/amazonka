@@ -1,13 +1,9 @@
-{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE ViewPatterns #-}
 
 -- |
 -- Module      : Network.AWS.Data.Time
@@ -18,32 +14,41 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Time
   ( -- * Time
-    TimeFormat (..),
     Time (..),
     _Time,
+    toTimestamp,
+    fromTimestamp,
 
-    -- * De/serialisation
-    parseTime,
-    formatTime,
+    -- * Formats
+    basicFormat,
+    awsFormat,
+    iso8601Format,
+    rfc822Format,
 
-    -- ** Formats
-    ISO8601,
-    Timestamp,
+    -- * ISO8601 date time
     UTCTime,
+    DateTime,
+    formatDateTime,
+    parseDateTime,
+
+    -- * UNIX timestamps
+    POSIXTime,
+    Timestamp,
+    formatTimestamp,
+    parseTimestamp,
   )
 where
 
 import Control.Applicative ((<|>))
-import Control.DeepSeq
-import Data.Aeson
-import qualified Data.Aeson.Types as Aeson
+import Control.DeepSeq (NFData)
+import qualified Data.Aeson as Aeson
 import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteString.Char8 as BS
-import Data.Hashable
-import Data.Scientific
+import Data.Hashable (Hashable (hashWithSalt))
 import qualified Data.Text as Text
 import Data.Time (Day (..), UTCTime (..))
 import qualified Data.Time as Time
+import Data.Time.Clock.POSIX (POSIXTime)
 import qualified Data.Time.Clock.POSIX as Time.POSIX
 import GHC.Generics (Generic)
 import Network.AWS.Data.ByteString
@@ -53,41 +58,37 @@ import Network.AWS.Data.Text
 import Network.AWS.Data.XML
 import Network.AWS.Lens (Iso', iso)
 
-data TimeFormat
-  = ISO8601
-  | UNIX
-  deriving (Eq, Read, Show, Generic)
-
-newtype Time (a :: TimeFormat) = Time {fromTime :: UTCTime}
+newtype Time a = Time {fromTime :: a}
   deriving (Show, Read, Eq, Ord, Generic, NFData)
 
-instance Hashable (Time a) where
-  hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =
-    salt `hashWithSalt` d
-      `hashWithSalt` toRational t
-
-_Time :: Iso' (Time a) UTCTime
+_Time :: Iso' (Time a) a
 _Time = iso fromTime Time
 
-convert :: Time a -> Time b
-convert = Time . fromTime
+toTimestamp :: DateTime -> Timestamp
+toTimestamp = Time . Time.POSIX.utcTimeToPOSIXSeconds . fromTime
 
-type ISO8601 = Time 'ISO8601
+fromTimestamp :: Timestamp -> DateTime
+fromTimestamp = Time . Time.POSIX.posixSecondsToUTCTime . fromTime
 
-iso8601Format :: String
+-- IS8601 DateTimes
+
+type DateTime = Time UTCTime
+
+instance Hashable DateTime where
+  hashWithSalt salt (Time (UTCTime (ModifiedJulianDay day) time)) =
+    salt `hashWithSalt` day `hashWithSalt` toRational time
+
+basicFormat, awsFormat, iso8601Format, rfc822Format :: String
+basicFormat = "%Y%m%d"
+awsFormat = "%Y%m%dT%H%M%SZ"
 iso8601Format = Time.iso8601DateFormat (Just "%XZ")
+rfc822Format = "%a, %d %b %Y %H:%M:%S GMT"
 
-type Timestamp = Time 'UNIX
+formatDateTime :: String -> DateTime -> String
+formatDateTime format = Time.formatTime Time.defaultTimeLocale format . fromTime
 
-instance FromText ISO8601 where
-  fromText = parseTime iso8601Format
-
-instance FromText Timestamp where
-  fromText = parseTime iso8601Format
-
-parseTime :: String -> Text -> Either String (Time a)
-parseTime format text =
-  parseTimestamp text <|> fmap Time parse
+parseDateTime :: String -> Text -> Either String DateTime
+parseDateTime format text = fmap Time parse
   where
     string = Text.unpack text
     parse =
@@ -100,66 +101,70 @@ parseTime format text =
               ++ " from "
               ++ show string
 
-parseTimestamp :: Text -> Either String (Time a)
-parseTimestamp =
-  parseText $
-    fmap
-      (Time . Time.POSIX.posixSecondsToUTCTime . realToFrac)
-      (AText.double <* AText.endOfInput)
-      <|> fail "Failure parsing Unix Timestamp"
+instance ToText DateTime where
+  toText = Text.pack . formatDateTime iso8601Format
 
-instance ToText ISO8601 where
-  toText = Text.pack . formatTime iso8601Format
+instance FromText DateTime where
+  fromText = parseDateTime iso8601Format
+
+instance ToByteString DateTime where
+  toBS = BS.pack . formatDateTime iso8601Format
+
+instance ToQuery DateTime where
+  toQuery = toQuery . toBS
+
+instance ToXML DateTime where
+  toXML = toXMLText
+
+instance FromXML DateTime where
+  parseXML = parseXMLText "DateTime"
+
+instance ToJSON DateTime where
+  toJSON = toJSONText
+
+instance FromJSON DateTime where
+  parseJSON = parseJSONText "DateTime"
+
+-- UNIX Timestamps
+
+type Timestamp = Time POSIXTime
+
+instance Hashable Timestamp where
+  hashWithSalt salt time =
+    salt `hashWithSalt` formatTimestamp time
+
+formatTimestamp :: Timestamp -> Integer
+formatTimestamp = floor . Time.nominalDiffTimeToSeconds . fromTime
+
+parseTimestamp :: Text -> Either String Timestamp
+parseTimestamp =
+  let parser = Time . fromInteger . floor <$> AText.scientific
+   in parseText
+        ( parser <* AText.endOfInput
+            <|> fail "Failure parsing unix timestamp"
+        )
 
 instance ToText Timestamp where
-  toText (Time t) =
-    toText (truncate (Time.POSIX.utcTimeToPOSIXSeconds t) :: Integer)
+  toText = toText . formatTimestamp
 
-formatTime :: String -> Time a -> String
-formatTime format = Time.formatTime Time.defaultTimeLocale format . fromTime
+instance FromText Timestamp where
+  fromText = parseTimestamp
 
-instance FromXML ISO8601 where
-  parseXML = parseXMLText "ISO8601"
+instance ToQuery Timestamp where
+  toQuery = toQuery . formatTimestamp 
 
-instance FromJSON ISO8601 where
-  parseJSON = parseJSONText "ISO8601"
+instance ToJSON Timestamp where
+  toJSON = Aeson.toJSON . formatTimestamp
 
 -- This is a somewhat unfortunate hack to support the bizzare apigateway
--- occurence of returning ISO8601 or Timestamp timestamps in unknown scenarios.
+-- occurence of returning DateTime or Timestamp in unknown scenarios.
 --
 -- See: https://github.com/brendanhay/amazonka/issues/291
 instance FromJSON Timestamp where
-  parseJSON value =
-    fmap convert (string value) <|> number value
-    where
-      string :: Value -> Aeson.Parser ISO8601
-      string = parseJSON
-
-      number :: Value -> Aeson.Parser Timestamp
-      number =
-        withScientific "Timestamp" $
-          pure
-            . Time
-            . Time.POSIX.posixSecondsToUTCTime
-            . realToFrac
-
-instance ToByteString ISO8601 where
-  toBS = BS.pack . formatTime iso8601Format
-
-instance ToQuery ISO8601 where
-  toQuery = toQuery . toBS
-
-instance ToQuery Timestamp where
-  toQuery (Time t) =
-    toQuery (truncate (Time.POSIX.utcTimeToPOSIXSeconds t) :: Integer)
-
-instance ToXML ISO8601 where
-  toXML = toXMLText
-
-instance ToJSON ISO8601 where
-  toJSON = toJSONText
-
-instance ToJSON Timestamp where
-  toJSON (Time t) =
-    Number $
-      scientific (truncate (Time.POSIX.utcTimeToPOSIXSeconds t) :: Integer) 0
+  parseJSON = \case
+      Aeson.String s ->
+        toTimestamp <$> Aeson.parseJSON (Aeson.String s)
+      Aeson.Number n ->
+        pure (Time (fromInteger (floor n)))
+      _other ->
+        fail "Failure parsing unix timestamp from non-string or non-number"

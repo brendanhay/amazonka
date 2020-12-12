@@ -178,7 +178,7 @@ import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
 import Network.AWS.Data.Text
-import Network.AWS.Data.Time (ISO8601, _Time)
+import Network.AWS.Data.Time (DateTime, Time(fromTime), _Time)
 import Network.AWS.Data.XML
 import Network.AWS.Lens
   ( Lens',
@@ -189,7 +189,6 @@ import Network.AWS.Lens
     mapping,
     prism,
     sets,
-    view,
   )
 import Network.HTTP.Conduit hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Conduit as Client
@@ -639,7 +638,7 @@ data AuthEnv = AuthEnv
   { _authAccess :: !AccessKey,
     _authSecret :: !(Sensitive SecretKey),
     _authToken :: Maybe (Sensitive SessionToken),
-    _authExpiry :: Maybe ISO8601
+    _authExpiry :: Maybe DateTime
   }
   deriving (Eq, Show, Generic)
 
@@ -652,7 +651,7 @@ instance ToLog AuthEnv where
         "  access key id     = " <> build _authAccess,
         "  secret access key = " <> build _authSecret,
         "  session token     = " <> build _authToken,
-        "  expiration        = " <> build (fmap (view _Time) _authExpiry),
+        "  expiration        = " <> build (fromTime <$> _authExpiry),
         "}"
       ]
 

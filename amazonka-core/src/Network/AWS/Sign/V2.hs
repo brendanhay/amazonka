@@ -95,4 +95,4 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
 
     headers = hdr hDate time _rqHeaders
 
-    time = toBS (Time t :: ISO8601)
+    time = toBS (Time t :: DateTime)

@@ -1,4 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
+{-# OPTIONS_GHC -fno-warn-missing-methods #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- |
@@ -10,7 +11,6 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.TH where
 
-import Control.Applicative
 import Data.Time
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
@@ -20,11 +20,11 @@ import Network.AWS.Lens (view)
 
 mkTime :: Text -> Q Exp
 mkTime x =
-  case fromText x :: Either String ISO8601 of
+  case fromText x :: Either String DateTime of
     Left e -> error (show e)
     Right t -> [|view _Time t|]
 
-instance Lift (Time a) where
+instance Lift a => Lift (Time a) where
   lift (Time x) = AppE (ConE (mkName "Time")) <$> lift x
 
 instance Lift UTCTime where

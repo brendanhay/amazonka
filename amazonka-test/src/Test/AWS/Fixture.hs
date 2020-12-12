@@ -22,15 +22,16 @@ import Control.Monad.Trans.Resource
 import Data.Aeson
 import Data.Bifunctor
 import qualified Data.ByteString.Lazy as LBS
+import qualified Data.CaseInsensitive as CI
 import qualified Data.Conduit.Binary as Conduit
-import qualified Data.HashMap.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import Data.List (sortBy)
 import Data.Ord
 import Data.Proxy
+import qualified Data.Text.Encoding as Text.Encoding
 import Data.Time
 import qualified Data.Yaml as YAML
 import Network.AWS.Data.ByteString
-import qualified Network.AWS.Data.Map as Map
 import Network.AWS.Lens (trying, (<&>))
 import Network.AWS.Prelude
 import Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
@@ -131,7 +132,7 @@ instance FromJSON Req where
       <$> o .: "method"
       <*> (o .:? "path" .!= "/")
       <*> (o .:? "query" .!= mempty)
-      <*> (o .:? "headers" .!= mempty <&> Map.toList . Map.toMap)
+      <*> (o .:? "headers" .!= mempty <&> fmap (first (CI.mk . Text.Encoding.encodeUtf8)) . HashMap.toList)
       <*> (o .:? "body" .!= mempty)
 
 sortKeys :: Ord a => [(a, b)] -> [(a, b)]

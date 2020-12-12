@@ -75,7 +75,7 @@ import Data.IORef
 import qualified Data.Ini as INI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Data.Time (diffUTCTime, getCurrentTime)
+import Data.Time (UTCTime, diffUTCTime, getCurrentTime)
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Log
 import Network.AWS.EC2.Metadata
@@ -629,13 +629,13 @@ fetchAuthInBackground menv =
         s <- timer menv r p x
         pure (Ref s r)
   where
-    timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
+    timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> DateTime -> IO ThreadId
     timer ma !r !p !x = forkIO $ do
       s <- myThreadId
       w <- mkWeakIORef r (killThread s)
       loop ma w p x
 
-    loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
+    loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> DateTime -> IO ()
     loop ma w !p !x = do
       diff x <$> getCurrentTime >>= threadDelay
       env <- try ma

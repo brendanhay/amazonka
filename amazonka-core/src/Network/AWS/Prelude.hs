@@ -30,7 +30,7 @@ import Network.AWS.Data.Path as Export
 import Network.AWS.Data.Query as Export
 import Network.AWS.Data.Sensitive as Export
 import Network.AWS.Data.Text as Export
-import Network.AWS.Data.Time as Export ( Time (..), DateTime, Timestamp, _Time)
+import Network.AWS.Data.Time as Export (DateTime, Time (..), Timestamp, _Time)
 import Network.AWS.Data.XML as Export
 import Network.AWS.Endpoint as Export
 import Network.AWS.Error as Export

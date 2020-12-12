@@ -855,7 +855,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
     match x =
       case (_acceptMatch x, _acceptArgument x) of
         (_, Just (Infix lens _)) ->
-          Exts.appFun (var ("Lude." <> lens)) (expect x : criteria x : argument' x)
+          Exts.appFun (var ("Wait." <> lens)) (expect x : criteria x : argument' x)
         (Path, _) ->
           Exts.appFun (var "Wait.matchAll") (expect x : criteria x : argument' x)
         (PathAll, _) ->

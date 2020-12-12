@@ -15,7 +15,7 @@
 -- and no other AWS actions are required.
 module Network.AWS.Presign where
 
-import Control.Monad.IO.Class (MonadIO (liftIO))
+import Control.Monad.IO.Class (MonadIO)
 import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~))
 import Network.AWS.Prelude

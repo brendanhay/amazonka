@@ -161,6 +161,7 @@ import Control.Monad.Trans.Resource
 import qualified Control.Monad.Writer.Lazy as LW
 import qualified Control.Monad.Writer.Strict as W
 import Data.Conduit (ConduitM, transPipe)
+import Data.Time (UTCTime)
 import Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata as EC2
 import Network.AWS.Env (Env, HasEnv (..), newEnv)

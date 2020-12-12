@@ -26,7 +26,7 @@ tests =
             [ testFromJSON
                 "natural"
                 "123"
-                (Nat 123),
+                (123 :: Natural),
               testFromJSON
                 "int"
                 (toLazyBS maxInt)
@@ -61,7 +61,7 @@ tests =
             [ testToJSON
                 "natural"
                 "123"
-                (Nat 123),
+                (123 :: Natural),
               testToJSON
                 "int"
                 (toLazyBS maxInt)
@@ -99,7 +99,7 @@ tests =
             [ testFromXML
                 "natural"
                 "123"
-                (Nat 123),
+                (123 :: Natural),
               testFromXML
                 "int"
                 (toLazyBS maxInt)
@@ -134,7 +134,7 @@ tests =
             [ testToXML
                 "natural"
                 "123"
-                (Nat 123),
+                (123 :: Natural),
               testToXML
                 "int"
                 (toLazyBS maxInt)

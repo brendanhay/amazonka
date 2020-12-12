@@ -178,7 +178,7 @@ import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
 import Network.AWS.Data.Text
-import Network.AWS.Data.Time (DateTime, Time(fromTime), _Time)
+import Network.AWS.Data.Time (DateTime, Time (fromTime), _Time)
 import Network.AWS.Data.XML
 import Network.AWS.Lens
   ( Lens',

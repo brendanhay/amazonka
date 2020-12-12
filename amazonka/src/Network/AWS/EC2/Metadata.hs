@@ -351,7 +351,7 @@ data IdentityDocument = IdentityDocument
     _kernelId :: Maybe Text,
     _ramdiskId :: Maybe Text,
     _architecture :: Maybe Text,
-    _pendingTime :: Maybe ISO8601
+    _pendingTime :: Maybe DateTime
   }
   deriving (Eq, Show)
 

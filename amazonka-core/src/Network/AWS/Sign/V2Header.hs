@@ -89,4 +89,3 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
         $ _rqHeaders
 
     time = BS8.pack (formatDateTime rfc822Format (Time t))
-

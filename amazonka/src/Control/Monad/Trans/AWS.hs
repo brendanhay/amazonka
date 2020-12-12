@@ -166,6 +166,7 @@ import Data.Conduit hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))
 import Data.IORef
 import Data.Monoid
+import Data.Time (UTCTime)
 import Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata as EC2
 import Network.AWS.Env
@@ -233,14 +234,15 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
   liftBaseWith = defaultLiftBaseWith
   restoreM = defaultRestoreM
 
-instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
 #if MIN_VERSION_unliftio_core(0,2,0)
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
     withRunInIO inner =
       AWST' $
         withRunInIO $ \run ->
           inner (run . unAWST)
     {-# INLINE withRunInIO #-}
 #else
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
     askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
         <$> askUnliftIO
     {-# INLINE askUnliftIO #-}

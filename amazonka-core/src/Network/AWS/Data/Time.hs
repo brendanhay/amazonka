@@ -16,8 +16,6 @@ module Network.AWS.Data.Time
   ( -- * Time
     Time (..),
     _Time,
-    toTimestamp,
-    fromTimestamp,
 
     -- * Formats
     basicFormat,
@@ -67,8 +65,8 @@ _Time = iso fromTime Time
 toTimestamp :: DateTime -> Timestamp
 toTimestamp = Time . Time.POSIX.utcTimeToPOSIXSeconds . fromTime
 
-fromTimestamp :: Timestamp -> DateTime
-fromTimestamp = Time . Time.POSIX.posixSecondsToUTCTime . fromTime
+-- fromTimestamp :: Timestamp -> DateTime
+-- fromTimestamp = Time . Time.POSIX.posixSecondsToUTCTime . fromTime
 
 -- IS8601 DateTimes
 
@@ -151,7 +149,7 @@ instance FromText Timestamp where
   fromText = parseTimestamp
 
 instance ToQuery Timestamp where
-  toQuery = toQuery . formatTimestamp 
+  toQuery = toQuery . formatTimestamp
 
 instance ToJSON Timestamp where
   toJSON = Aeson.toJSON . formatTimestamp
@@ -162,9 +160,9 @@ instance ToJSON Timestamp where
 -- See: https://github.com/brendanhay/amazonka/issues/291
 instance FromJSON Timestamp where
   parseJSON = \case
-      Aeson.String s ->
-        toTimestamp <$> Aeson.parseJSON (Aeson.String s)
-      Aeson.Number n ->
-        pure (Time (fromInteger (floor n)))
-      _other ->
-        fail "Failure parsing unix timestamp from non-string or non-number"
+    Aeson.String s ->
+      toTimestamp <$> Aeson.parseJSON (Aeson.String s)
+    Aeson.Number n ->
+      pure (Time (fromInteger (floor n)))
+    _other ->
+      fail "Failure parsing unix timestamp from non-string or non-number"
